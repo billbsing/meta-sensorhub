@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2
+
+Name: lua-lpeg
+Description: Pattern-matching library for Lua, based on Parsing Expression Grammars 
+Version: 0.12
+Requires: lua
+
+

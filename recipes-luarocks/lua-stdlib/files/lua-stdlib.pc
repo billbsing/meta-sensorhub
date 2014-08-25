@@ -1,0 +1,8 @@
+prefix=/usr
+libdir=${prefix}/lib/lua
+
+Name: lua-stdlib 
+Description: General Lua Libraries
+Version: 40 
+Requires: lua
+

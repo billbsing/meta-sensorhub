@@ -1,0 +1,8 @@
+prefix=/usr
+libdir=${prefix}/lib/lua
+
+Name: lua-json
+Description: customizable JSON decoder/encoder
+Version: 3.3.2
+Requires: lua
+

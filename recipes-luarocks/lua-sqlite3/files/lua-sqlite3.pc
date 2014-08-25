@@ -1,0 +1,10 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2/luasql
+includedir=${prefix}/include
+
+Name: lua-sqlite3
+Description: Database connectivity for Lua (SQLite3 driver)
+Version: 2.3.0
+Requires: lua sqlite3
+
+

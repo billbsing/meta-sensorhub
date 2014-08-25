@@ -1,0 +1,20 @@
+--- luaposix-release-v32/configure.ac	2014-05-30 13:03:24.000000000 +0800
++++ luaposix-release-v32/configure.ac.out	2014-08-24 14:05:33.779980299 +0800
+@@ -121,8 +121,15 @@
+ LIBS=$save_LIBS
+ 
+ dnl Lua 5.1 or 5.2
+-AX_PROG_LUA(5.1, 5.3)
+-AX_LUA_HEADERS
++dnl AX_PROG_LUA(5.1, 5.3)
++dnl AX_LUA_HEADERS
++AC_ARG_VAR([LUA_DIR], [The path to the lua share, e.g. /usr/share/lua/5.2])
++AC_ARG_VAR([LUA_EXEC_DIR], [The path to the lua lib, e.g. /usr/lib/lua/5.2])
++AC_SUBST([luadir], [$LUA_DIR])
++AC_SUBST([pkgluadir], [\${luadir}/$PACKAGE])
++AC_SUBST([luaexecdir], [$LUA_EXEC_DIR])
++AC_SUBST([pkgluaexecdir], [\${luaexecdir}/$PACKAGE])
++
+ AC_PATH_PROG([SPECL], [specl], [:])
+ 
+ dnl Perl

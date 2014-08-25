@@ -1,0 +1,18 @@
+--- lpeg-0.12/makefile  2014-08-24 20:43:19.152985082 +0800
++++ lpeg-0.12/makefile  2014-08-24 20:43:55.048985989 +0800
+@@ -1,5 +1,5 @@
+ LIBNAME = lpeg
+-LUADIR = /usr/include/lua5.1/
++LUADIR = ${LUA_INCLUDE} 
+ 
+ COPT = -O2
+ # COPT = -DLPEG_DEBUG -g
+@@ -23,7 +23,7 @@
+ 
+ 
+ CFLAGS = $(CWARNS) $(COPT) -ansi -I$(LUADIR) -fPIC
+-CC = gcc
++# CC = gcc
+ 
+ FILES = lpvm.o lpcap.o lptree.o lpcode.o lpprint.o
+ 

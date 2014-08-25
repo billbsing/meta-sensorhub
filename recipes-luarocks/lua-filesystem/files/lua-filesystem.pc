@@ -1,0 +1,10 @@
+prefix=/usr
+libdir=${prefix}/lib
+includdir=${prefix}/include
+
+Name: lua-filesystem
+Description: File System Library for the Lua Programming Language
+Version: 1.6.2
+Requires: lua
+
+
