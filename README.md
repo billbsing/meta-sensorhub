@@ -1,3 +1,7 @@
+meta-silverline
+===============
+
+
 yocto reciepes for Silverline Hub
 
 This meta folder will build Silverline Hub on Galileo board
