@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2
+
+Name: lua-copas
+Description: Safe templates for Lua
+Version: 10.04.06
+Requires: lua
+
+

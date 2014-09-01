@@ -1,0 +1,11 @@
+--- openzwave_1.0.791/cpp/hidapi/linux/hid.c	2014-08-27 09:26:09.087654139 +0800
++++ openzwave_1.0.791/cpp/hidapi/linux/hid.c	2014-08-27 09:26:32.031653630 +0800
+@@ -21,6 +21,8 @@
+         http://github.com/signal11/hidapi .
+ ********************************************************/
+ 
++#define _GNU_SOURCE /* needed for wcsdup() before glibc 2.10 */
++
+ /* C */
+ #include <stdio.h>
+ #include <string.h>

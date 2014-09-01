@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2
+
+Name: lua-wsapi
+Description: Lua Web Server API
+Version: 1.6.1
+Requires: lua lua-filesystem
+
+

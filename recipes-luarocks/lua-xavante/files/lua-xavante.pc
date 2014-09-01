@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2
+
+Name: lua-xavante
+Description: Lua Web Server Library
+Version: 2.3.0
+Requires: lua
+
+

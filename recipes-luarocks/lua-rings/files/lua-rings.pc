@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2
+
+Name: lua-rings
+Description: Create new Lua states from within Lua
+Version: 1.3.0
+Requires: lua
+
+

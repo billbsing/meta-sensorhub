@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: libopenzwave
+Description: An open-source interface to Z-Wave networks.
+Version: 1.0.791
+Requires:
+

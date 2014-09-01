@@ -40,10 +40,13 @@ MAKE_FLAGS = "'T=sqlite3' \
 EXTRA_OECONF = "LUA_DIR=${datadir}${luadir} \
 LUA_EXEC_DIR=${libdir}${luadir} \
 LUA_INCLUDE=${SYSROOTS}${includepath} \
+libdir=${libdir}${luadir} \
 "
 
-FILES_${PN} = "${libdir}/curses_c.so \
-	${libdir}/posix_c.so \
+FILES_${PN} = "${libdir}${luadir}/posix_c.la \
+	${libdir}${luadir}/curses_c.so \
+	${libdir}${luadir}/curses_c.la \
+	${libdir}${luadir}/posix_c.so \
 	${datadir}${luadir}/curses.lua \
 	${datadir}${luadir}/posix.lua \
 	${datadir}${luadir}/posix \

@@ -2,15 +2,17 @@
 
 
 IMAGE_INSTALL += "ntp-tickadj ntp ntpdate ntp-utils"
-IMAGE_INSTALL += "rsync tzdata"
+IMAGE_INSTALL += "rsync tzdata picocom"
 IMAGE_INSTALL += "lua"
-IMAGE_INSTALL += "sqlite3"
+IMAGE_INSTALL += "sqlite3 libopenzwave"
+IMAGE_INSTALL += "iwlwifi-7260"
 
 ##  libsqlite3-dev"
 
 IMAGE_INSTALL += "lua-stdlib lua-sqlite3 lua-posix \
 	lua-json lua-etlua lua-socket lua-logging \
-	lua-filesystem lua-lpeg \
+	lua-filesystem lua-lpeg lua-rings lua-wsapi \
+	lua-xavante lua-copas lua-cosmo	lua-orbit \
 "
 
 

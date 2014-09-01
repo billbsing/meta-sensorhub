@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2
+
+Name: lua-copas
+Description: Coroutine Oriented Portable Asynchronous Services
+Version: 1.2.1
+Requires: lua
+
+
