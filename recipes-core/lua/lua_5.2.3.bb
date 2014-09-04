@@ -6,7 +6,8 @@ HOMEPAGE = "http://www.lua.org/"
 
 PR = "r0"
 
-DEPENDS = "readline"
+DEPENDS_${PN} = "readline"
+
 SRC_URI = " http://www.lua.org/ftp/lua-5.2.3.tar.gz \
            file://lua.pc \
 "
@@ -32,12 +33,6 @@ do_compile () {
     oe_runmake linux
 }
 
-#        'INSTALL_BIN=${D}${bindir}' 
-#        'INSTALL_INC=${D}${includedir}/' 
-#        'INSTALL_MAN=${D}${mandir}/man1' 
-#        'INSTALL_SHARE=${D}${datadir}/lua' 
-#        'INSTALL_LIB=${D}${libdir}' 
-#        'INSTALL_CMOD=${D}${libdir}/lua/5.2' 
 
 do_install () {
     oe_runmake \
@@ -45,11 +40,8 @@ do_install () {
 	'INSTALL_MAN=${D}${mandir}/man1' \
         install
 
-
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua.pc ${D}${libdir}/pkgconfig/
-#    rmdir ${D}${datadir}/lua/5.2
-#    rmdir ${D}${datadir}/lua
 }
 
 BBCLASSEXTEND = "native"
