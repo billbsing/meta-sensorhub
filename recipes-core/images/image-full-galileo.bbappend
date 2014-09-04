@@ -10,7 +10,7 @@ IMAGE_INSTALL += "iwlwifi-7260"
 ##  libsqlite3-dev"
 
 IMAGE_INSTALL += "lua-stdlib lua-sqlite3 lua-posix \
-	lua-json lua-etlua lua-socket lua-logging \
+	lua-json lua-etlua lua-socket lua-logging lua-md5 \
 	lua-filesystem lua-lpeg lua-rings lua-wsapi \
 	lua-xavante lua-copas lua-cosmo	lua-orbit \
 "
