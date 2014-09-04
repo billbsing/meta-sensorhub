@@ -19,6 +19,4 @@ SRC_URI[sha256sum] = "fe918a070138beddfcce5d11be205800217e6b9a28d97e0b5ad9c890f6
 
 S = "${WORKDIR}/c-ares-cares-1_10_0"
 
-SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 
-# EXTRA_OECONF = "LIBS=-lm"
