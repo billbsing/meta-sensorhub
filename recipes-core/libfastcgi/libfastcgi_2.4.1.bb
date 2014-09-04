@@ -6,7 +6,7 @@ HOMEPAGE = "http://www.fastcgi.com/"
 
 inherit autotools
 
-DEPENDS = "libfastcgi-dev"
+DEPENDS_${PN} = "libfastcgi-dev"
 
 PR = "r0"
 
@@ -22,5 +22,4 @@ SRC_URI[sha256sum] = "165604cffa37d534c348f78e4923d0f1ce4d8808b901891a9e64ebf634
 
 S = "${WORKDIR}/fcgi-2.4.1-SNAP-0311112127"
 
-SYSROOTS = "${TMPDIR}/sysroots/clanton"
 EXTRA_OECONF = "LIBS=-lm"
