@@ -30,7 +30,7 @@ luadir = "/lua/5.2"
 MAKE_FLAGS = "'T=sqlite3' \
 'PREFIX=${D}${prefix}' \
 'DRIVER_LIBS=-L${SYSROOTS}${libdir} -lsqlite3' \
-'DRIVER_INCS=-I${SYSROOTS}${include}' \
+'DRIVER_INCS=-I${SYSROOTS}${includedir}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
 'LUA_VERSION_NUM=502' \
