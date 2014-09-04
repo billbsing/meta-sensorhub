@@ -1,6 +1,6 @@
 DESCRIPTION = "Lua Web Server API"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=61;endline=107;md5=b64be35c72f82af37b05fb2f72b0284f"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=61;endline=107;md5=ce95361dc1792e8c56a55e135a7aebcd"
 HOMEPAGE = "http://keplerproject.github.com/wsapi"
 
 PR = "r0"
@@ -20,8 +20,8 @@ INHIBIT_PACKAGE_STRIP = "1"
 SRC_URI[tarball.md5sum] = "3d4bb019c984128eff360b57200b19b5"
 SRC_URI[tarball.sha256sum] = "49c73a35c69e8a708c6247223969c4005dd9bebb8b036343b10d1c9020e73a04"
 
-SRC_URI[license.md5sum] = "a35821c342d3ddd417297923a254aefd"
-SRC_URI[license.sha256sum] = "250ed109a20a48283c0aed493cd346388ce47846ae7d9e11f18a50249e2481cb"
+SRC_URI[license.md5sum] = "fdc2f4a452f524d38b6cf6edcfd91798"
+SRC_URI[license.sha256sum] = "208ec820f3d35201cb7819f09a85c702cddbca1b2fdc2009b8be03c0f6338cf4"
 
 S = "${WORKDIR}/wsapi-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
