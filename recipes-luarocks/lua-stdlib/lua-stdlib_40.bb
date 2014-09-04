@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/lua-stdlib/lua-stdlib"
 
 PR = "40"
 
-RDEPENDS_${PN} = "lua"
+DEPENDS = "lua"
 
 SRC_URI = "https://github.com/lua-stdlib/lua-stdlib/archive/v${PR}.tar.gz \
 	file://lua-stdlib.pc \

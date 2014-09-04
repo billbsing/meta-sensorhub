@@ -5,7 +5,7 @@ HOMEPAGE = "http://www.eharning.us/wiki/luajson/"
 
 PR = "1"
 
-RDEPENDS_${PN} = "lua"
+DEPENDS = "lua"
 SRC_URI = "https://github.com/harningt/luajson/archive/${PV}.tar.gz \
 	file://lua-json.pc \
 "

@@ -5,7 +5,7 @@ HOMEPAGE = "https://github.com/leafo/etlua"
 
 PR = "1"
 
-RDEPENDS_${PN} = "lua"
+DEPENDS = "lua"
 SRC_URI = "https://github.com/leafo/etlua/archive/v${PV}.tar.gz \
 	file://lua-etlua.pc \
 "

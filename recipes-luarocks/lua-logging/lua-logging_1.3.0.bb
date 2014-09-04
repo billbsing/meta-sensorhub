@@ -5,8 +5,7 @@ HOMEPAGE = "http://neopallium.github.com/lualogging/"
 
 PR = "1"
 
-RDEPENDS_${PN} = "lua"
-DEPENDS_${PN} = "lua lua-socket"
+DEPENDS = "lua lua-socket"
 
 SRC_URI = "https://github.com/Neopallium/lualogging/archive/v${PV}.tar.gz \
 	file://lua-logging.pc \

@@ -5,7 +5,7 @@ HOMEPAGE = "http://www.keplerproject.org/luasql/"
 
 PR = "r0"
 
-RDEPENDS_${PN} = "lua sqlite3"
+DEPENDS = "lua sqlite3"
 
 SRC_URI = "https://github.com/keplerproject/luasql/archive/v${PV}.tar.gz;name=tarball \
 	http://www.keplerproject.org/luasql/license.html;name=license \
