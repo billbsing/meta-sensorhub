@@ -6,7 +6,7 @@ HOMEPAGE = "http://www.fastcgi.com/"
 
 inherit autotools
 
-DEPENDS = "libfastcgi-dev"
+# DEPENDS = "libfastcgi-dev"
 
 PR = "r0"
 
