@@ -12,7 +12,6 @@ PV = "0.1"
 SRCREV = "${AUTOREV}"
 
 
-
 SRC_URI = "git://github.com/lwfinger/rtl8188eu.git \ 
 	file://Makefile.patch \
 "
