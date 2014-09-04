@@ -10,7 +10,8 @@ You need to downlooad and install Galileo bsp files, and place this folder with 
 
 Then you need to edit the file yocto/conf/layers.conf add the folder to the bottom of the BBLAYERS varialble.
 
-`BBLAYERS ?= " \
+```
+BBLAYERS ?= " \
   /Galileo/bsp/meta-clanton_v1.0.1/poky/meta \
 
 ...
@@ -18,7 +19,7 @@ Then you need to edit the file yocto/conf/layers.conf add the folder to the bott
   /Galileo/bsp/meta-clanton_v1.0.1/meta-clanton-bsp \
   /Galileo/bsp/meta-clanton_v1.0.1/meta-silverline \
   "
-`
+```
 
 then run 
 
