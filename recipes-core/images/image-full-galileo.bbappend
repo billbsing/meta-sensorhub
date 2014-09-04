@@ -1,14 +1,17 @@
 
 
-
+# core modules for silverline
 IMAGE_INSTALL += "ntp-tickadj ntp ntpdate ntp-utils"
 IMAGE_INSTALL += "rsync tzdata picocom"
 IMAGE_INSTALL += "lua"
+
+# libraries
 IMAGE_INSTALL += "sqlite3 libopenzwave"
+
+# drivers
 IMAGE_INSTALL += "iwlwifi-7260"
 
-##  libsqlite3-dev"
-
+# lua rocks libraries
 IMAGE_INSTALL += "lua-stdlib lua-sqlite3 lua-posix \
 	lua-json lua-etlua lua-socket lua-logging lua-md5 \
 	lua-filesystem lua-lpeg lua-rings lua-wsapi \
@@ -16,7 +19,7 @@ IMAGE_INSTALL += "lua-stdlib lua-sqlite3 lua-posix \
 "
 
 
-
+# only us if we want to add devtools to the image....
 
 #################################################################################################
 # for the time being build with full dev tools - so that we can build the packages on the board
