@@ -22,7 +22,7 @@ SRC_URI_append_libc-uclibc = "${UCLIBC_PATCHES}"
 TARGET_CC_ARCH += " -fPIC ${LDFLAGS}"
 EXTRA_OEMAKE = "'CC=${CC} -fPIC' 'MYCFLAGS=${CFLAGS} -DLUA_USE_LINUX -fPIC' MYLDFLAGS='${LDFLAGS}'"
 
-SYSROOTS = "${TMPDIR}/sysroots/clanton"
+SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 
 do_configure_prepend() {
     sed -i -e s:/usr/local:${prefix}:g src/luaconf.h
