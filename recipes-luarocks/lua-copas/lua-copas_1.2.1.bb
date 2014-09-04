@@ -1,6 +1,6 @@
 DESCRIPTION = "Coroutine Oriented Portable Asynchronous Services"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=61;endline=107;md5=b64be35c72f82af37b05fb2f72b0284f"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=59;endline=106;md5=7f0e1845e47b5c4933022a6b6586187b"
 HOMEPAGE = "http://www.keplerproject.org/copas"
 
 PR = "r0"

@@ -1,6 +1,6 @@
 DESCRIPTION = "Safe templates for Lua"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=374;endline=415;md5=d41d8cd98f00b204e9800998ecf8427e"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=374;endline=415;md5=8d4993c9be31577651eaee81c15ddd4c"
 HOMEPAGE = "http://cosmo.luaforge.net"
 
 PR = "r0"

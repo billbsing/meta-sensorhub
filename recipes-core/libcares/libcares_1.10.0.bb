@@ -1,6 +1,6 @@
 DESCRIPTION = "c-ares is a C library for asynchronous DNS requests (including name resolves)"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=21;endline=31;md5=fdc2f4a452f524d38b6cf6edcfd91798"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=21;endline=31;md5=3039a27cec899578c0e73fa2a2d9dc26"
 HOMEPAGE = "http://c-ares.haxx.se/"
 
 

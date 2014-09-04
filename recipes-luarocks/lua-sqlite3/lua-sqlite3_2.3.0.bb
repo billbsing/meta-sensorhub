@@ -1,6 +1,6 @@
 DESCRIPTION = "Database connectivity for Lua (SQLite3 driver)"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=61;endline=107;md5=ce95361dc1792e8c56a55e135a7aebcd"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=61;endline=107;md5=b64be35c72f82af37b05fb2f72b0284f"
 HOMEPAGE = "http://www.keplerproject.org/luasql/"
 
 PR = "r0"
