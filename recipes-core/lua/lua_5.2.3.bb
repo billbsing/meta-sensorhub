@@ -6,7 +6,7 @@ HOMEPAGE = "http://www.lua.org/"
 
 PR = "r0"
 
-DEPENDS_${PN} = "readline"
+DEPENDS = "readline"
 
 SRC_URI = " http://www.lua.org/ftp/lua-5.2.3.tar.gz \
            file://lua.pc \
