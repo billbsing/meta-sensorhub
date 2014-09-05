@@ -2,7 +2,7 @@
 
 # core modules for silverline
 IMAGE_INSTALL += "ntp-tickadj ntp ntpdate ntp-utils"
-IMAGE_INSTALL += "rsync tzdata tzdata-misc tzcode"
+IMAGE_INSTALL += "rsync tzdata tzdata-misc"
 IMAGE_INSTALL += "picocom cronie"
 IMAGE_INSTALL += "mosquitto"
 IMAGE_INSTALL += "lua"
