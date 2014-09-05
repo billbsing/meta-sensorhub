@@ -7,8 +7,8 @@ PR = "r0"
 
 
 SRC_URI = "http://www.openzwave.com/downloads/openzwave-${PV}.tar.gz \
-	file://libopenzwave.pc \
 	file://hid.c.patch \
+	file://Makefile.patch \
 "
 
 
@@ -41,6 +41,11 @@ do_install () {
         install
 
 
-    install -d ${D}${libdir}/pkgconfig
-    install -m 0644 ${WORKDIR}/libopenzwave.pc ${D}${libdir}/pkgconfig/
+#    oe_runmake \
+#        'INSTALL_TOP=${D}${prefix}' \
+#	'INSTALL_MAN=${D}${mandir}/man1' \
+#	'DESTDIR=${SYSTOOLS}' \
+#	'PREFIX=${prefix}' \
+#        install
+
 }
