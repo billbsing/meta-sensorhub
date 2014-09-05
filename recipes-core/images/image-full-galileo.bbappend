@@ -2,7 +2,8 @@
 
 # core modules for silverline
 IMAGE_INSTALL += "ntp-tickadj ntp ntpdate ntp-utils"
-IMAGE_INSTALL += "rsync tzdata picocom cronie"
+IMAGE_INSTALL += "rsync tzdata tzdata-misc tzcode"
+IMAGE_INSTALL += "picocom cronie"
 IMAGE_INSTALL += "mosquitto"
 IMAGE_INSTALL += "lua"
 
@@ -21,7 +22,10 @@ IMAGE_INSTALL += "lua-stdlib lua-sqlite3 lua-posix \
 
 # The final Package 
 
-IMAGE_INSTALL = "sensorhub"
+IMAGE_INSTALL += "sensorhub"
+
+# IMAGE_ROOTFS_EXTRA_SPACE = "102400"
+
 
 # only us if we want to add devtools to the image....
 

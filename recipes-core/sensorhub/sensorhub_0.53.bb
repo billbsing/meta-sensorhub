@@ -5,7 +5,11 @@ HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
 PR = "r0"
 
-DEPENDS = "lua-orbit libopenzwave"
+DEPENDS = "libopenzwave lua-stdlib lua-sqlite3 lua-posix \
+        lua-json lua-etlua lua-socket lua-logging lua-md5 \
+        lua-filesystem lua-lpeg lua-rings lua-wsapi \
+        lua-xavante lua-copas lua-cosmo lua-orbit \
+"
 
 SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;tag=v${PV} \
            file://sensorhub.pc \
