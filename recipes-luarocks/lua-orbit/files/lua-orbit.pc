@@ -4,6 +4,6 @@ libdir=${prefix}/lib/lua/5.2
 Name: lua-orbit
 Description: MVC for Lua Web Development
 Version: 2.2.1
-Requires: lua lua-filesystem lua-lpeg lua-wsapi lua-xavante lua-cosmo
+Requires: lua lua-filesystem lua-lpeg lua-wsapi lua-xavante lua-cosmo lua-coxpcall
 
 

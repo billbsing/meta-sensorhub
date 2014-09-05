@@ -5,7 +5,7 @@ HOMEPAGE = "http://orbit.luaforge.net"
 
 PR = "r0"
 
-DEPENDS = "lua lua-filesystem lua-lpeg lua-wsapi lua-xavante lua-cosmo"
+DEPENDS = "lua lua-filesystem lua-lpeg lua-wsapi lua-xavante lua-cosmo lua-coxpcall"
 
 SRC_URI = "https://github.com/keplerproject/orbit/archive/v${PV}.tar.gz;name=tarball \
 	http://keplerproject.github.io/orbit/license.html;name=license \
