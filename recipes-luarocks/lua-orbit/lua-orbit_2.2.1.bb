@@ -1,6 +1,6 @@
 DESCRIPTION = "MVC for Lua Web Development"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=61;endline=107;md5=8816eb1924675652d2b090c3102a4d7b"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=61;endline=107;md5=ce95361dc1792e8c56a55e135a7aebcd"
 HOMEPAGE = "http://orbit.luaforge.net"
 
 PR = "r0"
