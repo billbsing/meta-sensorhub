@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: SensorHub 
+Description: Silverline Sensor Hub
+Version: 0.53
+Requires: lua-orbit libopenzwave 
+

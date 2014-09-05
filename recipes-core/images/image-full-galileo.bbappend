@@ -19,6 +19,9 @@ IMAGE_INSTALL += "lua-stdlib lua-sqlite3 lua-posix \
 	lua-xavante lua-copas lua-cosmo	lua-orbit \
 "
 
+# The final Package 
+
+IMAGE_INSTALL = "sensorhub"
 
 # only us if we want to add devtools to the image....
 
