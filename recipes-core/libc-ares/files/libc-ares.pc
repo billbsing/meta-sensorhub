@@ -2,7 +2,7 @@ prefix=/usr
 libdir=${prefix}/lib
 includedir=${prefix}/include
 
-Name: libcares
+Name: libc-ares
 Description: c-ares is a C library for asynchronous DNS requests (including name resolves)
 Version: 1.10.0 
 Requires:

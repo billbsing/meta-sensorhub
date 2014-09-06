@@ -27,10 +27,6 @@ EXTRA_OEMAKE = "'prefix=${prefix}' \
 "
 
 
-do_compile () {
-    oe_runmake 
-}
-
 
 do_install () {
     oe_runmake install
@@ -49,5 +45,5 @@ FILES_${PN}-python += "${libdir}/python2.7/site-packages/mosquitto.py \
 
 
 USERADD_PACKAGES = "${PN}"
-USERADD_PARAM_${PN} = "-p '' -c 'Mosquitto MQTT Broker daemon:' -d /etc/mosquitto -M -s /bin/false  -U mosquitto"
+USERADD_PARAM_${PN} = "--password '' --comment 'Mosquitto MQTT Broker daemon' --home-dir /etc/mosquitto --no-create-home --shell /bin/false  --user-group mosquitto"
 
