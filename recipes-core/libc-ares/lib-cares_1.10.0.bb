@@ -11,7 +11,7 @@ PR = "r0"
 
 SRC_URI = "https://github.com/bagder/c-ares/archive/cares-1_10_0.tar.gz \
 	http://c-ares.haxx.se/license.html \
-        file://libcares.pc \
+        file://libc-ares.pc \
 "
 
 SRC_URI[md5sum] = "b666df149eaf6070ea00364da3bec775"
