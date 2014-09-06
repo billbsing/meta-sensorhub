@@ -1,6 +1,6 @@
 DESCRIPTION = "Lua Web Server Library"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=61;endline=107;md5=0f23ddf8daff48204facb9c54d006509"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;md5=125de05f13fd39a2f9464bdb754cb8cc"
 HOMEPAGE = "http://keplerproject.github.com/xavante"
 
 PR = "r0"
