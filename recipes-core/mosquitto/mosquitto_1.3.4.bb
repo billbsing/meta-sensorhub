@@ -12,7 +12,9 @@ SRC_URI = "http://mosquitto.org/files/source/mosquitto-1.3.4.tar.gz \
 SRC_URI[md5sum] = "9d729849efd74c6e3eee17a4a002e1e9"
 SRC_URI[sha256sum] = "0a3982d6b875a458909c8828731da04772035468700fa7eb2f0885f4bd6d0dbc"
 
-DEPENDS = "libcares"
+DEPENDS = "libc-ares"
+
+inherit extrausers 
 
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 
@@ -45,3 +47,6 @@ FILES_${PN}-python += "${libdir}/python2.7/site-packages/mosquitto.py \
   ${libdir}/python2.7/site-packages/mosquitto.pyc \
  "
 
+EXTRA_USERS_PARAMS = "\
+         useradd -p '' -c 'Mosquitto MQTT Broker daemon:' -d /etc/mosquitto -M -s /bin/false  -U mosquitto; \
+"
