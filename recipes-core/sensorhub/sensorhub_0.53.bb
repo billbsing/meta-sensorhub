@@ -42,6 +42,7 @@ EXTRA_OEMAKE = "'PREFIX=${D}${prefix}' \
 'INSTALL_DIR=${D}/opt/sensorhub' \
 'MACHINE=${MACHINE}' \
 'SYSCONFDIR=${D}${sysconfdir}' \
+'DATA_DIR=${D}/var/sensorhub' \
 "
 
 
@@ -55,14 +56,19 @@ do_install () {
 
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/sensorhub.pc ${D}${libdir}/pkgconfig/
+    install -d ${D}/var/sensorhub
+
 }
 
 # init scripts to auto start servers
 
-INITSCRIPT_PACKAGES = "${PN} ${PN}-data ${PN}-webserver ${PN}-zwave"
+INITSCRIPT_PACKAGES = "${PN} ${PN}-watchdog ${PN}-data ${PN}-webserver ${PN}-zwave"
 
-INITSCRIPT_NAME_${PN} = "sensorhub-watchdog"
-INITSCRIPT_PARAMS_${PN} = "defaults"
+INITSCRIPT_NAME_${PN} = "sensorhub-startup"
+INITSCRIPT_PARAMS_${PN} = "defaults 01"
+
+INITSCRIPT_NAME_${PN}-watchdog = "sensorhub-watchdog"
+INITSCRIPT_PARAMS_${PN}-watchdog = "defaults"
 
 INITSCRIPT_NAME_${PN}-data = "sensorhub-data"
 INITSCRIPT_PARAMS_${PN}-data = "defaults"
@@ -86,6 +92,7 @@ FILES_${PN} = " ${libdir}${luadir}/*.so  \
 /opt/sensorhub/models/* \
 ${sysconfdir}/sensorhub.conf \
 ${sysconfdir}/init.d/*  \
+/var/sensorhub/*	\
 "
 
 

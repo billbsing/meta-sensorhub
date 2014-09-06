@@ -3,7 +3,7 @@
 # core modules for silverline
 IMAGE_INSTALL += "ntp-tickadj ntp ntpdate ntp-utils"
 IMAGE_INSTALL += "rsync tzdata tzdata-misc"
-IMAGE_INSTALL += "picocom cronie"
+IMAGE_INSTALL += "picocom cronie avahi avahi-daemon"
 IMAGE_INSTALL += "mosquitto"
 IMAGE_INSTALL += "lua"
 
@@ -17,7 +17,7 @@ IMAGE_INSTALL += "iwlwifi-7260"
 IMAGE_INSTALL += "lua-stdlib lua-sqlite3 lua-posix \
 	lua-json lua-etlua lua-socket lua-logging lua-md5 \
 	lua-filesystem lua-lpeg lua-rings lua-wsapi \
-	lua-xavante lua-copas lua-cosmo	lua-orbit \
+	lua-xavante lua-copas lua-cosmo	lua-orbit lua-coxpcall \
 "
 
 # The final Package 
