@@ -1,6 +1,6 @@
 DESCRIPTION = "Pattern-matching library for Lua, based on Parsing Expression Grammars"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/lpeg;beginline=1384;endline=1414;md5=cf3c4cdb7efe115ccaba0a86c38b6cb7"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;beginline=1384;endline=1414;md5=cf3c4cdb7efe115ccaba0a86c38b6cb7"
 HOMEPAGE = "http://www.keplerproject.org/md5/"
 
 PR = "r0"
@@ -8,7 +8,7 @@ PR = "r0"
 DEPENDS = "lua"
 
 SRC_URI = "https://github.com/lua/lpeg/archive/${PV}.tar.gz;name=tarball \
-	http://www.inf.puc-rio.br/~roberto/lpeg;name=license \
+	http://www.inf.puc-rio.br/~roberto/lpeg;name=license;downloadfilename=license_${PN}.html \
 	file://lua-lpeg.pc \
 	file://makefile.patch \
 "

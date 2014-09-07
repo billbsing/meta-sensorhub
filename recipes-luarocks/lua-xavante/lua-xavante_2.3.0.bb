@@ -1,6 +1,6 @@
 DESCRIPTION = "Lua Web Server Library"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;md5=125de05f13fd39a2f9464bdb754cb8cc"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=125de05f13fd39a2f9464bdb754cb8cc"
 HOMEPAGE = "http://keplerproject.github.com/xavante"
 
 PR = "r0"
@@ -8,7 +8,7 @@ PR = "r0"
 DEPENDS = "lua"
 
 SRC_URI = "https://github.com/keplerproject/xavante/archive/v${PV}.tar.gz;name=tarball \
-	http://keplerproject.github.io/xavante/license.html;name=license \
+	http://keplerproject.github.io/xavante/license.html;name=license;downloadfilename=license_${PN}.html \
 	file://lua-xavante.pc \
 "
 

@@ -1,6 +1,6 @@
 DESCRIPTION = "Basic cryptographic library"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;md5=fdc2f4a452f524d38b6cf6edcfd91798"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=a35821c342d3ddd417297923a254aefd"
 HOMEPAGE = "http://www.keplerproject.org/md5/"
 
 PR = "r0"
@@ -8,7 +8,7 @@ PR = "r0"
 DEPENDS = "lua"
 
 SRC_URI = "https://github.com/keplerproject/md5/archive/v${PV}.tar.gz;name=tarball \
-	http://www.keplerproject.org/luasql/license.html;name=license \
+	http://www.keplerproject.org/luasql/license.html;name=license;downloadfilename=license_${PN}.html \
 	file://lua-md5.pc \
 "
 

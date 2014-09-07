@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE.txt;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r0"
+PR = "r1"
 
 DEPENDS = "libopenzwave lua-stdlib lua-sqlite3 lua-posix \
         lua-json lua-etlua lua-socket lua-logging lua-md5 \
@@ -62,10 +62,13 @@ do_install () {
 
 # init scripts to auto start servers
 
-INITSCRIPT_PACKAGES = "${PN} ${PN}-watchdog ${PN}-data ${PN}-webserver ${PN}-zwave"
+INITSCRIPT_PACKAGES = "${PN} ${PN}-bluetooth ${PN}-watchdog ${PN}-data ${PN}-webserver ${PN}-zwave"
 
 INITSCRIPT_NAME_${PN} = "sensorhub-startup"
 INITSCRIPT_PARAMS_${PN} = "defaults 01"
+
+INITSCRIPT_NAME_${PN}-bluetooth = "sensorhub-bluetooth"
+INITSCRIPT_PARAMS_${PN}-bluetooth = "defaults"
 
 INITSCRIPT_NAME_${PN}-watchdog = "sensorhub-watchdog"
 INITSCRIPT_PARAMS_${PN}-watchdog = "defaults"

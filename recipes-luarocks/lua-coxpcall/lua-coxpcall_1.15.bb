@@ -1,6 +1,6 @@
 DESCRIPTION = "Coxpcall encapsulates the protected calls with a coroutine based loop, so errors can be dealed without the usual pcall/xpcall issues with coroutines."
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;beginline=61;endline=107;md5=ce95361dc1792e8c56a55e135a7aebcd"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=7a1ac58b3e462d7a12009cdf26db8858"
 HOMEPAGE = "http://www.keplerproject.org/md5/"
 
 PR = "r0"
@@ -8,7 +8,7 @@ PR = "r0"
 DEPENDS = "lua"
 
 SRC_URI = "https://github.com/keplerproject/coxpcall/archive/v1_15_0.tar.gz;name=tarball \
-	http://keplerproject.github.io/coxpcall/license.html \
+	http://keplerproject.github.io/coxpcall/license.html;name=license;downloadfilename=license_${PN}.html \
 	file://lua-coxpcall.pc \
 "
 
@@ -17,11 +17,11 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 INHIBIT_PACKAGE_STRIP = "1"
 
 
-SRC_URI[tarball.md5sum] = "8b8e3d91f85530d119d6b74b79b4ec13"
-SRC_URI[tarball.sha256sum] = "05caabb99593ec7f209b577836c865341f3052d0ebb2f20959d670808f75b535"
+SRC_URI[md5sum] = "7a1ac58b3e462d7a12009cdf26db8858"
+SRC_URI[sha256sum] = "4447c75259047a54f3753f7838afaa20adb54f2e6feb170b4e1bb50706f9ed90"
 
-SRC_URI[license.md5sum] = "a35821c342d3ddd417297923a254aefd"
-SRC_URI[license.sha256sum] = "250ed109a20a48283c0aed493cd346388ce47846ae7d9e11f18a50249e2481cb"
+SRC_URI[license.md5sum] = "7a1ac58b3e462d7a12009cdf26db8858"
+SRC_URI[license.sha256sum] = "4447c75259047a54f3753f7838afaa20adb54f2e6feb170b4e1bb50706f9ed90"
 
 
 S = "${WORKDIR}/coxpcall-1_15_0"

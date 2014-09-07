@@ -1,6 +1,6 @@
 DESCRIPTION = "Lua Web Server API"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;md5=fdc2f4a452f524d38b6cf6edcfd91798"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=fdc2f4a452f524d38b6cf6edcfd91798"
 HOMEPAGE = "http://keplerproject.github.com/wsapi"
 
 PR = "r0"
@@ -8,7 +8,7 @@ PR = "r0"
 DEPENDS = "lua lua-filesystem libfastcgi"
 
 SRC_URI = "https://github.com/keplerproject/wsapi/archive/v${PV}.tar.gz;name=tarball \
-	http://keplerproject.github.io/wsapi/license.html;name=license \
+	http://keplerproject.github.io/wsapi/license.html;name=license;downloadfilename=license_${PN}.html \
 	file://lua-wsapi.pc \
 "
 

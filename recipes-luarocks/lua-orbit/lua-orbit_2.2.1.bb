@@ -1,6 +1,6 @@
 DESCRIPTION = "MVC for Lua Web Development"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;md5=fdc2f4a452f524d38b6cf6edcfd91798"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=43b89094d5b8a9fd2d6ed6ef87cd4dbf"
 HOMEPAGE = "http://orbit.luaforge.net"
 
 PR = "r0"
@@ -8,7 +8,7 @@ PR = "r0"
 DEPENDS = "lua lua-filesystem lua-lpeg lua-wsapi lua-xavante lua-cosmo lua-coxpcall"
 
 SRC_URI = "https://github.com/keplerproject/orbit/archive/v${PV}.tar.gz;name=tarball \
-	http://keplerproject.github.io/orbit/license.html;name=license \
+	http://keplerproject.github.io/orbit/license.html;name=license;downloadfilename=license_${PN}.html \
 	file://lua-orbit.pc \
 "
 

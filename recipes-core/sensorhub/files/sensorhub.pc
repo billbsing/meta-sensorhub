@@ -1,9 +1,11 @@
 prefix=/usr
-libdir=${prefix}/lib
-includedir=${prefix}/include
 
 Name: SensorHub 
 Description: Silverline Sensor Hub
 Version: 0.53
-Requires: lua-orbit libopenzwave 
+Requires: lua-orbit libopenzwave lua-stdlib lua-sqlite3 lua-posix \
+        lua-json lua-etlua lua-socket lua-logging lua-md5 \
+        lua-filesystem lua-lpeg lua-rings lua-wsapi \
+        lua-xavante lua-copas lua-cosmo lua-orbit
+
 

@@ -1,6 +1,6 @@
 DESCRIPTION = "Create new Lua states from within Lua"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license.html;md5=fdc2f4a452f524d38b6cf6edcfd91798"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=6f9dfd5e2e54786d86f22bb287c520c3"
 HOMEPAGE = "http://keplerproject.github.com/rings"
 
 PR = "r0"
@@ -8,7 +8,7 @@ PR = "r0"
 DEPENDS = "lua"
 
 SRC_URI = "https://github.com/keplerproject/rings/archive/v_1_3_0.tar.gz;name=tarball \
-	http://keplerproject.github.io/rings/license.html;name=license \
+	http://keplerproject.github.io/rings/license.html;name=license;downloadfilename=license_${PN}.html \
 	file://lua-rings.pc \
 "
 
@@ -20,8 +20,8 @@ INHIBIT_PACKAGE_STRIP = "1"
 SRC_URI[tarball.md5sum] = "f4182f03934d40cbb40d80922febc1b1"
 SRC_URI[tarball.sha256sum] = "a1101c2fc8d5b943e66b70ce5d44d8a605567c98dc47fbdcb6722bdc81eabefe"
 
-SRC_URI[license.md5sum] = "a35821c342d3ddd417297923a254aefd"
-SRC_URI[license.sha256sum] = "250ed109a20a48283c0aed493cd346388ce47846ae7d9e11f18a50249e2481cb"
+SRC_URI[license.md5sum] = "6f9dfd5e2e54786d86f22bb287c520c3"
+SRC_URI[license.sha256sum] = "248491103974c206780b538aa350149f4bc98eeaeb9268b1d44ad5a8e6da6120"
 
 S = "${WORKDIR}/rings-v_1_3_0"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
