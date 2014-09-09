@@ -4,7 +4,7 @@
 IMAGE_INSTALL += "ntp-tickadj ntp ntpdate ntp-utils"
 IMAGE_INSTALL += "rsync tzdata tzdata-misc"
 IMAGE_INSTALL += "picocom cronie avahi avahi-daemon"
-IMAGE_INSTALL += "mosquitto autossh"
+IMAGE_INSTALL += "mosquitto autossh logrotate"
 IMAGE_INSTALL += "lua"
 
 # libraries
