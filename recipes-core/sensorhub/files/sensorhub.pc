@@ -2,7 +2,7 @@ prefix=/usr
 
 Name: SensorHub 
 Description: Silverline Sensor Hub
-Version: 0.53
+Version: 0.57
 Requires: lua-orbit libopenzwave lua-stdlib lua-sqlite3 lua-posix \
         lua-json lua-etlua lua-socket lua-logging lua-md5 \
         lua-filesystem lua-lpeg lua-rings lua-wsapi \

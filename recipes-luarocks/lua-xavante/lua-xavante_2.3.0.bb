@@ -7,7 +7,7 @@ PR = "r0"
 
 DEPENDS = "lua"
 
-SRC_URI = "https://github.com/keplerproject/xavante/archive/v${PV}.tar.gz;name=tarball \
+SRC_URI = "https://github.com/keplerproject/xavante/archive/v${PV}.tar.gz;name=tarball;downloadfilename=xavante_${PV}.tar.gz \
 	http://keplerproject.github.io/xavante/license.html;name=license;downloadfilename=license_${PN}.html \
 	file://lua-xavante.pc \
 "

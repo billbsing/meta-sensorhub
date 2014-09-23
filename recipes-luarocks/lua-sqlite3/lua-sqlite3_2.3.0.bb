@@ -7,7 +7,7 @@ PR = "r0"
 
 DEPENDS = "lua sqlite3"
 
-SRC_URI = "https://github.com/keplerproject/luasql/archive/v${PV}.tar.gz;name=tarball \
+SRC_URI = "https://github.com/keplerproject/luasql/archive/v${PV}.tar.gz;name=tarball;downloadfilename=luasql_${PV}.tar.gz \
 	http://www.keplerproject.org/luasql/license.html;name=license;downloadfilename=license_${PN}.html \
 	file://lua-sqlite3.pc \
 "
