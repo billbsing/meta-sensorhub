@@ -1,0 +1,7 @@
+prefix=/usr
+
+Name: tzcode
+Description: TimeZone Code
+Version: 2014h
+Requires:
+
