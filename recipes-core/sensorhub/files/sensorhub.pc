@@ -6,6 +6,6 @@ Version: 0.57
 Requires: lua-orbit libopenzwave lua-stdlib lua-sqlite3 lua-posix \
         lua-json lua-etlua lua-socket lua-logging lua-md5 \
         lua-filesystem lua-lpeg lua-rings lua-wsapi \
-        lua-xavante lua-copas lua-cosmo lua-orbit
+        lua-xavante lua-copas lua-cosmo lua-orbit lua-luatz
 
 

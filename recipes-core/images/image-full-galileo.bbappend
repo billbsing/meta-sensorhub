@@ -19,7 +19,7 @@ IMAGE_INSTALL += "iwlwifi-7260"
 # lua rocks libraries
 IMAGE_INSTALL += "lua-stdlib lua-sqlite3 lua-posix \
 	lua-json lua-etlua lua-socket lua-logging lua-md5 \
-	lua-filesystem lua-lpeg lua-rings lua-wsapi \
+	lua-filesystem lua-lpeg lua-rings lua-wsapi lua-luatz \
 	lua-xavante lua-copas lua-cosmo	lua-orbit lua-coxpcall \
 "
 

@@ -1,0 +1,7 @@
+prefix=/usr
+
+Name: lua-luatz
+Description: This is a lua library for time and date manipulation
+Version: 0.2 
+Requires: lua
+
