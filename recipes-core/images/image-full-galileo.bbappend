@@ -1,6 +1,10 @@
 
 
-BAD_RECOMMENDATIONS = "tzdata_2013b tzcode-native_2013b"
+BAD_RECOMMENDATIONS = "tzdata_2013b tzcode-native_2013b		 \
+	opencv nodejs						\
+	python python-modules python-numpy python-opencv	\
+	alsa-lib alsa-utils alsa-tools				\
+"
 
 # core modules for silverline
 IMAGE_INSTALL += "ntp-tickadj ntp ntpdate ntp-utils"
@@ -27,25 +31,7 @@ IMAGE_INSTALL += "lua-stdlib lua-sqlite3 lua-posix \
 
 IMAGE_INSTALL += "sensorhub"
 
-# IMAGE_ROOTFS_EXTRA_SPACE = "102400"
-
-
-# only us if we want to add devtools to the image....
-
-#################################################################################################
-# for the time being build with full dev tools - so that we can build the packages on the board
-
-# dev-pkgs breaks i2c communications and Cypress port extender driver as a result.
-# Therefore not including it for now.
-#IMAGE_FEATURES += "dev-pkgs tools-sdk"
-
-## IMAGE_FEATURES += "tools-sdk"
-
-# This is not included into tools-sdk
-## IMAGE_INSTALL_append = " git"
-
-#increasing rootfs size to provide more free space
-## IMAGE_ROOTFS_SIZE = "2097152"
+IMAGE_ROOTFS_SIZE = "204800"
 
 
 
