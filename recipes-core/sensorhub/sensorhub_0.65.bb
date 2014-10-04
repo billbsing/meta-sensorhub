@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r4"
+PR = "r0"
 
 DEPENDS = "libopenzwave lua-stdlib lua-sqlite3 lua-posix \
         lua-json lua-etlua lua-socket lua-logging lua-md5 \
@@ -107,9 +107,10 @@ FILES_${PN}-dbg = " \
 " 
 
 pkg_postinst_${PN} ()  {
-	/opt/sensorhub/tools/serverControl.lua --wait stop
+	/opt/sensorhub/tools/serverControl.lua stop
 	/opt/sensorhub/tools/dbManager.lua --backup
 	/opt/sensorhub/tools/dbManager.lua --build=event
 	/opt/sensorhub/tools/serverControl.lua start
+	/opt/sensorhub/tools/checkSystemFiles.lua --write
 }
 
