@@ -9,7 +9,7 @@ BAD_RECOMMENDATIONS = "tzdata_2013b tzcode-native_2013b		 \
 # core modules for silverline
 IMAGE_INSTALL += "ntp-tickadj ntp ntpdate ntp-utils"
 IMAGE_INSTALL += "rsync tzdata"
-IMAGE_INSTALL += "cronie avahi avahi-daemon"
+IMAGE_INSTALL += "cronie avahi avahi-daemon connman-client"
 # IMAGE_INSTALL += "picocom"
 IMAGE_INSTALL += "mosquitto autossh logrotate"
 IMAGE_INSTALL += "lua"
