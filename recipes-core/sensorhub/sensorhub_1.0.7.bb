@@ -112,5 +112,6 @@ pkg_postinst_${PN} ()  {
 	/opt/sensorhub/tools/dbManager.lua --build=event
 	/opt/sensorhub/tools/serverControl.lua start
 	/opt/sensorhub/tools/checkSystemFiles.lua --write
+	/opt/sensorhub/tools/setTimezone.lua --default
 }
 
