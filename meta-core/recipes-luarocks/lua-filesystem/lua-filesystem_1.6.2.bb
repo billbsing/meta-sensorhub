@@ -29,6 +29,7 @@ luadir = "/lua/5.2"
 MAKE_FLAGS = "'PREFIX=${D}${prefix}'  \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_VERSION_NUM=502' \
+'CFLAGS=-fPIC' \
 "
 
 
