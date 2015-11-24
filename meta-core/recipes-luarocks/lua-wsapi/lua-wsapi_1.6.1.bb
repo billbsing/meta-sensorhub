@@ -1,6 +1,6 @@
 DESCRIPTION = "Lua Web Server API"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=fdc2f4a452f524d38b6cf6edcfd91798"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=7c2fa6e47aa3fe401279cf647239e7f9"
 HOMEPAGE = "http://keplerproject.github.com/wsapi"
 
 PR = "r0"
