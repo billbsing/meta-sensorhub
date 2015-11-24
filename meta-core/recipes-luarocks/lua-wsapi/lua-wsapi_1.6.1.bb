@@ -20,8 +20,8 @@ INHIBIT_PACKAGE_STRIP = "1"
 SRC_URI[tarball.md5sum] = "3d4bb019c984128eff360b57200b19b5"
 SRC_URI[tarball.sha256sum] = "49c73a35c69e8a708c6247223969c4005dd9bebb8b036343b10d1c9020e73a04"
 
-SRC_URI[license.md5sum] = "fdc2f4a452f524d38b6cf6edcfd91798"
-SRC_URI[license.sha256sum] = "208ec820f3d35201cb7819f09a85c702cddbca1b2fdc2009b8be03c0f6338cf4"
+SRC_URI[license.md5sum] = "7c2fa6e47aa3fe401279cf647239e7f9"                                                                                                                                   
+SRC_URI[license.sha256sum] = "ed59c0a607f5f2b782c8046a982577e61d71f8b9a9363cf5b38831e50c9f06ea" 
 
 S = "${WORKDIR}/wsapi-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
