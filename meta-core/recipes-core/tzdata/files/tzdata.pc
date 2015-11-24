@@ -1,7 +1,0 @@
-prefix=/usr
-
-Name: tzdata
-Description: TimeZone Data
-Version: 2014h
-Requires:
-
