@@ -33,7 +33,8 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
 'LUA_VERSION_NUM=502' \
 "
-
+do_configure() {
+}
 
 do_compile () {
     oe_runmake ${MAKE_FLAGS}
