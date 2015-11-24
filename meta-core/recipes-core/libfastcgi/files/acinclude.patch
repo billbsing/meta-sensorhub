@@ -1,0 +1,10 @@
+--- fcgi-2.4.1-SNAP-0311112127/acinclude.m4_orig	2015-11-24 11:25:30.438796042 +0800
++++ fcgi-2.4.1-SNAP-0311112127/acinclude.m4	2015-11-24 11:25:40.658654429 +0800
+@@ -1,6 +1,6 @@
+ dnl     $Id: acinclude.m4,v 1.2 2001/12/21 03:12:50 robs Exp $
+ 
+-AC_DEFUN(FCGI_COMMON_CHECKS, [
++AC_DEFUN([FCGI_COMMON_CHECKS], [
+     AC_CHECK_TYPE([ssize_t], [int]) 
+ 
+     AC_MSG_CHECKING([for sun_len in sys/un.h])

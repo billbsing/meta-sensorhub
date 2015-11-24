@@ -13,9 +13,12 @@ PR = "r0"
 SRC_URI = "http://www.fastcgi.com/dist/fcgi.tar.gz \
         file://libfastcgi.pc \
 	file://fcgio.cpp.patch \
-	file://configure.in.patch \
 	file://libfcgi.patch \
+	file://acinclude.patch \
 "
+
+# file://configure.in.patch 
+
 
 SRC_URI[md5sum] = "e79c7f4545cf1853af1e2ca3b40ab087"
 SRC_URI[sha256sum] = "165604cffa37d534c348f78e4923d0f1ce4d8808b901891a9e64ebf634c4d0d5"
@@ -23,3 +26,15 @@ SRC_URI[sha256sum] = "165604cffa37d534c348f78e4923d0f1ce4d8808b901891a9e64ebf634
 S = "${WORKDIR}/fcgi-2.4.1-SNAP-0311112127"
 
 EXTRA_OECONF = "LIBS=-lm"
+
+do_configure_prepend() {
+   cp ${S}/configure.in ${S}/configure.ac
+   touch ${S}/NEWS
+   touch ${S}/AUTHORS
+   touch ${S}/ChangeLog
+
+}
+
+
+
+
