@@ -1,5 +1,8 @@
 
 
+LICENSE = "GPLv2"
+
+
 BAD_RECOMMENDATIONS = "tzdata_2013b tzcode-native_2013b		 \
 	opencv nodejs						\
 	python python-modules python-numpy python-opencv	\
