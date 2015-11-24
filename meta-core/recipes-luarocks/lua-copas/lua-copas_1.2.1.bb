@@ -1,6 +1,6 @@
 DESCRIPTION = "Coroutine Oriented Portable Asynchronous Services"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=7fc988d88deee16d7298c35f2b95429b"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=f82a99d8e5d8c6a7b58d24bd1d778967"
 HOMEPAGE = "http://www.keplerproject.org/copas"
 
 PR = "r0"
@@ -20,8 +20,8 @@ INHIBIT_PACKAGE_STRIP = "1"
 SRC_URI[tarball.md5sum] = "f488e7730705c948ed9480c9b0e3461a"
 SRC_URI[tarball.sha256sum] = "08a33c4a289bee78cef1284da9624dafa1e20c10dc40990f5e40fb62d5dc20de"
 
-SRC_URI[license.md5sum] = "7fc988d88deee16d7298c35f2b95429b"
-SRC_URI[license.sha256sum] = "68cdf2bf8d41686c4579a12ec327fe890fbda2090f1d949cd06950fd8aca5cd1"
+SRC_URI[license.md5sum] = "f82a99d8e5d8c6a7b58d24bd1d778967"                                                                                                                                   
+SRC_URI[license.sha256sum] = "39f625482ee4e24d821faea91fcc4349b71469aa58cfc390628f3748623c4f6d"   
 
 S = "${WORKDIR}/copas-1_2_1"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"

@@ -1,6 +1,6 @@
 DESCRIPTION = "Create new Lua states from within Lua"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=6f9dfd5e2e54786d86f22bb287c520c3"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=0c2486b9ba17937c2bc52bcafb937361"
 HOMEPAGE = "http://keplerproject.github.com/rings"
 
 PR = "r0"
@@ -20,8 +20,8 @@ INHIBIT_PACKAGE_STRIP = "1"
 SRC_URI[tarball.md5sum] = "f4182f03934d40cbb40d80922febc1b1"
 SRC_URI[tarball.sha256sum] = "a1101c2fc8d5b943e66b70ce5d44d8a605567c98dc47fbdcb6722bdc81eabefe"
 
-SRC_URI[license.md5sum] = "6f9dfd5e2e54786d86f22bb287c520c3"
-SRC_URI[license.sha256sum] = "248491103974c206780b538aa350149f4bc98eeaeb9268b1d44ad5a8e6da6120"
+SRC_URI[license.md5sum] = "0c2486b9ba17937c2bc52bcafb937361"                                                                                                                                   
+SRC_URI[license.sha256sum] = "22049a61a2281d66a3bf289427ba70f581f095ca4f9d3adb047e3122a524a985"   
 
 S = "${WORKDIR}/rings-v_1_3_0"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
@@ -31,6 +31,7 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
 'LUA_VERSION_NUM=502' \
+'CFLAGS=-fPIC'  \
 'LIB_OPTION = -shared -fPIC' \
 "
 

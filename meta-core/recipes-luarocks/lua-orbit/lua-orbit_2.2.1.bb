@@ -1,6 +1,6 @@
 DESCRIPTION = "MVC for Lua Web Development"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=43b89094d5b8a9fd2d6ed6ef87cd4dbf"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=85ca0341575a0312e0a04b0f851a0514"
 HOMEPAGE = "http://orbit.luaforge.net"
 
 PR = "r0"
@@ -19,8 +19,8 @@ INHIBIT_PACKAGE_STRIP = "1"
 SRC_URI[tarball.md5sum] = "a0a19d22f5e01326bcc0e5a486bf3039"
 SRC_URI[tarball.sha256sum] = "135960031e747c8fd552bac69eaaa8dd46e5488fbb19c6bdf33b625ba3d6b466"
 
-SRC_URI[license.md5sum] = "43b89094d5b8a9fd2d6ed6ef87cd4dbf"
-SRC_URI[license.sha256sum] = "dd7d37caed0f4ee994e9e64ea4ab292dce549bb609412c84fc47ed079275ae98"
+SRC_URI[license.md5sum] = "85ca0341575a0312e0a04b0f851a0514"
+SRC_URI[license.sha256sum] = "bf7aa1dc2398658880d7614ed2e1e5aa676a4e8f23188bb2b6733dbf7b2beb57"
 
 
 S = "${WORKDIR}/orbit-${PV}"

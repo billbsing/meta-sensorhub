@@ -24,6 +24,8 @@ TARGET_CC_ARCH += " -fPIC ${LDFLAGS}"
 EXTRA_OEMAKE = "'CC=${CC} -fPIC' 'MYCFLAGS=${CFLAGS} -DLUA_USE_LINUX -fPIC' MYLDFLAGS='${LDFLAGS}'"
 
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
+luadir = "/lua/5.2"
+
 
 do_configure_prepend() {
     sed -i -e s:/usr/local:${prefix}:g src/luaconf.h
@@ -42,6 +44,9 @@ do_install () {
 
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua.pc ${D}${libdir}/pkgconfig/
+
+# copy over files for later builds
+    install -m 0644 ${S}/src/*.a ${STAGING_LIBDIR}${luadir}
 }
 
 BBCLASSEXTEND = "native"

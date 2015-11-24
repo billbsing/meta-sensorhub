@@ -6,7 +6,7 @@ HOMEPAGE = "https://code.google.com/p/open-zwave/"
 PR = "r0"
 
 
-SRC_URI = "http://www.openzwave.com/downloads/openzwave-${PV}.tar.gz \
+SRC_URI = "http://old.openzwave.com/downloads/openzwave-${PV}.tar.gz \
 	file://hid.c.patch \
 	file://Makefile.patch  \
 "

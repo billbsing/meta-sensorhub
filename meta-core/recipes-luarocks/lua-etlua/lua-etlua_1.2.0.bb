@@ -19,6 +19,9 @@ SRC_URI[sha256sum] = "4a61ffc0226633e80c93c05badff7bcc608b3ce678e6111068083d8ec1
 S = "${WORKDIR}/etlua-${PV}"
 luadir = "/lua/5.2"
 
+do_configure() {
+}
+
 do_compile () {
 }
 
