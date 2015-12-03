@@ -42,7 +42,7 @@ EXTRA_OEMAKE = "'PREFIX=${D}${prefix}' \
 'INSTALL_DIR=${D}/opt/sensorhub' \
 'MACHINE=${MACHINE}' \
 'SYSCONFDIR=${D}${sysconfdir}' \
-'DATA_DIR=${D}/var/sensorhub' \
+'DATA_DIR=${D}/var/lib/sensorhub' \
 "
 
 
@@ -56,10 +56,11 @@ do_install () {
 
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/sensorhub.pc ${D}${libdir}/pkgconfig/
-    install -d ${D}/var/sensorhub
+    install -d ${D}/var/lib/sensorhub
     rm -f ${D}/opt/sensorhub/tools/support.lua
 }
 
+INSANE_SKIP_${PN} += "head.jpg"
 
 # init scripts to auto start servers
 
@@ -95,7 +96,7 @@ FILES_${PN} = " ${libdir}${luadir}/*.so  \
 /opt/sensorhub/bin/* 	\
 /opt/sensorhub/models/* \
 ${sysconfdir}/init.d/*  \
-/var/sensorhub/*	\
+/var/lib/sensorhub/*	\
 "
 
 

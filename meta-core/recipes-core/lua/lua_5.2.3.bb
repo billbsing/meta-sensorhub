@@ -46,6 +46,7 @@ do_install () {
     install -m 0644 ${WORKDIR}/lua.pc ${D}${libdir}/pkgconfig/
 
 # copy over files for later builds
+    install -d ${STAGING_LIBDIR}${luadir}
     install -m 0644 ${S}/src/*.a ${STAGING_LIBDIR}${luadir}
 }
 
