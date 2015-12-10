@@ -24,14 +24,13 @@ SRC_URI[license.md5sum] = "095f673e0ae6e1364d882d1bdb636df5"
 SRC_URI[license.sha256sum] = "21281e8a9c7f19490a68d58b85ce1de7f02eaea4a301732fcd1b24868c8f1530"
 
 S = "${WORKDIR}/md5-${PV}"
-SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 luadir = "/lua/5.2"
 
 MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'CFLAGS=-fPIC' \
 'LIB_OPTION=-fPIC -shared' \
-'LUA_LIBDIR=${STAGING_LIBDIR}${luadir}' \
-'LUA_DIR=${STAGING_DATADIR}${luadir}' \
+'LUA_LIBDIR=${D}${libdir}${luadir}' \
+'LUA_DIR=${D}${datadir}${luadir}' \
 'LUA_VERSION_NUM=502' \
 "
 
@@ -48,8 +47,9 @@ do_install () {
     install -m 0644 ${WORKDIR}/lua-md5.pc ${D}${libdir}/pkgconfig/
 }
 
-FILES_${PN} = "${libdir}${luadir}/des56.so \
+FILES_${PN} = "${libdir}${luadir}/md5 \
  	${libdir}${luadir}/md5/core.so \
+	${libdir}${luadir}/des56.so \
  	${datadir}${luadir}/md5.lua \
 "
 

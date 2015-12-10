@@ -3,15 +3,15 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r0"
+PR = "r2"
 
-DEPENDS = "libopenzwave lua-stdlib lua-sqlite3 lua-posix \
-        lua-json lua-etlua lua-socket lua-logging lua-md5 \
+DEPENDS = "lua libopenzwave lua-stdlib lua-sqlite3 lua-posix \
+        lua-json lua-etlua lua-socket lua-logging \
         lua-filesystem lua-lpeg lua-rings lua-wsapi \
-        lua-xavante lua-copas lua-cosmo lua-orbit lua-luatz \
+        lua-xavante lua-copas lua-coxpcall lua-cosmo lua-orbit lua-luatz lua-md5 \
 "
 
-SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;tag=v${PV} \
+SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=valleyisland-64;protocol=ssh;tag=v${PV} \
            file://sensorhub.pc \
 "
 
@@ -46,12 +46,19 @@ EXTRA_OEMAKE = "'PREFIX=${D}${prefix}' \
 "
 
 
-
+RDEPENDS_${PN} = "lua sqlite3 libopenzwave lua-stdlib \
+	lua-sqlite3 lua-posix lua-coxpcall \
+        lua-json lua-etlua lua-socket lua-logging \
+        lua-filesystem lua-lpeg lua-rings lua-wsapi \
+        lua-xavante lua-copas lua-cosmo lua-orbit \
+	lua-luatz lua-md5 \
+"
 
 do_install () {
     oe_runmake \
         'INSTALL_TOP=${D}${prefix}' \
 	'INSTALL_MAN=${D}${mandir}/man1' \
+  	'INSTALL_MACHINE=${MACHINE}'  \
         install
 
     install -d ${D}${libdir}/pkgconfig
@@ -60,7 +67,6 @@ do_install () {
     rm -f ${D}/opt/sensorhub/tools/support.lua
 }
 
-INSANE_SKIP_${PN} += "head.jpg"
 
 # init scripts to auto start servers
 

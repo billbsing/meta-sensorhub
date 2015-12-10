@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=bf7064a714513510018a46181cf261ae"
 HOMEPAGE = "http://www.eharning.us/wiki/luajson/"
 
-PR = "1"
+PR = "r0"
 
 DEPENDS = "lua"
 SRC_URI = "https://github.com/harningt/luajson/archive/${PV}.tar.gz \
