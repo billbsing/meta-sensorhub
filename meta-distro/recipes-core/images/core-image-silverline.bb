@@ -10,12 +10,12 @@ LICENSE = "GPLv2"
 inherit core-image
 
 
-DISTRO_FEATURES += "bluetooth bluez4 usbgadget usbhost wifi zeroconf pci 3g"
+DISTRO_FEATURES += "bluetooth usbgadget usbhost wifi zeroconf pci 3g"
 
 IMAGE_FEATURES += "package-management"
 IMAGE_FEATURES += "ssh-server-openssh"
 
-# PACKAGE_INSTALL = "bluez5"
+PACKAGE_INSTALL = "bluez5"
 
 IMAGE_INSTALL = "packagegroup-core-boot"
 IMAGE_INSTALL += "${ROOTFS_PKGMANAGE_BOOTSTRAP}"
@@ -26,8 +26,8 @@ IMAGE_INSTALL += "ethtool"
 IMAGE_INSTALL += "pciutils"
 IMAGE_INSTALL += "wireless-tools"
 IMAGE_INSTALL += "wpa-supplicant"
-# IMAGE_INTSALL += "bluez"
-# IMAGE_INTSALL += "bluez5"
+IMAGE_INTSALL += "bluez"
+IMAGE_INTSALL += "bluez5"
 IMAGE_INSTALL += "ppp"
 IMAGE_INSTALL += "openssh"
 IMAGE_INSTALL += "util-linux-mkfs"
