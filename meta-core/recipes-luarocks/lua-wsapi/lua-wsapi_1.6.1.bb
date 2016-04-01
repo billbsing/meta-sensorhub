@@ -5,7 +5,7 @@ HOMEPAGE = "http://keplerproject.github.com/wsapi"
 
 PR = "r0"
 
-DEPENDS = "lua lua-filesystem libfastcgi"
+DEPENDS = "lua lua-filesystem"
 RDEPENDS_${PN} = "lua"
 
 SRC_URI = "https://github.com/keplerproject/wsapi/archive/v${PV}.tar.gz;name=tarball \
