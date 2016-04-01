@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2
+
+Name: lua-azure-iot-hub
+Description: Azure iothub client for Lua
+Version: git
+Requires: lua
+
+

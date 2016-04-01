@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2
+
+Name: lua-redis
+Description: A Lua client library for the redis key value storage system.
+Version: 2.0.4
+Requires: lua
+
+

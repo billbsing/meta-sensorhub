@@ -1,0 +1,24 @@
+--- rtlwifi_new-master/Makefile	2015-12-16 11:28:16.274934116 +0800
++++ rtlwifi_new-master/Makefile	2015-12-16 11:28:55.434367503 +0800
+@@ -56,10 +56,6 @@
+ all: 
+ 	$(MAKE) -C $(KSRC) M=$(PWD) modules
+ install: all
+-ifeq (,$(wildcard ./backup_drivers.tar))
+-	@echo Making backups
+-	@tar cPf backup_drivers.tar $(MODDESTDIR)
+-endif
+ 
+ 	@mkdir -p $(MODDESTDIR)/btcoexist
+ 	@mkdir -p $(MODDESTDIR)/rtl8188ee
+@@ -104,10 +100,6 @@
+ 	@echo "Install rtlwifi SUCCESS"
+ 
+ uninstall:
+-ifneq (,$(wildcard ./backup_drivers.tar))
+-	@echo Restoring backups
+-	@tar xvPf backup_drivers.tar
+-endif
+ 	
+ 	@depmod -a
+ 	

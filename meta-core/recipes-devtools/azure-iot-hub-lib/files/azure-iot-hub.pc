@@ -1,0 +1,7 @@
+prefix=/usr
+
+Name: azure-iot-hub
+Description: Azure iothub client 
+Version: git
+
+

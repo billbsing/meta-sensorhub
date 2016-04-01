@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2
+
+Name: lua-telescope
+Description: A highly customizable test library for Lua that allows declarative tests with nested contexts
+Version: 0.6.0
+Requires: lua
+
+

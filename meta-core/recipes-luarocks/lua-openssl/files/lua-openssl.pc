@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.2
+
+Name: lua-openssl
+Description: Openssl binding for Lua, which have LuaCrypto-compat module...
+Version: 0.5.1
+Requires: lua
+
+

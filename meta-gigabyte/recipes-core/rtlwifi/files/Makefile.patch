@@ -1,0 +1,33 @@
+--- rtlwifi_new-troy/Makefile	2015-12-16 12:27:11.969704229 +0800
++++ rtlwifi_new-troy/Makefile	2015-12-16 15:32:45.921243149 +0800
+@@ -56,10 +56,6 @@
+ all: 
+ 	$(MAKE) -C $(KSRC) M=$(PWD) modules
+ install: all
+-ifeq (,$(wildcard ./backup_drivers.tar))
+-	@echo Making backups
+-	@tar cPf backup_drivers.tar $(MODDESTDIR)
+-endif
+ 
+ 	@mkdir -p $(MODDESTDIR)/btcoexist
+ 	@mkdir -p $(MODDESTDIR)/rtl8188ee
+@@ -97,19 +93,13 @@
+ 	@xz -f $(MODDESTDIR)/rtl8*/*.ko
+ endif
+ 
+-	@depmod -a
+ 
+ 	@#copy firmware images to target folder
+ 	@cp -fr firmware/rtlwifi/ $(FIRMWAREDIR)/
+ 	@echo "Install rtlwifi SUCCESS"
+ 
+ uninstall:
+-ifneq (,$(wildcard ./backup_drivers.tar))
+-	@echo Restoring backups
+-	@tar xvPf backup_drivers.tar
+-endif
+ 	
+-	@depmod -a
+ 	
+ 	@echo "Uninstall rtlwifi SUCCESS"
+ 

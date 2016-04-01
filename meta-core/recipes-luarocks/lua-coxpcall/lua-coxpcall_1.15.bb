@@ -1,6 +1,6 @@
 DESCRIPTION = "Coxpcall encapsulates the protected calls with a coroutine based loop, so errors can be dealed without the usual pcall/xpcall issues with coroutines."
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=e262b1b152bb55e77c734d39def51734"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=ca5f7ed35804bc8934157fcca1ca9f96"
 HOMEPAGE = "http://www.keplerproject.org/md5/"
 
 PR = "r0"
@@ -20,9 +20,8 @@ INHIBIT_PACKAGE_STRIP = "1"
 SRC_URI[tarball.md5sum] = "8b8e3d91f85530d119d6b74b79b4ec13"
 SRC_URI[tarball.sha256sum] = "05caabb99593ec7f209b577836c865341f3052d0ebb2f20959d670808f75b535"
 
-SRC_URI[license.md5sum] = "e262b1b152bb55e77c734d39def51734"
-SRC_URI[license.sha256sum] = "b091ea61415896eb04e0c27c3c84991da48e432eb13d73586b10be710954f3d0"
-
+SRC_URI[license.md5sum] = "ca5f7ed35804bc8934157fcca1ca9f96"
+SRC_URI[license.sha256sum] = "11f0f03dda1a28eca658d5e3361c15fd4d048371364aacc5f6870d77a66866c8"
 
 S = "${WORKDIR}/coxpcall-1_15_0"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"

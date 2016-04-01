@@ -8,7 +8,7 @@ PR = "r0"
 DEPENDS = "lua"
 
 SRC_URI = "https://github.com/LuaDist/lpeg//archive/${PV}.tar.gz;name=tarball \
-	http://www.inf.puc-rio.br/~roberto/lpeg;name=license;downloadfilename=license_${PN}.html \
+	http://www.inf.puc-rio.br/~roberto/lpeg/;name=license;downloadfilename=license_${PN}.html \
 	file://lua-lpeg.pc \
 	file://makefile.patch \
 "

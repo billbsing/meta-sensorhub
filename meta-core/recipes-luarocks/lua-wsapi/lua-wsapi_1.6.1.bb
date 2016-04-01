@@ -47,12 +47,14 @@ do_compile () {
 do_install () {
    echo ${bindir} 
     oe_runmake ${MAKE_FLAGS} install
+    oe_runmake ${MAKE_FLAGS} install-fcgi
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua-wsapi.pc ${D}${libdir}/pkgconfig/
 }
 
 FILES_${PN} = "${datadir}${luadir}/wsapi.lua \
 	${datadir}${luadir}/wsapi/*.lua \
+	${libdir}${luadir}/lfcgi.so  \
 	${bindir}/wsapi.cgi \
 	${bindir}/wsapi.fcgi \
 "

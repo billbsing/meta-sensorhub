@@ -1,4 +1,6 @@
+
+
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
-SRC_URI += "file://kernel-modules.cfg"
+SRC_URI += "file://usb-serial.cfg"
 
