@@ -1,11 +1,11 @@
 
 # KERNEL_MODULE_AUTOLOAD_append_iot-devkit = " iwlwifi"
-KERNEL_MODULE_AUTOLOAD += "btusb"
+KERNEL_MODULE_AUTOLOAD += "btusb iwlwifi"
 
 # swap g_serial for g_acm_ms
-# KERNEL_MODULE_AUTOLOAD_append_iot-devkit = " pch_udc g_acm_ms"
+# KERNEL_MODULE_AUTOLOAD_append += " pch_udc g_acm_ms"
 
-# KERNEL_MODULE_PROBECONF_append_iot-devkit = " g_acm_ms"
+# KERNEL_MODULE_PROBECONF_append += " g_acm_ms"
 # module_conf_g_acm_ms_iot-devkit = "options g_acm_ms file=/dev/mmcblk0p1 removable=1 idVendor=0x8086 idProduct=0xDEAD"
 
 # PPP module autoload
@@ -13,7 +13,7 @@ KERNEL_MODULE_AUTOLOAD += "pppox"
 KERNEL_MODULE_AUTOLOAD += "pppoe"
 
 # find defconfig path
-FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}/iot-devkit:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/files:"
 
 SRC_URI += "file://enable_systemd.cfg"
 SRC_URI += "file://enable_mmc.cfg"
