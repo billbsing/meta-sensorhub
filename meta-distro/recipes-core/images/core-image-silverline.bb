@@ -42,7 +42,8 @@ IMAGE_INSTALL += "lighttpd"
 IMAGE_INSTALL += "sudo"
 IMAGE_INSTALL += "sensorhub"
 
-
+GUMMIBOOT_TIMEOUT = "4"
+GRUB_TIMEOUT = "4"
 
 # IMAGE_INSTALL += " connman"
 # IMAGE_INSTALL += "util-linux-mkfs"

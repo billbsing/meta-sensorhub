@@ -5,6 +5,9 @@
 # IMAGE_INSTALL += "rtlbtusb"
 IMAGE_INSTALL += "usb-modeswitch"
 
+EFI_PROVIDER = "gummiboot"
+GUMMIBOOT_TIMEOUT = "4"
+
 
 ROOTFS_POSTPROCESS_COMMAND_append_valleyisland-64 += " install_silverline_repo; "
 

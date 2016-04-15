@@ -5,6 +5,7 @@ HOMEPAGE = "https://github.com/Azure/azure-iot-sdks --recursive"
 
 PR = "r0"
 
+
 DEPENDS = "curl"
 
 # SRCREV = "${AUTOREV}"
@@ -32,8 +33,10 @@ SRC_URI[sha256sum] = "e55f43331f87c693e71bcaa9bd3e2e5002a8b0228908381a49c1f56d22
 
 S = "${WORKDIR}/sdk/c"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-SYSROOT_LIB = "${SYSROOTS}${libdir}/azure-iot-hub"
-SYSROOT_INC = "${SYSROOTS}${includedir}/azure-iot-hub"
+# SYSROOT_LIB = "${SYSROOTS}${libdir}/azure-iot-hub"
+# SYSROOT_INC = "${SYSROOTS}${includedir}/azure-iot-hub"
+INSTALL_LIB = "${D}${libdir}/azure-iot-hub"
+INSTALL_INC = "${D}${includedir}/azure-iot-hub"
 
 EXTRA_OECMAKE="-DcompileOption_C:STRING="-fPIC" \
     -Drun_e2e_tests:BOOL=OFF\
@@ -53,36 +56,43 @@ do_patch () {
 }
 
 do_install () {
-}
 
-do_populate_sysroot () {
-    install -d ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/azure-umqtt-c/libumqtt.a ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/azure-c-shared-utility/c/libaziotsharedutil.a ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/azure-c-shared-utility/c/testtools/umock_c/libumock_c.a ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/azure-c-shared-utility/c/testtools/micromock/libmicromock_ctest.a ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/azure-c-shared-utility/c/testtools/ctest/libctest.a ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/azure-uamqp-c/libuamqp.a ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/serializer/libserializer.a ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/iothub_client/libiothub_client_amqp_transport.a ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/iothub_client/libiothub_client_http_transport.a ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/iothub_client/libiothub_client.a ${SYSROOT_LIB}
-    cp ${WORKDIR}/build/iothub_client/libiothub_client_mqtt_transport.a ${SYSROOT_LIB}
+    install -d ${INSTALL_LIB}
+    cp ${WORKDIR}/build/azure-umqtt-c/libumqtt.a ${INSTALL_LIB}
+    cp ${WORKDIR}/build/azure-c-shared-utility/c/libaziotsharedutil.a ${INSTALL_LIB}
+    cp ${WORKDIR}/build/azure-c-shared-utility/c/testtools/umock_c/libumock_c.a ${INSTALL_LIB}
+    cp ${WORKDIR}/build/azure-c-shared-utility/c/testtools/micromock/libmicromock_ctest.a ${INSTALL_LIB}
+    cp ${WORKDIR}/build/azure-c-shared-utility/c/testtools/ctest/libctest.a ${INSTALL_LIB}
+    cp ${WORKDIR}/build/azure-uamqp-c/libuamqp.a ${INSTALL_LIB}
+    cp ${WORKDIR}/build/serializer/libserializer.a ${INSTALL_LIB}
+    cp ${WORKDIR}/build/iothub_client/libiothub_client_amqp_transport.a ${INSTALL_LIB}
+    cp ${WORKDIR}/build/iothub_client/libiothub_client_http_transport.a ${INSTALL_LIB}
+    cp ${WORKDIR}/build/iothub_client/libiothub_client.a ${INSTALL_LIB}
+    cp ${WORKDIR}/build/iothub_client/libiothub_client_mqtt_transport.a ${INSTALL_LIB}
 
-    install -d ${SYSROOT_INC}/iothub_client
-    cp -r ${S}/iothub_client/inc ${SYSROOT_INC}/iothub_client
+    install -d ${INSTALL_INC}/iothub_client
+    cp -r ${S}/iothub_client/inc ${INSTALL_INC}/iothub_client
 
-    install -d ${SYSROOT_INC}/azure-c-shared-utility/c
-    cp -r ${S}/azure-c-shared-utility/c/inc ${SYSROOT_INC}/azure-c-shared-utility/c
+    install -d ${INSTALL_INC}/azure-c-shared-utility/c
+    cp -r ${S}/azure-c-shared-utility/c/inc ${INSTALL_INC}/azure-c-shared-utility/c
 
-    install -d ${SYSROOT_INC}/serializer
-    cp -r ${S}/serializer/inc ${SYSROOT_INC}/serializer
+    install -d ${INSTALL_INC}/serializer
+    cp -r ${S}/serializer/inc ${INSTALL_INC}/serializer
 
-    install -d ${SYSROOT_INC}/azure-uamqp-c
-    cp -r ${S}/azure-uamqp-c/inc ${SYSROOT_INC}/azure-uamqp-c
+    install -d ${INSTALL_INC}/azure-uamqp-c
+    cp -r ${S}/azure-uamqp-c/inc ${INSTALL_INC}/azure-uamqp-c
 
-    install -d ${SYSROOT_INC}/azure-umqtt-c
-    cp -r ${S}/azure-umqtt-c/inc ${SYSROOT_INC}/azure-umqtt-c
+    install -d ${INSTALL_INC}/azure-umqtt-c
+    cp -r ${S}/azure-umqtt-c/inc ${INSTALL_INC}/azure-umqtt-c
 
 
 }    
+# PACKAGES = "${PN}-staticdev"
+
+ALLOW_EMPTY_${PN}-dev = "1"
+
+FILES = ""
+
+FILES_${PN}-staticdev = "/usr/lib/azure-iot-hub \
+"
+
