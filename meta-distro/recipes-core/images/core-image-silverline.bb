@@ -9,6 +9,7 @@ LICENSE = "GPLv2"
 
 inherit core-image
 
+EFI_PROVIDER = "gummiboot"
 
 IMAGE_FSTYPES = "ext3 iso hddimg live"
 
