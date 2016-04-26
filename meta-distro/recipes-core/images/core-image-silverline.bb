@@ -41,6 +41,7 @@ IMAGE_INTSALL += "usb-modeswitch"
 IMAGE_INSTALL += "redis"
 IMAGE_INSTALL += "lighttpd"
 IMAGE_INSTALL += "sudo"
+IMAGE_INSTALL += "ntp-tickadj ntp ntpdate ntp-utils"
 IMAGE_INSTALL += "sensorhub"
 
 GUMMIBOOT_TIMEOUT = "4"
