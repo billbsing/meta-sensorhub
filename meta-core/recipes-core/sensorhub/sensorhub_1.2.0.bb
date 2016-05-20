@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r4"
+PR = "r19"
 
 DEPENDS = "redis lighttpd bluez5 lua libopenzwave \
 	lua-stdlib lua-posix \
@@ -127,7 +127,10 @@ FILES_${PN}-test = " \
 
 pkg_postinst_${PN} ()  {
 	/opt/sensorhub/tools/serverControl.lua stop
+	/etc/init.d/lighttpd stop
 	/opt/sensorhub/tools/serverControl.lua start
 	/opt/sensorhub/tools/checkSystemFiles.lua --write
+	/etc/init.d/lighttpd start
+	/opt/sensorhub/tools/serverControl.lua start
 }
 

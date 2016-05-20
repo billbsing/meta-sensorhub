@@ -17,7 +17,7 @@ install_silverline_repo() {
    echo "src/gz all ${PACKAGE_PATH}/all" > ${IMAGE_ROOTFS}/etc/opkg/base-feeds.conf
    echo "src/gz i586-nlp-32  ${PACKAGE_PATH}/i586-nlp-32" >> ${IMAGE_ROOTFS}/etc/opkg/base-feeds.conf
    echo "src/gz i586-nlp-32-intel-common  ${PACKAGE_PATH}/i586-nlp-32-intel-common" >> ${IMAGE_ROOTFS}/etc/opkg/base-feeds.conf
-   echo "src/gz intel-quark ${PACKAGE_PATH}/intel-quark" >> ${IMAGE_ROOTFS}/etc/opkg/base-feeds.conf
+   echo "src/gz intel-quark ${PACKAGE_PATH}/intel_quark" >> ${IMAGE_ROOTFS}/etc/opkg/base-feeds.conf
 }
 
 
