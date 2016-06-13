@@ -4,10 +4,11 @@ LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=f82a99d8e5d8c6a7b58
 HOMEPAGE = "http://www.keplerproject.org/copas"
 
 PR = "r0"
+USE_PV = "${@'${PV}'.replace('.', '_')}"
 
 DEPENDS = "lua"
 
-SRC_URI = "https://github.com/keplerproject/copas/archive/v1_2_1.tar.gz;name=tarball \
+SRC_URI = "https://github.com/keplerproject/copas/archive/v${USE_PV}.tar.gz;name=tarball \
 	http://keplerproject.github.io/copas/license.html;name=license;downloadfilename=license_${PN}.html \
 	file://lua-copas.pc \
 "
@@ -17,13 +18,13 @@ INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
 INHIBIT_PACKAGE_STRIP = "1"
 
 
-SRC_URI[tarball.md5sum] = "f488e7730705c948ed9480c9b0e3461a"
-SRC_URI[tarball.sha256sum] = "08a33c4a289bee78cef1284da9624dafa1e20c10dc40990f5e40fb62d5dc20de"
+SRC_URI[tarball.md5sum] = "4359935d359f8dd2671f72199901f582"
+SRC_URI[tarball.sha256sum] = "15d8608e5c736dfce6b8c1f5a8ed2f834b227fc4a9a3360edc4b497e12f816fa"
 
 SRC_URI[license.md5sum] = "f82a99d8e5d8c6a7b58d24bd1d778967"                                                                                                                                   
 SRC_URI[license.sha256sum] = "39f625482ee4e24d821faea91fcc4349b71469aa58cfc390628f3748623c4f6d"   
 
-S = "${WORKDIR}/copas-1_2_1"
+S = "${WORKDIR}/copas-${USE_PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 luadir = "/lua/5.2"
 
