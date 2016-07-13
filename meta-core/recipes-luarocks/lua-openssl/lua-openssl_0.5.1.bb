@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=812b618ca15555178643425a6ee34a6d"
 HOMEPAGE = "https://github.com/zhaozg/lua-openssl"
 
-PR = "rc1"
+PR = "rc2"
 
 DEPENDS = "lua"
 
@@ -37,8 +37,12 @@ MAKE_FLAGS = "'prefix=${D}' \
 'LUA_CFLAGS=-I${SYSROOTS}${includedir}${luadir}' \
 'LUA_LIBS=-L${SYSROOTS}${libdir}' \
 'LUA_LIBDIR=${SYSROOTS}${libdir}${luadir}' \
-'CC=${CC} -fPIC -lssl -lcrypto' \
+'OPENSSL_LIBS=-lssl -lcrypto' \
+'OPENSSL_CFLAGS=-fPIC'  \
+'CC=${CC} -fPIC'  \
 "
+
+# 'CC=${CC} -fPIC -lssl -lcrypto' 
 
 do_compile () {
     cp -r ${LUA_COMPAT_S} ${SYSROOTS}${includedir}${luaddir}/lua-compat
