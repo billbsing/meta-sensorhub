@@ -12,7 +12,10 @@ GUMMIBOOT_TIMEOUT = "4"
 ROOTFS_POSTPROCESS_COMMAND_append_valleyisland-64 += " install_silverline_repo; "
 
 install_silverline_repo() {
-   PACKAGE_PATH="http://silverline-support.dyndns.org/deploy/dev/jethro/valleyisland-64/ipk"
+
+
+                                                                                                              
+   PACKAGE_PATH="http://bill-desktop.local:8020/valleyisland-64/deploy/ipk"
    install -d ${IMAGE_ROOTFS}/etc/opkg
 
    echo "src/gz all ${PACKAGE_PATH}/all" > ${IMAGE_ROOTFS}/etc/opkg/base-feeds.conf

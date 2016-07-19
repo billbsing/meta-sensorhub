@@ -3,12 +3,13 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=812b618ca15555178643425a6ee34a6d"
 HOMEPAGE = "https://github.com/zhaozg/lua-openssl"
 
-PR = "rc2"
+PR = "rc1"
 
 DEPENDS = "lua"
 
 SRC_URI = "https://github.com/zhaozg/lua-openssl/archive/${PV}.tar.gz;name=openssl \
 	https://github.com/keplerproject/lua-compat-5.3/archive/v0.3.tar.gz;name=lua-compat \
+	file://X509_ALGOR_cmp.patch \
 	file://lua-openssl.pc \
 "
 
@@ -37,9 +38,10 @@ MAKE_FLAGS = "'prefix=${D}' \
 'LUA_CFLAGS=-I${SYSROOTS}${includedir}${luadir}' \
 'LUA_LIBS=-L${SYSROOTS}${libdir}' \
 'LUA_LIBDIR=${SYSROOTS}${libdir}${luadir}' \
-'OPENSSL_LIBS=-lssl -lcrypto' \
-'OPENSSL_CFLAGS=-fPIC'  \
+'OPENSSL_LIBS=-lcrypto -lssl' \
+'OPENSSL_CFLAGS=-fPIC -lrt -dl'  \
 'CC=${CC} -fPIC'  \
+'LDFLAGS=-export-dynamic -fPIC -lrt -ldl' \
 "
 
 # 'CC=${CC} -fPIC -lssl -lcrypto' 
