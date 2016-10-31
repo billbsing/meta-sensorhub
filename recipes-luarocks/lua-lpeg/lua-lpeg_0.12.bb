@@ -13,11 +13,6 @@ SRC_URI = "https://github.com/LuaDist/lpeg//archive/${PV}.tar.gz;name=tarball \
 	file://makefile.patch \
 "
 
-
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[tarball.md5sum] = "faaf4ddf9b6ae13377dbf32ff8fcabc3"
 SRC_URI[tarball.sha256sum] = "cdd8b8c6217522ef15c2129ec4cf550accfc162b89474c7340a3569496f9f907"
 
@@ -44,12 +39,10 @@ do_compile () {
 
 
 do_install () {
-    
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua-lpeg.pc ${D}${libdir}/pkgconfig/
     install -d ${D}${libdir}${luadir}
     install -m 0644 ${S}/lpeg.so ${D}${libdir}${luadir}
-
 }
 
 FILES_${PN} = "${libdir}${luadir}/lpeg.so \

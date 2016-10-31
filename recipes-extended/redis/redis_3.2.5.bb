@@ -14,8 +14,8 @@ SRC_URI = "http://download.redis.io/releases/${BP}.tar.gz \
            file://init-redis-server \
 	   file://redis.service \
 "
-SRC_URI[md5sum] = "87be8867447f62524b584813e5a7bd14"
-SRC_URI[sha256sum] = "93e422c0d584623601f89b956045be158889ebe594478a2c24e1bf218495633f"
+SRC_URI[md5sum] = "d3d2b4dd4b2a3e07ee6f63c526b66b08"
+SRC_URI[sha256sum] = "8509ceb1efd849d6b2346a72a8e926b5a4f6ed3cc7c3cd8d9f36b2e9ba085315"
 
 inherit autotools-brokensep
 

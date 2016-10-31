@@ -11,11 +11,6 @@ SRC_URI = "https://github.com/nrk/redis-lua/archive/master.tar.gz \
 	file://lua-redis.pc \
 "
 
-
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[md5sum] = "874fdf475e2d9e2195606f2dc46167af"
 SRC_URI[sha256sum] = "e9b7796d1a632d2d0db45e71ac0e64d2243dd4ec30dc0b1584bf19fbdd3c02eb"
 
@@ -23,8 +18,6 @@ S = "${WORKDIR}/redis-lua-master"
 luadir = "/lua/5.2"
 
 do_install () {
-
-
     install -d ${D}${datadir}${luadir}
     install -m 0644 ${S}/src/redis.lua ${D}${datadir}${luadir}
 

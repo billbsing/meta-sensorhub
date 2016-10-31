@@ -13,11 +13,6 @@ SRC_URI = "https://github.com/keplerproject/wsapi/archive/v${PV}.tar.gz;name=tar
 	file://lua-wsapi.pc \
 "
 
-
-# INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-# INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[tarball.md5sum] = "3d4bb019c984128eff360b57200b19b5"
 SRC_URI[tarball.sha256sum] = "49c73a35c69e8a708c6247223969c4005dd9bebb8b036343b10d1c9020e73a04"
 

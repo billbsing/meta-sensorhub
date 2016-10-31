@@ -13,13 +13,8 @@ SRC_URI = "git://github.com/billbsing/lua-azure-iot-hub.git \
 	file://lua-azure-iot-hub.pc \
 "
 
-
-# INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-# INHIBIT_PACKAGE_STRIP = "1"
-
 SRC_URI[md5sum] = "301fa48028c1d19c46319d335383c185"
 SRC_URI[sha256sum] = "8cbd4d613e8ef17a02de2f9f7f5d3f6f08e1dbccf5ee946eca5a1179d521a33a"
-
 
 S = "${WORKDIR}/git"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
@@ -47,7 +42,6 @@ do_compile () {
 
 
 do_install () {
-    
     oe_runmake ${MAKE_FLAGS} install
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua-azure-iot-hub.pc ${D}${libdir}/pkgconfig/

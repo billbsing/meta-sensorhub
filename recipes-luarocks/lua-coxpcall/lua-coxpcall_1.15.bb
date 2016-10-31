@@ -12,11 +12,6 @@ SRC_URI = "https://github.com/keplerproject/coxpcall/archive/v1_15_0.tar.gz;name
 	file://lua-coxpcall.pc \
 "
 
-
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[tarball.md5sum] = "8b8e3d91f85530d119d6b74b79b4ec13"
 SRC_URI[tarball.sha256sum] = "05caabb99593ec7f209b577836c865341f3052d0ebb2f20959d670808f75b535"
 
@@ -32,13 +27,10 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
 'LUA_VERSION_NUM=502' \
 "
-do_configure() {
-}
 
 do_compile () {
     oe_runmake ${MAKE_FLAGS}
 }
-
 
 do_install () {
     oe_runmake ${MAKE_FLAGS} install

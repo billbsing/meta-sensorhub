@@ -12,18 +12,11 @@ SRC_URI = "https://github.com/keplerproject/luasql/archive/v${PV}.tar.gz;name=ta
 	file://lua-sqlite3.pc \
 "
 
-
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[tarball.md5sum] = "af9f0f3a2313a1fcf88c40700092048d"
 SRC_URI[tarball.sha256sum] = "e173ff7b17a2757951b4b2f67d3b1bfe04caad7185b68cffa7758ce822e25e9f"
 
 SRC_URI[license.md5sum] = "66567e98ce30262a987b42bd88db71a8"
 SRC_URI[license.sha256sum] = "86fd83cff3a7f3f358ed3758426f160a8542a07ce5692951ba6048ed6ba813c2"
-
-
 
 S = "${WORKDIR}/luasql-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
@@ -47,7 +40,6 @@ do_compile () {
 
 
 do_install () {
-    
     oe_runmake ${MAKE_FLAGS} install
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua-sqlite3.pc ${D}${libdir}/pkgconfig/

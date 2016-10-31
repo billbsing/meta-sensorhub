@@ -13,11 +13,6 @@ SRC_URI = "https://github.com/keplerproject/copas/archive/v${USE_PV}.tar.gz;name
 	file://lua-copas.pc \
 "
 
-
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[tarball.md5sum] = "4359935d359f8dd2671f72199901f582"
 SRC_URI[tarball.sha256sum] = "15d8608e5c736dfce6b8c1f5a8ed2f834b227fc4a9a3360edc4b497e12f816fa"
 
@@ -41,7 +36,6 @@ do_compile () {
 
 
 do_install () {
-    
     oe_runmake ${MAKE_FLAGS} install
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua-copas.pc ${D}${libdir}/pkgconfig/

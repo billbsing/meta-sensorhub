@@ -13,10 +13,6 @@ SRC_URI = "https://github.com/keplerproject/xavante/archive/v${PV}.tar.gz;name=t
 "
 
 
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[tarball.md5sum] = "7a79d284a774485b8e31a6a0359480b6"
 SRC_URI[tarball.sha256sum] = "1fc185f9126f12efb2ad126bd3e66a713070a9976d94f769ee9fa43681061b1b"
 

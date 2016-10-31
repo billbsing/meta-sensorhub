@@ -13,13 +13,8 @@ SRC_URI = "https://github.com/diegonehab/luasocket/archive/v${PV}-${PR}.tar.gz \
 "
 
 
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[md5sum] = "08bd2f265b244eb4bf5c2c36bf89b759"
 SRC_URI[sha256sum] = "8b67d9b5b545e1b694753dab7bd6cdbc24c290f2b21ba1e14c77b32817ea1249"
-
 
 S = "${WORKDIR}/luasocket-${PV}-${PR}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"

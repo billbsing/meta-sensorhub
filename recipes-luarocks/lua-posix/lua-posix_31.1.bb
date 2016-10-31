@@ -14,11 +14,6 @@ SRC_URI = "https://github.com/luaposix/luaposix/archive/release-v32.tar.gz \
 
 inherit autotools 
 
-
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[md5sum] = "2bfede7b7cee96c5d0f6c0354e17498c"
 SRC_URI[sha256sum] = "09dbbde825fd9b76a8a1f6a80920434f8629a392cd1840021ed4b95b21fcf073"
 

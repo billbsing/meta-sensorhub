@@ -12,14 +12,8 @@ SRC_URI = "https://github.com/keplerproject/md5/archive/v${PV}.tar.gz \
 	file://config.patch \
 "
 
-
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[md5sum] = "c166f8a983401802a86655a8c733441e"
 SRC_URI[sha256sum] = "3c016da2cf0cfeb5dfdcf3bea82b64935c4faa6eec32ae164c48d870b4583ffa"
-
 
 S = "${WORKDIR}/md5-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
@@ -34,12 +28,10 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'CC=${CC}' \
 "
 
-
 do_compile () {
     oe_runmake clean
     oe_runmake ${MAKE_FLAGS}
 }
-
 
 do_install () {
     oe_runmake ${MAKE_FLAGS} install

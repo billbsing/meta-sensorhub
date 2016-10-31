@@ -12,10 +12,6 @@ SRC_URI = "https://github.com/mascarenhas/cosmo/archive/v${PV}.tar.gz;name=tarba
 	file://lua-cosmo.pc \
 "
 
-
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
 SRC_URI[tarball.md5sum] = "b8ee7562aeea1df2876c2cc9938025ca"
 SRC_URI[tarball.sha256sum] = "e55f43331f87c693e71bcaa9bd3e2e5002a8b0228908381a49c1f56d22746e0a"
 
@@ -32,14 +28,11 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_VERSION_NUM=502' \
 "
 
-
 do_compile () {
     oe_runmake ${MAKE_FLAGS}
 }
 
-
 do_install () {
-    
     oe_runmake ${MAKE_FLAGS} install
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua-cosmo.pc ${D}${libdir}/pkgconfig/

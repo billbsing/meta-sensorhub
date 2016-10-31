@@ -12,11 +12,6 @@ SRC_URI = "https://github.com/keplerproject/rings/archive/v_1_3_0.tar.gz;name=ta
 	file://lua-rings.pc \
 "
 
-
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[tarball.md5sum] = "f4182f03934d40cbb40d80922febc1b1"
 SRC_URI[tarball.sha256sum] = "a1101c2fc8d5b943e66b70ce5d44d8a605567c98dc47fbdcb6722bdc81eabefe"
 
@@ -43,7 +38,6 @@ do_compile () {
 
 
 do_install () {
-    
     oe_runmake ${MAKE_FLAGS} install
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua-rings.pc ${D}${libdir}/pkgconfig/

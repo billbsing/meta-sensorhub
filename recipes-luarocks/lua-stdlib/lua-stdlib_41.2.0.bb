@@ -13,9 +13,6 @@ SRC_URI = "https://github.com/lua-stdlib/lua-stdlib/archive/release-v${PV}.tar.g
 
 inherit autotools
 
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
 SRC_URI[md5sum] = "5d99d87b95ca64f1e079289fe9e486ff"
 SRC_URI[sha256sum] = "c9d9d11dcd2e3e956e697f5455b5f62baadf233d8726d80514d0432273cc27e9"
 

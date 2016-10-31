@@ -13,11 +13,6 @@ SRC_URI = "https://github.com/zhaozg/lua-openssl/archive/${PV}.tar.gz;name=opens
 	file://lua-openssl.pc \
 "
 
-
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
-
 SRC_URI[openssl.md5sum] = "f53bd850ff27b925cc97d230adb8a2ae"
 SRC_URI[openssl.sha256sum] = "9f6de0a6c66129b23059d790c3b9a9473dccfcb780c83c1c820585f40b800305"
 SRC_URI[lua-compat.md5sum] = "98f93f9de24b26ee5f6f7053979599f8"
@@ -43,8 +38,6 @@ MAKE_FLAGS = "'prefix=${D}' \
 'CC=${CC} -fPIC'  \
 'LDFLAGS=-export-dynamic -fPIC -lrt -ldl' \
 "
-
-# 'CC=${CC} -fPIC -lssl -lcrypto' 
 
 do_compile () {
     cp -r ${LUA_COMPAT_S} ${SYSROOTS}${includedir}${luaddir}/lua-compat

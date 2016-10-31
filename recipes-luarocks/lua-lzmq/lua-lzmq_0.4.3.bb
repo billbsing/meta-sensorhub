@@ -10,9 +10,6 @@ SRC_URI = "https://github.com/zeromq/lzmq/archive/v${PV}.tar.gz \
 	file://lua-lzmq.pc \
 "
 
-# INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-# INHIBIT_PACKAGE_STRIP = "1"
-
 SRC_URI[md5sum] = "c4e51a60a5a26987bdce59e45d674a9e"
 SRC_URI[sha256sum] = "51ec00117b0570db82b1eba7b62e95d7e98c880a028584b195a98b433dd8edd1"
 

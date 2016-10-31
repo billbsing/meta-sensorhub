@@ -13,16 +13,12 @@ SRC_URI = "https://github.com/daurnimator/luatz/archive/v${PV}.tar.gz \
 
 S = "${WORKDIR}/luatz-${PV}"
 
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
 SRC_URI[md5sum] = "81e43a78e5626a2d27c447823e8542ab"
 SRC_URI[sha256sum] = "4a3d6c0c597a772c5a785a6cf8e198a94ab3c42b45199c6fb1b8140490e4459d"
 
 luadir = "/lua/5.2"
 
 do_install () {
-
     install -d ${D}${datadir}${luadir}/luatz
     install -m 0644 ${S}/luatz/*.lua ${D}${datadir}${luadir}/luatz
 

@@ -13,9 +13,6 @@ SRC_URI = "https://github.com/keplerproject/orbit/archive/v${PV}.tar.gz;name=tar
 "
 
 
-INHIBIT_PACKAGE_DEBUG_SPLIT = "1"
-INHIBIT_PACKAGE_STRIP = "1"
-
 SRC_URI[tarball.md5sum] = "a0a19d22f5e01326bcc0e5a486bf3039"
 SRC_URI[tarball.sha256sum] = "135960031e747c8fd552bac69eaaa8dd46e5488fbb19c6bdf33b625ba3d6b466"
 
