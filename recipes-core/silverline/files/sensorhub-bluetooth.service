@@ -1,0 +1,10 @@
+[Unit]
+Description=Sensor Hub Bluetooth Service
+
+[Service]
+ExecStart=/opt/sensorhub/bin/sensorHubBluetooth.lua server
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

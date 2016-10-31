@@ -1,0 +1,8 @@
+prefix=/usr
+libdir=${prefix}/lib/lua
+
+Name: lua-lzmq
+Description: Lua binding to ZeroMQ
+Version: 0.4.3 
+Requires: lua zeromq
+

@@ -1,0 +1,14 @@
+--- ./cpp/build/Makefile	2016-10-25 16:55:50.975909978 +0800
++++ ./cpp/build/Makefile	2016-10-25 16:56:07.603723495 +0800
+@@ -13,9 +13,9 @@
+ 
+ 
+ # what flags we will use for compiling in debug mode
+-DEBUG_CFLAGS    := -Wall -Wno-unknown-pragmas -Wno-inline -Wno-format -Werror -Wno-error=sequence-point -Wno-sequence-point -ggdb -DDEBUG -fPIC  -DSYSCONFDIR="\"$(PREFIX)/etc/openzwave/\""
++DEBUG_CFLAGS    := -Wall  -Wno-format-security  -Wno-unknown-pragmas -Wno-inline -Wno-format -Werror -Wno-error=sequence-point -Wno-sequence-point -ggdb -DDEBUG -fPIC  -DSYSCONFDIR="\"$(PREFIX)/etc/openzwave/\""
+ # what flags we will use for compiling in release mode
+-RELEASE_CFLAGS  := -Wall -Wno-unknown-pragmas -Werror -Wno-format -Wno-error=sequence-point -Wno-sequence-point -O3 -DNDEBUG -fPIC  -DSYSCONFDIR="\"$(PREFIX)/etc/openzwave/\""
++RELEASE_CFLAGS  := -Wall  -Wno-format-security  -Wno-unknown-pragmas -Werror -Wno-format -Wno-error=sequence-point -Wno-sequence-point -O3 -DNDEBUG -fPIC  -DSYSCONFDIR="\"$(PREFIX)/etc/openzwave/\""
+ #what flags we will use for linking in debug mode
+ DEBUG_LDFLAGS	:= -g
+ 

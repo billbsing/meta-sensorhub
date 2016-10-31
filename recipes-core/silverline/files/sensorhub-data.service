@@ -1,0 +1,10 @@
+[Unit]
+Description=Sensor Hub Data Service
+
+[Service]
+ExecStart=/opt/sensorhub/bin/sensorHubData.lua
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
