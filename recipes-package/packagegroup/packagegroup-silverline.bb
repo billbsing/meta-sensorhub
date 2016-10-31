@@ -1,4 +1,4 @@
-DESCRIPTION = "Slverline Package Groups"
+DESCRIPTION = "Slverline Package Group"
 
 inherit packagegroup
 
