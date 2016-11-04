@@ -13,8 +13,6 @@ RDEPENDS_packagegroup-silverline = "\
     redis \
     cronie \
     tzdata \
-    zipctl-sigma \
-    zipgateway-sigma \
     silverline \
 "
 

@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r5"
+PR = "r6"
 SRCREV = "${AUTOREV}"
 
 
