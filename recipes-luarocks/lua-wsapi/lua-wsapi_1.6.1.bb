@@ -35,14 +35,14 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 do_compile () {
     oe_runmake clean
     oe_runmake config
-    oe_runmake cgi ${MAKE_FLAGS}
+    oe_runmake all ${MAKE_FLAGS}
 }
 
 
 do_install () {
    echo ${bindir} 
     oe_runmake ${MAKE_FLAGS} install
-#    oe_runmake ${MAKE_FLAGS} install-fcgi
+    oe_runmake ${MAKE_FLAGS} install-fcgi
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua-wsapi.pc ${D}${libdir}/pkgconfig/
 }

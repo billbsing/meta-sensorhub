@@ -1,4 +1,7 @@
-RDEPENDS_${PN} = "lighttpd-module-fastcgi"
+
+
+
+RDEPENDS_${PN} += "lighttpd-module-fastcgi"
 
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/files:"

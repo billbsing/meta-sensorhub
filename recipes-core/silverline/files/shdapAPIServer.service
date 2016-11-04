@@ -2,9 +2,11 @@
 Description=Sensor Hub SHDAP Devices Service
 
 [Service]
+Environment="NODE_PATH=/usr/lib/node_modules/"
 ExecStart=/usr/bin/node /opt/sensorhub/bin/shdapApiServer.js
 Restart=always
 RestartSec=30
 
 [Install]
 WantedBy=multi-user.target
+

@@ -1,9 +1,13 @@
 [Unit]
-Description=Redis key-value store
+Description=Redis Datastore Server
 After=network.target
 
 [Service]
-ExecStart=@SBINDIR@/redis @SYSCONFDIR@/redis/redis.conf
+Type=forking
+ExecStart=/usr/bin/redis-server /etc/redis/redis.conf
+Restart=always
+RestartSec=30
+
 
 [Install]
 WantedBy=multi-user.target

@@ -11,6 +11,10 @@ RDEPENDS_packagegroup-silverline = "\
     avahi \
     lighttpd \
     redis \
+    cronie \
+    tzdata \
+    zipctl-sigma \
+    zipgateway-sigma \
     silverline \
 "
 

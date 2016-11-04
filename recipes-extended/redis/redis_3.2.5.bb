@@ -27,11 +27,6 @@ do_install() {
 
     install -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/redis.service ${D}${systemd_unitdir}/system
-    sed -i -e 's,@SBINDIR@,${sbindir},g' \
-              -e 's,@SYSCONFDIR@,${sysconfdir},g' \
-              -e 's,@BASE_BINDIR@,${base_bindir},g' \
-              ${D}${systemd_unitdir}/system/redis.service
-
     install -d ${D}/var/lib/redis/
 }
 
