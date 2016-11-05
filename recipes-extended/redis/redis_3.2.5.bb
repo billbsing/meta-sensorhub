@@ -17,7 +17,14 @@ SRC_URI = "http://download.redis.io/releases/${BP}.tar.gz \
 SRC_URI[md5sum] = "d3d2b4dd4b2a3e07ee6f63c526b66b08"
 SRC_URI[sha256sum] = "8509ceb1efd849d6b2346a72a8e926b5a4f6ed3cc7c3cd8d9f36b2e9ba085315"
 
-inherit autotools-brokensep
+# inherit autotools-brokensep
+inherit autotools-brokensep pkgconfig update-rc.d gettext systemd
+
+INITSCRIPT_NAME = "redis"
+INITSCRIPT_PARAMS = "defaults 70"
+
+SYSTEMD_SERVICE_${PN} = "redis.service"
+
 
 do_install() {
     export PREFIX=${D}/${prefix}

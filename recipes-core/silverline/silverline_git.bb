@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r7"
+PR = "r11"
 SRCREV = "${AUTOREV}"
 
 
@@ -24,6 +24,7 @@ SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=os
 	    file://sensorhub-watchdog.service \
 	    file://sensorhub-devices.service \
 	    file://shdapAPIServer.service \
+	    file://silverline.target \
 "
 
 SRC_URI[md5sum] = "dc7f94ec6ff15c985d2d6ad0f1b35654"
@@ -91,12 +92,13 @@ do_install () {
     install -m 0644 ${WORKDIR}/silverline.pc ${D}${libdir}/pkgconfig/
 
     install -d ${D}/${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/sensorhub-bluetooth.service ${D}/${systemd_unitdir}/system/
-    install -m 0644 ${WORKDIR}/sensorhub-data.service ${D}/${systemd_unitdir}/system/
-    install -m 0644 ${WORKDIR}/sensorhub-network.service ${D}/${systemd_unitdir}/system/
-    install -m 0644 ${WORKDIR}/sensorhub-watchdog.service ${D}/${systemd_unitdir}/system/
-    install -m 0644 ${WORKDIR}/sensorhub-devices.service ${D}/${systemd_unitdir}/system/
-    install -m 0644 ${WORKDIR}/shdapAPIServer.service ${D}/${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/silverline.target ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-bluetooth.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-data.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-network.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-watchdog.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-devices.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/shdapAPIServer.service ${D}${systemd_unitdir}/system/
 
 }
 
@@ -133,6 +135,8 @@ pkg_postinst_${PN} ()  {
 	/opt/sensorhub/tools/checkSystemFiles.lua --write
 	systemctl start lighttpd 
 	systemctl start shdapAPIServer
+	/opt/sensorhub/tools/serverControl.lua enable 
 	/opt/sensorhub/tools/serverControl.lua start
+	systemctl set-default silverline
 }
 

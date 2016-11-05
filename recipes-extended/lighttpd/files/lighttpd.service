@@ -1,0 +1,14 @@
+[Unit]
+Description=Lightning Fast Webserver With Light System Requirements
+After=network.target
+
+[Service]
+ExecStartPre=/usr/sbin/lighttpd -t -f /etc/lighttpd.conf 
+ExecStartPre=/usr/sbin/iptables -A INPUT -p tcp --dport http -j ACCEPT
+ExecStart=/usr/sbin/lighttpd -D -f /etc/lighttpd.conf
+ExecReload=/bin/kill -HUP $MAINPID
+ExecStopPost=/usr/sbin/iptables -D INPUT -p tcp --dport http -j ACCEPT
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
