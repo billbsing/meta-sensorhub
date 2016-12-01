@@ -47,6 +47,9 @@ do_install () {
     install -m 0644 ${WORKDIR}/lua-azure-iot-hub.pc ${D}${libdir}/pkgconfig/
 }
 
+INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP_${PN}-dev = "ldflags"
+
 PACKAGES = "${PN}-dbg ${PN}"
 
 FILES_${PN} = "${libdir}${luadir}/luaazureiothub.so \

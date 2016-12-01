@@ -107,6 +107,9 @@ do_install () {
 
 }
 
+INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP_${PN}-dev = "ldflags"
+
 
 FILES_${PN} = "${libdir}${luadir}/*.so  \
 /opt/sensorhub/devices/*  	\

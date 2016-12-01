@@ -43,6 +43,9 @@ do_install () {
     install -m 0644 ${WORKDIR}/lua-rings.pc ${D}${libdir}/pkgconfig/
 }
 
+INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP_${PN}-dev = "ldflags"
+
 FILES_${PN} = "${libdir}${luadir}/rings.so \
 	${datadir}${luadir}/stable.lua \
 "

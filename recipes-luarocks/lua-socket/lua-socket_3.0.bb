@@ -44,6 +44,9 @@ do_install () {
     install -m 0644 ${WORKDIR}/lua-socket.pc ${D}${libdir}/pkgconfig/
 }
 
+INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP_${PN}-dev = "ldflags"
+
 FILES_${PN} = "${libdir}${luadir}/mime/core.so \
 	${libdir}${luadir}/socket/core.so \
 	${datadir}${luadir}/socket.lua \

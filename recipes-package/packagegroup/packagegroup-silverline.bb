@@ -8,11 +8,14 @@ PACKAGES = "\
 
 RDEPENDS_packagegroup-silverline = "\
     opkg \
-    avahi \
     lighttpd \
     redis \
-    cronie \
+    avahi \
     tzdata \
+    avahi \
+    zipgateway-sigma \
     silverline \
 "
 
+#     zipctl-sigma 
+#     cronie\

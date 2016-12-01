@@ -39,6 +39,9 @@ do_install () {
     install -m 0644 ${WORKDIR}/lua-md5.pc ${D}${libdir}/pkgconfig/
 }
 
+INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP_${PN}-dev = "ldflags"
+
 FILES_${PN} = "${libdir}${luadir}/md5 \
  	${libdir}${luadir}/md5/core.so \
 	${libdir}${luadir}/des56.so \

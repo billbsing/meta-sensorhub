@@ -40,12 +40,12 @@ INSTALL_LIB = "${D}${libdir}/azure-iot-hub"
 INSTALL_INC = "${D}${includedir}/azure-iot-hub"
 
 EXTRA_OECMAKE="-DcompileOption_C:STRING="-fPIC" \
-    -Drun_e2e_tests:BOOL=OFF\
+    -Drun_e2e_tests:BOOL=OFF \
     -Drun_longhaul_tests=OFF \
+    -Dskip_unittests:BOOL=ON \
     -Duse_amqp:BOOL=ON \
     -Duse_http:BOOL=ON \
     -Duse_mqtt:BOOL=ON \ 
-    -Dskip_unittests:BOOL=OFF \
     -Dno_logging:BOOL=ON \
 "
 

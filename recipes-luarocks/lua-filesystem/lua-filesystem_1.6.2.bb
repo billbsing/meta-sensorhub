@@ -45,7 +45,11 @@ do_install () {
     install -m 0644 ${WORKDIR}/lua-filesystem.pc ${D}${libdir}/pkgconfig/
 }
 
-FILES_${PN} = "${libdir}${luadir}/lfs.so \
-"
+INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP_${PN}-dev = "ldflags"
+
+
+FILES_${PN} = "${libdir}${luadir}/lfs.so"
+
 # RDEPENDS_${PN} = "libc"
 

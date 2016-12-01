@@ -19,7 +19,6 @@ SRC_URI[tarball.sha256sum] = "cdd8b8c6217522ef15c2129ec4cf550accfc162b89474c7340
 SRC_URI[license.md5sum] = "141d7ce52b0cc5183d9beaa4298181ca"
 SRC_URI[license.sha256sum] = "687c8d439a572f82cd8d17c545f6e2ab70f0de9d3bcebd51f45b93deeead53f8"
 
-
 S = "${WORKDIR}/lpeg-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 luadir = "/lua/5.2"
@@ -29,8 +28,10 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
 'LUA_VERSION_NUM=502' \
 'LUA_INCLUDE=${SYSROOTS}${includedir}' \
+'COPT=-O2 -DLUA_C89_NUMBERS' \
 "
 
+# 'COPT=-DLUA_32BITS' 
 
 do_compile () {
     oe_runmake clean
@@ -45,6 +46,8 @@ do_install () {
     install -m 0644 ${S}/lpeg.so ${D}${libdir}${luadir}
 }
 
-FILES_${PN} = "${libdir}${luadir}/lpeg.so \
-"
+INSANE_SKIP_${PN} = "ldflags"
+INSANE_SKIP_${PN}-dev = "ldflags"
+
+FILES_${PN} = "${libdir}${luadir}/lpeg.so"
 
