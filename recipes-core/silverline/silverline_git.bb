@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r29"
+PR = "r30"
 SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
@@ -146,6 +146,7 @@ pkg_postinst_${PN} ()  {
 	systemctl start shdapAPIServer
 	/opt/sensorhub/tools/serverControl.lua enable 
 	/opt/sensorhub/tools/serverControl.lua start
+	systemctl daemon-reload
 	systemctl set-default silverline
 }
 
