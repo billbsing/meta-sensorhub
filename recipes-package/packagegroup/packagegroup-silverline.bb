@@ -12,9 +12,9 @@ RDEPENDS_packagegroup-silverline = "\
     redis \
     tzdata \
     cronie \
-    avahi \
     silverline \
 "
 
 #     zipctl-sigma 
 #    zipgateway-sigma 
+#    avahi
