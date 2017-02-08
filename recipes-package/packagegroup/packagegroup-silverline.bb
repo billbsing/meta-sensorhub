@@ -14,7 +14,4 @@ RDEPENDS_packagegroup-silverline = "\
     cronie \
     silverline \
 "
-
-#     zipctl-sigma 
-#    zipgateway-sigma 
-#    avahi
+#    avahi  

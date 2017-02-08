@@ -30,6 +30,7 @@ SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=os
 	    file://sensorhub-watchdog.service \
 	    file://sensorhub-devices.service \
 	    file://shdapAPIServer.service \
+	    file://sensorhub-action.service \
 	    file://silverline.target \
 "
 
@@ -104,6 +105,7 @@ do_install () {
     install -m 0644 ${WORKDIR}/sensorhub-watchdog.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-devices.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/shdapAPIServer.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-action.service ${D}${systemd_unitdir}/system/
 
 }
 
@@ -122,6 +124,7 @@ FILES_${PN} = "${libdir}${luadir}/*.so  \
 /opt/sensorhub/bin/* 		\
 /opt/sensorhub/models/* 	\
 /opt/sensorhub/cgi/* 		\
+/opt/sensorhub/actions/* 	\
 /var/lib/sensorhub/*		\
 ${systemd_unitdir}/system/      \
 "
@@ -147,10 +150,10 @@ pkg_postinst_${PN} ()  {
 	/opt/sensorhub/tools/serverControl.lua enable 
 	/opt/sensorhub/tools/serverControl.lua start
 	systemctl daemon-reload
-	# systemctl set-default silverline
+	systemctl set-default silverline
 	# bug in systemctl have to do the line above manually
-	rm -f /etc/systemd/system/default.target
-	ln -s /lib/systemd/system/silverline.target /etc/systemd/system/default.target
+	# rm -f /etc/systemd/system/default.target
+	# ln -s /lib/systemd/system/silverline.target /etc/systemd/system/default.target
 	systemctl daemon-reload
 
 }
