@@ -11,7 +11,6 @@ RDEPENDS_packagegroup-silverline = "\
     lighttpd \
     redis \
     tzdata \
-    cronie \
     silverline \
 "
 
