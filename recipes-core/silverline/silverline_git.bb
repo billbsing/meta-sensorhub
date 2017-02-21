@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r3"
+PR = "r4"
 SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
@@ -43,7 +43,7 @@ inherit useradd
 PACKAGES =+ "${PN}-test"
 
 USERADD_PACKAGES = "${PN}" 
-USERADD_PARAM_${PN} = "--home-dir /home/sensorhub --create-home --system --shell /bin/sh --user-group sensorhub" 
+USERADD_PARAM_${PN} = "--home-dir /home/sensorhub --create-home --system --shell /bin/bash --user-group sensorhub" 
 
 
 S = "${WORKDIR}/git"
@@ -150,10 +150,11 @@ pkg_postinst_${PN} ()  {
 	/opt/sensorhub/tools/serverControl.lua enable 
 	/opt/sensorhub/tools/serverControl.lua start
 	systemctl daemon-reload
-	systemctl set-default silverline
+
+	# systemctl set-default silverline
 	# bug in systemctl have to do the line above manually
-	# rm -f /etc/systemd/system/default.target
-	# ln -s /lib/systemd/system/silverline.target /etc/systemd/system/default.target
+	rm -f /etc/systemd/system/default.target
+	ln -s /lib/systemd/system/silverline.target /etc/systemd/system/default.target
 	systemctl daemon-reload
 
 }

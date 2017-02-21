@@ -1,6 +1,5 @@
 
 
-
 RDEPENDS_${PN} += "lighttpd-module-fastcgi"
 
 
