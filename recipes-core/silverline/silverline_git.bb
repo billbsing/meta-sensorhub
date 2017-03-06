@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r7"
+PR = "r9"
 SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
@@ -31,7 +31,6 @@ SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=os
 	    file://sensorhub-devices.service \
 	    file://shdapAPIServer.service \
 	    file://sensorhub-action.service \
-	    file://silverline.target \
 	    file://sensorhub-factory-reset.service \
 "
 
@@ -99,7 +98,6 @@ do_install () {
     install -m 0644 ${WORKDIR}/silverline.pc ${D}${libdir}/pkgconfig/
 
     install -d ${D}/${systemd_unitdir}/system
-    install -m 0644 ${WORKDIR}/silverline.target ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-bluetooth.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-data.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-network.service ${D}${systemd_unitdir}/system/
@@ -129,17 +127,17 @@ INSANE_SKIP_${PN}-dev = "ldflags"
 inherit systemd
 
 SYSTEMD_PACKAGES = "${PN}"
-SYSTEMD_SERVICE_${PN} = "sensorhub-bluetooth.service \
-	sensorhub-data.service \
-	sensorhub-network.service \
-	sensorhub-watchdog.service \
-	sensorhub-devices.service \
-	shdapAPIServer.service \
-	sensorhub-action.service \
+SYSTEMD_SERVICE_${PN} = "sensorhub-bluetooth.service  \
+	sensorhub-data.service  \
+	sensorhub-network.service  \
+	sensorhub-watchdog.service  \
+	sensorhub-devices.service  \
+	shdapAPIServer.service  \
+	sensorhub-action.service  \
 "
 
 SYSTEMD_AUTO_ENABLE = "enable"
-SYSTEMD_DEFAULT_TARGET="silverline.target"
+SYSTEMD_DEFAULT_TARGET="multi-user.target"
 
 
 FILES_${PN} = "${libdir}${luadir}/*.so  \
@@ -177,6 +175,7 @@ pkg_postinst_${PN} ()  {
 echo "Start postinst"
 echo "write reset config data"
 /opt/sensorhub/tools/checkSystemFiles.lua --write
+/opt/sensorhub/tools/serverControl.lua enable
 echo "update version"
 rm -f /opt/sensorhub/lib/version.info
 echo "${INSTALL_VERSION}" > /opt/sensorhub/lib/version.info

@@ -8,4 +8,4 @@ Restart=always
 RestartSec=30
 
 [Install]
-WantedBy=silverline.target
+WantedBy=multi-user.target
