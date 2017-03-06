@@ -1,1 +1,4 @@
 sensorhub:x:2011:1111::/home/sensorhub:/bin/bash
+avahi:x:2012:1113:avahi:/:/bin/nologin
+avahi-autoipd:x:2013:1113::/:/bin/nologin
+

@@ -1,0 +1,9 @@
+
+do_install_append () {
+
+	mkdir -p ${D}${sysconfdir}/cron.hourly
+	mkdir -p ${D}${sysconfdir}/cron.daily
+	mkdir -p ${D}${sysconfdir}/cron.weekly
+	mkdir -p ${D}${sysconfdir}/cron.monthly
+}
+

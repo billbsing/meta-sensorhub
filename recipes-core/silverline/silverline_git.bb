@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r4"
+PR = "r7"
 SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
@@ -32,6 +32,7 @@ SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=os
 	    file://shdapAPIServer.service \
 	    file://sensorhub-action.service \
 	    file://silverline.target \
+	    file://sensorhub-factory-reset.service \
 "
 
 SRC_URI[md5sum] = "dc7f94ec6ff15c985d2d6ad0f1b35654"
@@ -106,11 +107,39 @@ do_install () {
     install -m 0644 ${WORKDIR}/sensorhub-devices.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/shdapAPIServer.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-action.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-factory-reset.service ${D}${systemd_unitdir}/system/
+
+    install -d ${D}${sysconfdir}
+    install -m 0644 ${S}/install/ostro/resetData/lighttpd.conf ${D}${sysconfdir}/
+
+    install -d ${D}${sysconfdir}/cron.daily
+    install -m 0644 ${S}/install/ostro/resetData/cron.daily/autoupgrade ${D}${sysconfdir}/cron.daily/
+
+    install -d ${D}${sysconfdir}/cron.weekly
+    install -m 0644 ${S}/install/ostro/resetData/cron.weekly/refreshTimezone ${D}${sysconfdir}/cron.weekly/
+
+    install -d ${D}${sysconfdir}/redis
+    install -m 0644 ${S}/install/ostro/resetData/redis/redis.conf ${D}${sysconfdir}/redis/
 
 }
 
 INSANE_SKIP_${PN} = "ldflags"
 INSANE_SKIP_${PN}-dev = "ldflags"
+
+inherit systemd
+
+SYSTEMD_PACKAGES = "${PN}"
+SYSTEMD_SERVICE_${PN} = "sensorhub-bluetooth.service \
+	sensorhub-data.service \
+	sensorhub-network.service \
+	sensorhub-watchdog.service \
+	sensorhub-devices.service \
+	shdapAPIServer.service \
+	sensorhub-action.service \
+"
+
+SYSTEMD_AUTO_ENABLE = "enable"
+SYSTEMD_DEFAULT_TARGET="silverline.target"
 
 
 FILES_${PN} = "${libdir}${luadir}/*.so  \
@@ -127,6 +156,10 @@ FILES_${PN} = "${libdir}${luadir}/*.so  \
 /opt/sensorhub/actions/* 	\
 /var/lib/sensorhub/*		\
 ${systemd_unitdir}/system/      \
+${sysconfdir}/lighttpd.conf	\
+${sysconfdir}/cron.daily/autoupgrade		\
+${sysconfdir}/cron.weekly/refreshTimezone	\
+${sysconfdir}/redis/redis.conf			\
 "
 
 FILES_${PN}-dbg = "\
@@ -139,23 +172,16 @@ FILES_${PN}-test = " \
 "
 
 pkg_postinst_${PN} ()  {
-	systemctl daemon-reload
-	/opt/sensorhub/tools/serverControl.lua stop
-	systemctl stop shdapAPIServer
-	systemctl stop lighttpd 
-	/opt/sensorhub/tools/checkSystemFiles.lua --write 
-	echo "${INSTALL_VERSION}" > /opt/sensorhub/lib/version.info
-	systemctl start lighttpd 
-	systemctl start shdapAPIServer
-	/opt/sensorhub/tools/serverControl.lua enable 
-	/opt/sensorhub/tools/serverControl.lua start
-	systemctl daemon-reload
 
-	# systemctl set-default silverline
-	# bug in systemctl have to do the line above manually
-	rm -f /etc/systemd/system/default.target
-	ln -s /lib/systemd/system/silverline.target /etc/systemd/system/default.target
-	systemctl daemon-reload
+#!/bin/sh -e
+echo "Start postinst"
+echo "write reset config data"
+/opt/sensorhub/tools/checkSystemFiles.lua --write
+echo "update version"
+rm -f /opt/sensorhub/lib/version.info
+echo "${INSTALL_VERSION}" > /opt/sensorhub/lib/version.info
+rm -f /etc/sensorhub-version.info
+echo "${INSTALL_VERSION}" > /etc/sensorhub-version
+echo "End postinst"
 
 }
-

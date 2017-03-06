@@ -1,4 +1,4 @@
-DESCRIPTION = "Slverline Package Group"
+DESCRIPTION = "Silverline Package Group"
 
 inherit packagegroup
 
@@ -11,7 +11,10 @@ RDEPENDS_packagegroup-silverline = "\
     lighttpd \
     redis \
     tzdata \
-    silverline \
+    silverline \ 
+    cronie \
+    first-boot  \
 "
 
-#    avahi  
+#    avahi
+#    cronie 

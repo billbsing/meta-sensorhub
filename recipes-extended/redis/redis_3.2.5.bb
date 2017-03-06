@@ -26,8 +26,8 @@ SYSTEMD_SERVICE_${PN} = "redis.service"
 do_install() {
     export PREFIX=${D}/${prefix}
     oe_runmake install
-    install -d ${D}/${sysconfdir}/redis
-    install -m 0644 ${WORKDIR}/redis.conf ${D}/${sysconfdir}/redis/redis.conf
+#    install -d ${D}/${sysconfdir}/redis
+#    install -m 0644 ${WORKDIR}/redis.conf ${D}/${sysconfdir}/redis/redis.conf
 
     install -d ${D}${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/redis.service ${D}${systemd_unitdir}/system

@@ -19,6 +19,7 @@ do_install_append() {
 
     install -d ${D}/${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/lighttpd.service ${D}/${systemd_unitdir}/system/
+    rm -rf ${D}/${sysconfdir}/lighttpd.conf
 }
 
 FILES_${PN} += "${systemd_unitdir}/system/lighttpd.service \
