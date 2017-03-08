@@ -14,8 +14,6 @@ PACKAGE_NAME=silverline
 PACKAGE_STATUS=`${OPKG_BIN} status ${PACKAGE_NAME}`
 
 if [[ $PACKAGE_STATUS == "" ]]; then
-        ${SYSTEMCTL_BIN} stop ma
-        ${SYSTEMCTL_BIN} disable ma
         ${CHECK_FILES_BIN} -w
         ${OPKG_BIN} update
         ${OPKG_BIN} install ${PACKAGE_NAME}

@@ -14,7 +14,6 @@ RDEPENDS_packagegroup-silverline = "\
     silverline \ 
     cronie \
     first-boot  \
+    avahi \
 "
 
-#    avahi
-#    cronie 
