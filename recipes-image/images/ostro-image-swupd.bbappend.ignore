@@ -1,0 +1,39 @@
+SUMMARY = "Ostro-swupd image with silverline"
+
+OSTRO_IMAGE_EXTRA_INSTALL +="lighttpd"	
+OSTRO_IMAGE_EXTRA_INSTALL +="redis"
+OSTRO_IMAGE_EXTRA_INSTALL +="tzdata" 
+OSTRO_IMAGE_EXTRA_INSTALL +="cronie"
+OSTRO_IMAGE_EXTRA_INSTALL +="first-boot" 
+OSTRO_IMAGE_EXTRA_INSTALL +="avahi"
+
+OSTRO_IMAGE_EXTRA_INSTALL +="silverline"
+
+
+
+#add bundles for SWUPD
+SWUPD_BUNDLES += "silverline_core_dep"
+SWUPD_BUNDLES += "silverline_core"
+
+#specify bundle contents
+#Define silverline_code_dep bundles
+
+BUNDLE_CONTENTS[silverline_core_dep] = "lighttpd"	
+BUNDLE_CONTENTS[silverline_core_dep] += "redis"
+BUNDLE_CONTENTS[silverline_core_dep] += "tzdata" 
+BUNDLE_CONTENTS[silverline_core_dep] += "cronie" 
+BUNDLE_CONTENTS[silverline_core_dep] += "first-boot"
+BUNDLE_CONTENTS[silverline_core_dep] += "avahi"
+
+##Define silverline_core bundle components
+BUNDLE_CONTENTS[silverline_core] = "silverline"
+
+
+
+#define the additional image name
+SWUPD_IMAGES += "silverline"
+
+#define the additional image contents
+SWUPD_IMAGES[silverline]  = "silverline_core"
+SWUPD_IMAGES[silverline]  += "silverline_core_dep"
+
