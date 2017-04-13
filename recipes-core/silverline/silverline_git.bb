@@ -32,8 +32,6 @@ SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=os
 	    file://shdapAPIServer.service \
 	    file://sensorhub-action.service \
 	    file://sensorhub-factory-reset.service \
-	    file://base-feeds-test.conf \
-	    file://base-feeds-release.conf \
 "
 
 SRC_URI[md5sum] = "dc7f94ec6ff15c985d2d6ad0f1b35654"
