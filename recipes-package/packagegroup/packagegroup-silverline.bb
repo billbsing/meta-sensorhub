@@ -17,3 +17,5 @@ RDEPENDS_packagegroup-silverline = "\
     avahi \
 "
 
+#    python-redis 
+#    python-bluepy 

@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r11"
+PR = "r12"
 SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
@@ -32,6 +32,8 @@ SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=os
 	    file://shdapAPIServer.service \
 	    file://sensorhub-action.service \
 	    file://sensorhub-factory-reset.service \
+	    file://base-feeds-test.conf \
+	    file://base-feeds-release.conf \
 "
 
 SRC_URI[md5sum] = "dc7f94ec6ff15c985d2d6ad0f1b35654"
@@ -111,13 +113,17 @@ do_install () {
     install -m 0644 ${S}/install/ostro/resetData/lighttpd.conf ${D}${sysconfdir}/
 
     install -d ${D}${sysconfdir}/cron.daily
-    install -m 0644 ${S}/install/ostro/resetData/cron.daily/autoupgrade ${D}${sysconfdir}/cron.daily/
+    install -m 0755 ${S}/install/ostro/resetData/cron.daily/autoupgrade ${D}${sysconfdir}/cron.daily/
 
     install -d ${D}${sysconfdir}/cron.weekly
-    install -m 0644 ${S}/install/ostro/resetData/cron.weekly/refreshTimezone ${D}${sysconfdir}/cron.weekly/
+    install -m 0755 ${S}/install/ostro/resetData/cron.weekly/refreshTimezone ${D}${sysconfdir}/cron.weekly/
 
     install -d ${D}${sysconfdir}/redis
     install -m 0644 ${S}/install/ostro/resetData/redis/redis.conf ${D}${sysconfdir}/redis/
+
+#    install -d ${D}${sysconfdir}/opkg
+#    install -m 0644 ${S}/install/ostro/resetData/opkg/base-feeds.conf ${D}${sysconfdir}/opkg/
+#    install -m 0644 ${WORKDIR}/base-feeds-test.conf ${D}${sysconfdir}/opkg/
 
 }
 
@@ -158,6 +164,7 @@ ${sysconfdir}/lighttpd.conf	\
 ${sysconfdir}/cron.daily/autoupgrade		\
 ${sysconfdir}/cron.weekly/refreshTimezone	\
 ${sysconfdir}/redis/redis.conf			\
+${sysconfdir}/opkg/base-feeds.conf		\
 "
 
 FILES_${PN}-dbg = "\

@@ -10,6 +10,9 @@ SYSTEMCTL_BIN=/bin/systemctl
 OPKG_BIN=/usr/bin/opkg
 REBOOT_BIN=/sbin/reboot
 PACKAGE_NAME=silverline 
+if [[ -f ${CHECK_FILES_BIN} ]]; then
+        ${CHECK_FILES_BIN} -w
+fi
 
 PACKAGE_STATUS=`${OPKG_BIN} status ${PACKAGE_NAME}`
 
