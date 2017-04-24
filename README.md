@@ -1,10 +1,10 @@
-meta-silverline
+meta-connectedlife
 ===============
 
 
-yocto reciepes for Silverline Hub
+yocto reciepes for Connected Life Hub
 
 To build run 
-`bitbake ostro-image-noswupd`
+`bitbake ostro-image-swupd`
 
 
