@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # firstBoot.sh
-# Script called on the first boot to install silverline from the package manager
+# Script called on the first boot to install Sensorhub from the package manager
 # this script will always be called until the package is installed
 
 
