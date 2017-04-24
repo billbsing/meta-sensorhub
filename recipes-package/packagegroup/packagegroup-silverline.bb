@@ -15,7 +15,8 @@ RDEPENDS_packagegroup-silverline = "\
     cronie \
     first-boot  \
     avahi \
+    python \
+    python-redis \
 "
 
-#    python-redis 
 #    python-bluepy 
