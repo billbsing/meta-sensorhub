@@ -1,0 +1,13 @@
+--- ./cpp/examples/MinOZW/Makefile.orig	2016-10-25 16:57:06.619037785 +0800
++++ ./cpp/examples/MinOZW/Makefile	2016-10-25 16:57:21.410860405 +0800
+@@ -10,8 +10,8 @@
+ .PHONY:	default clean
+ 
+ 
+-DEBUG_CFLAGS    := -Wall -Wno-format -ggdb -DDEBUG $(CPPFLAGS)
+-RELEASE_CFLAGS  := -Wall -Wno-unknown-pragmas -Wno-format -O3 $(CPPFLAGS)
++DEBUG_CFLAGS    := -Wall  -Wno-format-security  -Wno-format -ggdb -DDEBUG $(CPPFLAGS)
++RELEASE_CFLAGS  := -Wall  -Wno-format-security  -Wno-unknown-pragmas -Wno-format -O3 $(CPPFLAGS)
+ 
+ DEBUG_LDFLAGS	:= -g
+ 

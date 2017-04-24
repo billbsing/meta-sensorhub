@@ -1,0 +1,11 @@
+[Unit]
+Description=Sensor Hub Bluetooth Service
+
+[Service]
+ExecStartPre=/usr/sbin/rfkill unblock bluetooth
+ExecStart=/opt/sensorhub/bin/sensorHubBluetooth.lua server
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

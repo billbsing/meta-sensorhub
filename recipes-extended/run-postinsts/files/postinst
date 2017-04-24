@@ -1,0 +1,2 @@
+STINST_LOGGING=1
+LOGFILE=/var/log/postinst.log

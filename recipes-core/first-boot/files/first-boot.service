@@ -1,0 +1,11 @@
+[Unit]
+Description=First boot checks
+After=multi-user.target network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/first_boot.sh
+
+[Install]
+WantedBy=multi-user.target
+

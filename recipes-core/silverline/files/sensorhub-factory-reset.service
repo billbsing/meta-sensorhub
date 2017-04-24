@@ -1,0 +1,11 @@
+[Unit]
+Description=Sensor Hub Factory Reset Service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh /opt/sensorhub/tools/factoryReset.sh
+
+[Install]
+WantedBy=silverline.target 
+
+

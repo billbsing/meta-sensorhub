@@ -1,0 +1,10 @@
+--- ./config_orig	2016-10-25 15:38:04.231241998 +0800
++++ ./config	2016-10-25 15:38:15.067080489 +0800
+@@ -20,6 +20,6 @@
+ WARN= -O2 -Wall -fPIC -W -Waggregate-return -Wcast-align -Wmissing-prototypes -Wnested-externs -Wshadow -Wwrite-strings -Wpointer-arith
+ INCS= -I$(LUA_INC)
+ CFLAGS= $(WARN) $(INCS)
+-CC= gcc
++CC=? gcc
+ 
+ # $Id: config,v 1.6 2007/10/29 23:00:23 carregal Exp $

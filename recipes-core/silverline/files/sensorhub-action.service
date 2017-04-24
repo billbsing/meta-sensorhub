@@ -1,0 +1,10 @@
+[Unit]
+Description=Sensor Action Service
+
+[Service]
+ExecStart=/opt/sensorhub/bin/sensorHubAction.lua server
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target
