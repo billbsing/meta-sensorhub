@@ -1,17 +1,17 @@
-DESCRIPTION = "Silverline Package Group"
+DESCRIPTION = "Sensorhub Package Group"
 
 inherit packagegroup
 
 PACKAGES = "\
-    packagegroup-silverline \
+    packagegroup-sensorhub \
 "
 
-RDEPENDS_packagegroup-silverline = "\
+RDEPENDS_packagegroup-sensorhub = "\
     opkg \
     lighttpd \
     redis \
     tzdata \
-    silverline \ 
+    sensorhub \ 
     cronie \
     first-boot  \
     avahi \

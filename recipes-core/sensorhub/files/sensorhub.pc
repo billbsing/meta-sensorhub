@@ -1,7 +1,7 @@
 prefix=/usr
 
 Name: SensorHub 
-Description: Silverline Sensor Hub
+Description: ConectedLife Sensor Hub
 Version: 0.57
 Requires: lua sqlite3 libopenzwave lighttpd redis lua-stdlib lua-posix \
         lua-json lua-etlua lua-socket lua-logging \

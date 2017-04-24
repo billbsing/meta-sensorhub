@@ -9,7 +9,7 @@ CHECK_FILES_BIN=/opt/sensorhub/tools/checkSystemFiles.lua
 SYSTEMCTL_BIN=/bin/systemctl
 OPKG_BIN=/usr/bin/opkg
 REBOOT_BIN=/sbin/reboot
-PACKAGE_NAME=silverline 
+PACKAGE_NAME=sensorhub
 if [[ -f ${CHECK_FILES_BIN} ]]; then
         ${CHECK_FILES_BIN} -w
 fi

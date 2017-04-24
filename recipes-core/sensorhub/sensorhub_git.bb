@@ -23,7 +23,7 @@ DEPENDS = "glib-2.0 lua \
 "
 
 SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=ostro;protocol=ssh \
-            file://silverline.pc \
+            file://sensorhub.pc \
 	    file://sensorhub-bluetooth.service \
 	    file://sensorhub-data.service \
 	    file://sensorhub-network.service \
@@ -95,7 +95,7 @@ do_install () {
     chmod +x ${D}/opt/sensorhub/cgi/runWebserver.lua
 
     install -d ${D}${libdir}/pkgconfig
-    install -m 0644 ${WORKDIR}/silverline.pc ${D}${libdir}/pkgconfig/
+    install -m 0644 ${WORKDIR}/sensorhub.pc ${D}${libdir}/pkgconfig/
 
     install -d ${D}/${systemd_unitdir}/system
     install -m 0644 ${WORKDIR}/sensorhub-bluetooth.service ${D}${systemd_unitdir}/system/
