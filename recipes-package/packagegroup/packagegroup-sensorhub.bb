@@ -17,6 +17,7 @@ RDEPENDS_packagegroup-sensorhub = "\
     avahi \
     python \
     python-redis \
+    python-pip \
 "
 
 #    python-bluepy 
