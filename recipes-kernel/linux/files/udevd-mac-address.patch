@@ -1,0 +1,29 @@
+diff --git a/drivers/net/tun.c b/drivers/net/tun.c
+index cc88cd7856f5..6ddda452884d 100644
+--- a/drivers/net/tun.c
++++ b/drivers/net/tun.c
+@@ -1777,6 +1777,7 @@ static int tun_set_iff(struct net *net, struct file *file, struct ifreq *ifr)
+ 	}
+ 	else {
+ 		char *name;
++		unsigned char name_assign_type = NET_NAME_ENUM;
+ 		unsigned long flags = 0;
+ 		int queues = ifr->ifr_flags & IFF_MULTI_QUEUE ?
+ 			     MAX_TAP_QUEUES : 1;
+@@ -1799,11 +1800,13 @@ static int tun_set_iff(struct net *net, struct file *file, struct ifreq *ifr)
+ 		} else
+ 			return -EINVAL;
+ 
+-		if (*ifr->ifr_name)
++		if (*ifr->ifr_name) {
+ 			name = ifr->ifr_name;
++			name_assign_type = NET_NAME_USER;
++		}
+ 
+ 		dev = alloc_netdev_mqs(sizeof(struct tun_struct), name,
+-				       NET_NAME_UNKNOWN, tun_setup, queues,
++				       name_assign_type, tun_setup, queues,
+ 				       queues);
+ 
+ 		if (!dev)
+
