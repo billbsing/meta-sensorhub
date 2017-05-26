@@ -3,15 +3,17 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r0"
-SRCREV = "${AUTOREV}"
+PR = "r5"
+# SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
 # If the current build is 'git' then we need to write the real version number, else put in "${PV}-${PR}"
 # must be in the format nn.nn.nn or nn.nn.nn-rnn
 
-INSTALL_VERSION="1.2.5-${PR}"
+# INSTALL_VERSION="1.2.5-${PR}"
+INSTALL_VERSION="${PV}-${PR}"
 
+MAINTAINER="bill.barman@silverline.mobi"
 
 DEPENDS = "glib-2.0 lua \
 	lua-stdlib lua-posix \
@@ -21,8 +23,9 @@ DEPENDS = "glib-2.0 lua \
 	lua-redis lua-telescope lua-openssl lua-azure-iot-hub lua-wsapi \
 	lua-lzmq \
 "
+# git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh 
 
-SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=ostro;protocol=ssh \
+SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=ostro;protocol=ssh;tag=v${PV} \
             file://sensorhub.pc \
 	    file://sensorhub-bluetooth.service \
 	    file://sensorhub-data.service \
