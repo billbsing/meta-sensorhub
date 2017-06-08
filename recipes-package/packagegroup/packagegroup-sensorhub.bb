@@ -21,3 +21,4 @@ RDEPENDS_packagegroup-sensorhub = "\
 "
 
 #    python-bluepy 
+#    mosquitto-clients 

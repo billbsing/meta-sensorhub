@@ -2,7 +2,7 @@
 Description=Sensor Hub Watchdog Service
 
 [Service]
-ExecStart=/opt/sensorhub/bin/sensorHubWatchdog.lua --no-auto-restart
+ExecStart=/opt/sensorhub/bin/sensorHubWatchdog.lua
 Restart=always
 RestartSec=30
 

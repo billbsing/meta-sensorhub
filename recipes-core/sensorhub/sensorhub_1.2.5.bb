@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r5"
+PR = "r11"
 # SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
@@ -27,6 +27,7 @@ DEPENDS = "glib-2.0 lua \
 
 SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=ostro;protocol=ssh;tag=v${PV} \
             file://sensorhub.pc \
+	    file://sensorhub-bluetooth-scanner.service \
 	    file://sensorhub-bluetooth.service \
 	    file://sensorhub-data.service \
 	    file://sensorhub-network.service \
@@ -35,6 +36,7 @@ SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=os
 	    file://shdapAPIServer.service \
 	    file://sensorhub-action.service \
 	    file://sensorhub-factory-reset.service \
+	    file://sensorhub-support.service \
 "
 
 SRC_URI[md5sum] = "dc7f94ec6ff15c985d2d6ad0f1b35654"
@@ -101,6 +103,7 @@ do_install () {
     install -m 0644 ${WORKDIR}/sensorhub.pc ${D}${libdir}/pkgconfig/
 
     install -d ${D}/${systemd_unitdir}/system
+    install -m 0644 ${WORKDIR}/sensorhub-bluetooth-scanner.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-bluetooth.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-data.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-network.service ${D}${systemd_unitdir}/system/
@@ -109,6 +112,7 @@ do_install () {
     install -m 0644 ${WORKDIR}/shdapAPIServer.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-action.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-factory-reset.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-support.service ${D}${systemd_unitdir}/system/
 
     install -d ${D}${sysconfdir}
     install -m 0644 ${S}/install/ostro/resetData/lighttpd.conf ${D}${sysconfdir}/
@@ -122,10 +126,6 @@ do_install () {
     install -d ${D}${sysconfdir}/redis
     install -m 0644 ${S}/install/ostro/resetData/redis/redis.conf ${D}${sysconfdir}/redis/
 
-#    install -d ${D}${sysconfdir}/opkg
-#    install -m 0644 ${S}/install/ostro/resetData/opkg/base-feeds.conf ${D}${sysconfdir}/opkg/
-#    install -m 0644 ${WORKDIR}/base-feeds-test.conf ${D}${sysconfdir}/opkg/
-
 }
 
 INSANE_SKIP_${PN} = "ldflags"
@@ -135,6 +135,7 @@ inherit systemd
 
 SYSTEMD_PACKAGES = "${PN}"
 SYSTEMD_SERVICE_${PN} = "sensorhub-bluetooth.service  \
+	sensorhub-bluetooth-scanner.service  \
 	sensorhub-data.service  \
 	sensorhub-network.service  \
 	sensorhub-watchdog.service  \
