@@ -22,18 +22,18 @@ SRC_URI[license.sha256sum] = "bf7aa1dc2398658880d7614ed2e1e5aa676a4e8f23188bb2b6
 
 S = "${WORKDIR}/orbit-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 'BIN_DIR=${D}${bindir}' \
 "
 
 do_configure_prepend() {
-     sed -i "s/5.1/5.2/g" ${S}/configure
-     sed -i "s/51/52/g" ${S}/configure
+     sed -i "s/5.1/5.3/g" ${S}/configure
+     sed -i "s/51/53/g" ${S}/configure
 }
 
 

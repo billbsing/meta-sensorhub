@@ -14,7 +14,7 @@ SRC_URI[md5sum] = "e9f5454bef1e26c7cc0c3442c223cf9b"
 SRC_URI[sha256sum] = "6a986efa210a912a04c8e6cae8f3b5e72172c02f974152e14818af6598a5e2db"
 
 S = "${WORKDIR}/luajson-${PV}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 do_install () {
     install -d ${D}${datadir}${luadir}/json

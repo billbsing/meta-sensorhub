@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r2"
+PR = "r0"
 # SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
@@ -25,7 +25,7 @@ DEPENDS = "glib-2.0 lua \
 "
 # git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh 
 
-SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=ostro;protocol=ssh;tag=v${PV} \
+SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=lua53_migration;protocol=ssh;tag=v${PV} \
             file://sensorhub.pc \
 	    file://sensorhub-bluetooth-scanner.service \
 	    file://sensorhub-bluetooth.service \
@@ -55,13 +55,13 @@ S = "${WORKDIR}/git"
 
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 EXTRA_OEMAKE = "'PREFIX=${D}${prefix}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
 'LUA_INC=${SYSROOTS}${includedir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 'OZINCLUDEPATH=${SYSROOTS}${includedir}' \
 'OZLIBPATH=${SYSROOTS}${libdir}'  \
 'INCLUDEPATH=${SYSROOTS}${includedir}' \

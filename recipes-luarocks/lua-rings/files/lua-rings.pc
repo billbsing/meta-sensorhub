@@ -1,5 +1,5 @@
 prefix=/usr
-libdir=${prefix}/lib/lua/5.2
+libdir=${prefix}/lib/lua/5.3
 
 Name: lua-rings
 Description: Create new Lua states from within Lua

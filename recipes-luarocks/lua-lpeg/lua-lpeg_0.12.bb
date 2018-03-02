@@ -21,12 +21,12 @@ SRC_URI[license.sha256sum] = "de2b0ef5c730564d38434e10b0f0615d788af46b51887fc66d
 
 S = "${WORKDIR}/lpeg-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 'LUA_INCLUDE=${SYSROOTS}${includedir}' \
 'COPT=-O2 -DLUA_C89_NUMBERS' \
 "

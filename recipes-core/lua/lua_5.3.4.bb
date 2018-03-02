@@ -8,7 +8,7 @@ PR = "r0"
 
 DEPENDS = "readline"
 
-SRC_URI = " http://www.lua.org/ftp/lua-5.2.3.tar.gz \
+SRC_URI = " http://www.lua.org/ftp/lua-5.3.4.tar.gz \
            file://lua.pc \
 "
 
@@ -24,7 +24,7 @@ TARGET_CC_ARCH += " -fPIC ${LDFLAGS}"
 EXTRA_OEMAKE = "'CC=${CC} -fPIC' 'MYCFLAGS=${CFLAGS} -DLUA_USE_LINUX -fPIC' MYLDFLAGS='${LDFLAGS}'"
 
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 
 do_configure_prepend() {
@@ -44,7 +44,7 @@ do_install () {
 
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua.pc ${D}${libdir}/pkgconfig/
-    ln -sf ${bindir}/lua ${D}${bindir}/lua5.2
+    ln -sf ${bindir}/lua ${D}${bindir}/lua5.3
 
 # copy over files for later builds
     install -d ${STAGING_LIBDIR}${luadir}

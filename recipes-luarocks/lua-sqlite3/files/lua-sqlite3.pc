@@ -1,5 +1,5 @@
 prefix=/usr
-libdir=${prefix}/lib/lua/5.2/luasql
+libdir=${prefix}/lib/lua/5.3/luasql
 includedir=${prefix}/include
 
 Name: lua-sqlite3

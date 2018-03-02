@@ -20,12 +20,12 @@ SRC_URI[license.sha256sum] = "11f0f03dda1a28eca658d5e3361c15fd4d048371364aacc5f6
 
 S = "${WORKDIR}/coxpcall-1_15_0"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 "
 
 do_compile () {

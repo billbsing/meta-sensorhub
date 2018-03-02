@@ -14,7 +14,7 @@ SRC_URI[md5sum] = "2f1320bdd5a9348192a98d8073b48378"
 SRC_URI[sha256sum] = "4a61ffc0226633e80c93c05badff7bcc608b3ce678e6111068083d8ec1f214ed"
 
 S = "${WORKDIR}/etlua-${PV}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 do_compile () {
 }

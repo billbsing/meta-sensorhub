@@ -18,10 +18,10 @@ SRC_URI[sha256sum] = "c9d9d11dcd2e3e956e697f5455b5f62baadf233d8726d80514d0432273
 
 S = "${WORKDIR}/lua-stdlib-release-v${PV}"
 
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 
-# EXTRA_OECONF = "--lua-version=5.2 \
+# EXTRA_OECONF = "--lua-version=5.3 \
 # --luadir=${libdir}${luadir} \
 # LUA_INCLUDE=${SYSROOTS}${includepath} \
 # "

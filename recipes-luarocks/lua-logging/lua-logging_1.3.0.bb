@@ -15,7 +15,7 @@ SRC_URI[md5sum] = "05615b083f25b7ee74d53eb3827a8583"
 SRC_URI[sha256sum] = "a69fc551b4c95ade3f71bd8e4013a3cc0eb30d86b218b69d90a3ba0adcc64d96"
 
 S = "${WORKDIR}/lualogging-${PV}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 do_install () {
     install -d ${D}${datadir}${luadir}/logging

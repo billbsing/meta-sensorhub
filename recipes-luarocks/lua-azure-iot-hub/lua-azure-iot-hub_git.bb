@@ -18,7 +18,7 @@ SRC_URI[sha256sum] = "8cbd4d613e8ef17a02de2f9f7f5d3f6f08e1dbccf5ee946eca5a1179d5
 
 S = "${WORKDIR}/git"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 
 # 'CFLAGS=${CFLAGS} -Wall -fPIC -std=gnu99 -I${SYSROOTS}${includedir}' 
@@ -29,7 +29,7 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'INCLUDE_DIR=${D}${includedir}' \
 'LUA_LIB_DIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 'AZURE_IOTHUB_INC_DIR=${SYSROOTS}${includedir}/azure-iot-hub' \
 'AZURE_IOTHUB_LIB_DIR=${SYSROOTS}${libdir}/azure-iot-hub' \
 'CC=${CC}' \

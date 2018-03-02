@@ -18,7 +18,7 @@ SRC_URI[sha256sum] = "7f2910e6c7fbc1d64d0a6535e6a514ed138051af13ee94bccdeb7a2014
 
 S = "${WORKDIR}/luafilesystem-1_6_2"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 # 'PREFIX=${D}${prefix}' 
 
@@ -26,7 +26,7 @@ luadir = "/lua/5.2"
 MAKE_FLAGS = "'PREFIX=${D}${prefix}'  \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_INC=${SYSROOTS}${includedir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 'CFLAGS=-fPIC -I${SYSROOTS}${includedir}' \
 'CC=${CC}' \
 "

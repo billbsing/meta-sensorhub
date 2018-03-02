@@ -16,7 +16,7 @@ SRC_URI[sha256sum] = "c285309830495a29d6248e3463a260ca71cd738f93f43ec4ab93d3e182
 
 
 S = "${WORKDIR}/telescope-${PV}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 do_compile () {
 }

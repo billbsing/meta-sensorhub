@@ -20,12 +20,12 @@ SRC_URI[license.sha256sum] = "104297f4306687a912fb0ceab755261abfb3aea9677c238b94
 
 S = "${WORKDIR}/cosmo-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 "
 
 do_compile () {

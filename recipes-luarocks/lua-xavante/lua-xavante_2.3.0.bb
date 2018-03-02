@@ -21,12 +21,12 @@ SRC_URI[license.sha256sum] = "3afd6afdff09de1764ee1b50cc794dfe8355a4abb61abe66a8
 
 S = "${WORKDIR}/xavante-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 "
 
 

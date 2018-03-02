@@ -21,12 +21,12 @@ SRC_URI[license.sha256sum] = "ed59c0a607f5f2b782c8046a982577e61d71f8b9a9363cf5b3
 
 S = "${WORKDIR}/wsapi-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 'LIB_OPTION = -shared -fPIC' \
 'BIN_DIR=${D}${bindir}' \
 "

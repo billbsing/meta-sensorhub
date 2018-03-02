@@ -21,12 +21,12 @@ SRC_URI[license.sha256sum] = "142c565bf110f96cc1a17209ab57eb343cdfbe5ecb29bf68ed
 
 S = "${WORKDIR}/rings-v_1_3_0"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 'CFLAGS=-fPIC'  \
 'LIB_OPTION = -shared -fPIC' \
 "

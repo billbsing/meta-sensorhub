@@ -18,14 +18,14 @@ SRC_URI[sha256sum] = "8b67d9b5b545e1b694753dab7bd6cdbc24c290f2b21ba1e14c77b32817
 
 S = "${WORKDIR}/luasocket-${PV}-${PR}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 
 MAKE_FLAGS = "'prefix=${D}' \
 'LUAPREFIX_linux=${prefix}' \
 'CDIR_linux=${libdir}${luadir}' \
 'LDIR_linux=${datadir}${luadir}' \
-'LUAV=5.2' \
+'LUAV=5.3' \
 'LUAINC_linux_base=${SYSROOTS}${includedir}' \
 'LUAINC_linux=${SYSROOTS}${includedir}' \
 'MYCFLAGS=-arch ${MACHINE}' \

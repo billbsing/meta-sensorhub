@@ -14,10 +14,10 @@ SRC_URI[md5sum] = "c4e51a60a5a26987bdce59e45d674a9e"
 SRC_URI[sha256sum] = "51ec00117b0570db82b1eba7b62e95d7e98c880a028584b195a98b433dd8edd1"
 
 S = "${WORKDIR}/lzmq-${PV}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 lzmqdir = "${libdir}/lua/lzmq"
 
-EXTRA_OECONF = "LUA_VERSION_STRING=5.2"
+EXTRA_OECONF = "LUA_VERSION_STRING=5.3"
 
 inherit pkgconfig cmake
 

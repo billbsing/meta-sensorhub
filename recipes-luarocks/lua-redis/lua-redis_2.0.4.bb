@@ -15,7 +15,7 @@ SRC_URI[md5sum] = "874fdf475e2d9e2195606f2dc46167af"
 SRC_URI[sha256sum] = "e9b7796d1a632d2d0db45e71ac0e64d2243dd4ec30dc0b1584bf19fbdd3c02eb"
 
 S = "${WORKDIR}/redis-lua-master"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 do_install () {
     install -d ${D}${datadir}${luadir}

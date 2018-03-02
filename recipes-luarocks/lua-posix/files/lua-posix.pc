@@ -1,10 +1,10 @@
 prefix=/usr
-libdir=${prefix}/lib/lua/5.2/posix
+libdir=${prefix}/lib/lua/5.3/posix
 includedir=${prefix}/include
 
 Name: lua-posix
 Description: Lua bindings for POSIX (including curses)
-Version: 32.1
+Version: 34.0.4-1
 Requires: lua
 
 

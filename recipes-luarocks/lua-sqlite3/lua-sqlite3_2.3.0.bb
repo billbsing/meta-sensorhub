@@ -20,7 +20,7 @@ SRC_URI[license.sha256sum] = "86fd83cff3a7f3f358ed3758426f160a8542a07ce5692951ba
 
 S = "${WORKDIR}/luasql-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
-luadir = "/lua/5.2"
+luadir = "/lua/5.3"
 
 MAKE_FLAGS = "'T=sqlite3' \
 'PREFIX=${D}${prefix}' \
@@ -30,7 +30,7 @@ MAKE_FLAGS = "'T=sqlite3' \
 'DRIVER_INCS=-I${SYSROOTS}${includedir}' \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
-'LUA_VERSION_NUM=502' \
+'LUA_VERSION_NUM=503' \
 "
 
 
