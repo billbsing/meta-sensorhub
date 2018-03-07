@@ -3,20 +3,24 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ab6706baf6d39a6b0fa2613a3b0831e7"
 HOMEPAGE = "http://www.impa.br/~diego/software/luasocket"
 
-PR = "rc1"
+PR = ""
+SRCREV = "${AUTOREV}"
 
 DEPENDS = "lua"
 
-SRC_URI = "https://github.com/diegonehab/luasocket/archive/v${PV}-${PR}.tar.gz \
+# SRC_URI = https://github.com/diegonehab/luasocket/archive/v${PV}-${PR}.tar.gz
+
+SRC_URI = "git://github.com/diegonehab/luasocket.git \
+ 	file://makefile.patch \
 	file://lua-socket.pc \
-	file://makefile.patch \
 "
 
 
-SRC_URI[md5sum] = "08bd2f265b244eb4bf5c2c36bf89b759"
-SRC_URI[sha256sum] = "8b67d9b5b545e1b694753dab7bd6cdbc24c290f2b21ba1e14c77b32817ea1249"
+SRC_URI[md5sum] = "c487ad5e9f0da6d103f63dcfe2728f38"
+SRC_URI[sha256sum] = "502d96f3e1b1fd55ecf1ace37e76aca23d2b38d9cf638ae12cf3114a55580479"
 
-S = "${WORKDIR}/luasocket-${PV}-${PR}"
+
+S = "${WORKDIR}/git"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 luadir = "/lua/5.3"
 
@@ -28,10 +32,10 @@ MAKE_FLAGS = "'prefix=${D}' \
 'LUAV=5.3' \
 'LUAINC_linux_base=${SYSROOTS}${includedir}' \
 'LUAINC_linux=${SYSROOTS}${includedir}' \
-'MYCFLAGS=-arch ${MACHINE}' \
 'GCC_linux=${CC}' \
 "
 
+# 'MYCFLAGS=-arch ${MACHINE}' 
 do_compile () {
     oe_runmake clean
     oe_runmake ${MAKE_FLAGS} linux

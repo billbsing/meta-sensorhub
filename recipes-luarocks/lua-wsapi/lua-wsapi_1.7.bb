@@ -1,6 +1,6 @@
 DESCRIPTION = "Lua Web Server API"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=7c2fa6e47aa3fe401279cf647239e7f9"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=7c303fa69c61ad25e6a04ef328d650f0"
 HOMEPAGE = "http://keplerproject.github.com/wsapi"
 
 PR = "r0"
@@ -13,11 +13,11 @@ SRC_URI = "https://github.com/keplerproject/wsapi/archive/v${PV}.tar.gz;name=tar
 	file://lua-wsapi.pc \
 "
 
-SRC_URI[tarball.md5sum] = "3d4bb019c984128eff360b57200b19b5"
-SRC_URI[tarball.sha256sum] = "49c73a35c69e8a708c6247223969c4005dd9bebb8b036343b10d1c9020e73a04"
+SRC_URI[tarball.md5sum] = "aacadf9dabeb82b044cb3f1006c5df0d"
+SRC_URI[tarball.sha256sum] = "48dc7aba0fd2e96a3e5ef51045b5d923964f6ae299de761aa0467031ad44e987"
 
-SRC_URI[license.md5sum] = "7c2fa6e47aa3fe401279cf647239e7f9"                                                                                                                                   
-SRC_URI[license.sha256sum] = "ed59c0a607f5f2b782c8046a982577e61d71f8b9a9363cf5b38831e50c9f06ea" 
+SRC_URI[license.md5sum] = "7c303fa69c61ad25e6a04ef328d650f0"
+SRC_URI[license.sha256sum] = "6aa14e3febf7a9e810ce672b015f5a5514241ce5d1c3a6a48f921f089d270159"
 
 S = "${WORKDIR}/wsapi-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"

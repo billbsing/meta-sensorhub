@@ -1,6 +1,6 @@
 DESCRIPTION = "Lua Web Server Library"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=b6c8936a4893c2ba97d590217f283c7c"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=92b7419e9e8d7ba3dff3c41521a62537"
 HOMEPAGE = "http://keplerproject.github.com/xavante"
 
 PR = "r0"
@@ -12,12 +12,11 @@ SRC_URI = "https://github.com/keplerproject/xavante/archive/v${PV}.tar.gz;name=t
 	file://lua-xavante.pc \
 "
 
+SRC_URI[tarball.md5sum] = "73948f18ac884371da1ad2b17ebf2b70"
+SRC_URI[tarball.sha256sum] = "0e4f49dd96cb092cd5d80cc66a5204dcb22a14f80897a121f2f0d1dceb1c7ba5"
 
-SRC_URI[tarball.md5sum] = "7a79d284a774485b8e31a6a0359480b6"
-SRC_URI[tarball.sha256sum] = "1fc185f9126f12efb2ad126bd3e66a713070a9976d94f769ee9fa43681061b1b"
-
-SRC_URI[license.md5sum] = "b6c8936a4893c2ba97d590217f283c7c"
-SRC_URI[license.sha256sum] = "3afd6afdff09de1764ee1b50cc794dfe8355a4abb61abe66a8ac9153dca3bf55"
+SRC_URI[license.md5sum] = "92b7419e9e8d7ba3dff3c41521a62537"
+SRC_URI[license.sha256sum] = "da825b72900a564d11240c8d71286fe6f3a91e0ce96a27270f1d1bce68395cf3"
 
 S = "${WORKDIR}/xavante-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"

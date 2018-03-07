@@ -7,14 +7,15 @@ PR = "r0"
 
 DEPENDS = "lua"
 
-SRC_URI = "https://github.com/LuaDist/lpeg//archive/${PV}.tar.gz;name=tarball \
+SRC_URI = "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-${PV}.tar.gz;name=tarball \
 	http://www.inf.puc-rio.br/~roberto/lpeg/;name=license;downloadfilename=license_${PN}.html \
+	 file://makefile.patch \
 	file://lua-lpeg.pc \
-	file://makefile.patch \
 "
 
-SRC_URI[tarball.md5sum] = "faaf4ddf9b6ae13377dbf32ff8fcabc3"
-SRC_URI[tarball.sha256sum] = "cdd8b8c6217522ef15c2129ec4cf550accfc162b89474c7340a3569496f9f907"
+
+SRC_URI[tarball.md5sum] = "049e0cc18fd540ccddab701a1d771e46"
+SRC_URI[tarball.sha256sum] = "62d9f7a9ea3c1f215c77e0cadd8534c6ad9af0fb711c3f89188a8891c72f026b"
 
 SRC_URI[license.md5sum] = "3cb5e143d0adf6656c8edeb7342f6071"
 SRC_URI[license.sha256sum] = "de2b0ef5c730564d38434e10b0f0615d788af46b51887fc66dd9dbcf442d4329"
@@ -28,10 +29,11 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
 'LUA_VERSION_NUM=503' \
 'LUA_INCLUDE=${SYSROOTS}${includedir}' \
-'COPT=-O2 -DLUA_C89_NUMBERS' \
+'COPT=-O2 -DLUA_C89_NUMBERS -DLUA_32BITS'  \
 "
 
 # 'COPT=-DLUA_32BITS' 
+# 'COPT=-O2 -DLUA_C89_NUMBERS' 
 
 do_compile () {
     oe_runmake clean

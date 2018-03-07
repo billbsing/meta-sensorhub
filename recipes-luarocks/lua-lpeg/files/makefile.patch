@@ -1,18 +1,24 @@
---- lpeg-0.12/makefile  2014-08-24 20:43:19.152985082 +0800
-+++ lpeg-0.12/makefile  2014-08-24 20:43:55.048985989 +0800
-@@ -1,5 +1,5 @@
+--- ./makefile.original	2018-03-07 09:29:54.263910827 +0800
++++ ./makefile	2018-03-07 09:31:18.930690576 +0800
+@@ -1,7 +1,7 @@
  LIBNAME = lpeg
--LUADIR = /usr/include/lua5.1/
-+LUADIR = ${LUA_INCLUDE} 
+-LUADIR = ../lua/
++LUADIR = ${LUA_DIR}
  
- COPT = -O2
+-COPT = -O2
++COPT ?= -O2
  # COPT = -DLPEG_DEBUG -g
-@@ -23,7 +23,7 @@
  
+ CWARNS = -Wall -Wextra -pedantic \
+@@ -21,9 +21,8 @@
+ 	-Wstrict-prototypes \
+ # -Wunreachable-code \
  
- CFLAGS = $(CWARNS) $(COPT) -ansi -I$(LUADIR) -fPIC
+-
+-CFLAGS = $(CWARNS) $(COPT) -std=c99 -I$(LUADIR) -fPIC
 -CC = gcc
-+# CC = gcc
++CFLAGS ?= $(CWARNS) $(COPT) -std=c99 -I$(LUADIR) -fPIC
++CC ?= gcc
  
  FILES = lpvm.o lpcap.o lptree.o lpcode.o lpprint.o
  

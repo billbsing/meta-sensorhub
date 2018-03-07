@@ -4,19 +4,20 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=d9b7e441d51a96b17511ee3be5a75857"
 HOMEPAGE = "http://keplerproject.github.com/luafilesystem"
 
 PR = "1"
+USE_PV = "${@'${PV}'.replace('.', '_')}"
 
 DEPENDS = "lua sqlite3"
 
-SRC_URI = "https://github.com/keplerproject/luafilesystem/archive/v1_6_2.tar.gz \
+SRC_URI = "https://github.com/keplerproject/luafilesystem/archive/v${USE_PV}.tar.gz \
 	file://lua-filesystem.pc \
-	file://config.patch \
 "
 
+#	file://config.patch 
 
-SRC_URI[md5sum] = "8d20c36c70df8291cc1cc478155645ef"
-SRC_URI[sha256sum] = "7f2910e6c7fbc1d64d0a6535e6a514ed138051af13ee94bccdeb7a20146f18d9"
+SRC_URI[md5sum] = "5166c00df1599a54dc97e84852be7f0c"
+SRC_URI[sha256sum] = "23b4883aeb4fb90b2d0f338659f33a631f9df7a7e67c54115775a77d4ac3cc59"
 
-S = "${WORKDIR}/luafilesystem-1_6_2"
+S = "${WORKDIR}/luafilesystem-${USE_PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 luadir = "/lua/5.3"
 

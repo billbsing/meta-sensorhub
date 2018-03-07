@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://README;md5=095f673e0ae6e1364d882d1bdb636df5"
 HOMEPAGE = "http://www.keplerproject.org/md5/"
 
-PR = "r0"
+PR = "r1"
 
 DEPENDS = "lua"
 

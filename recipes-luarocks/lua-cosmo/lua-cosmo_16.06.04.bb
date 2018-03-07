@@ -12,8 +12,8 @@ SRC_URI = "https://github.com/mascarenhas/cosmo/archive/v${PV}.tar.gz;name=tarba
 	file://lua-cosmo.pc \
 "
 
-SRC_URI[tarball.md5sum] = "b8ee7562aeea1df2876c2cc9938025ca"
-SRC_URI[tarball.sha256sum] = "e55f43331f87c693e71bcaa9bd3e2e5002a8b0228908381a49c1f56d22746e0a"
+SRC_URI[tarball.md5sum] = "36288f23da41db2fa78699d448a3df2b"
+SRC_URI[tarball.sha256sum] = "86d17aea5080a90671d965cffeb9b104c19e0e1ea55c08687c0924c4512b52b1"
 
 SRC_URI[license.md5sum] = "72e037b382bf352dfbff16741bfe6631"
 SRC_URI[license.sha256sum] = "104297f4306687a912fb0ceab755261abfb3aea9677c238b94f6e1c3fba1edd4"

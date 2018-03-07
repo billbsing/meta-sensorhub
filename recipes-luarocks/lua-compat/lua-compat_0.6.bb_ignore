@@ -1,0 +1,44 @@
+DESCRIPTION = "Compatibility module providing Lua-5.3-style APIs for Lua 5.2 and 5.1"
+LICENSE = "MIT"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/LICENSE;md5=f82a99d8e5d8c6a7b58d24bd1d778967"
+HOMEPAGE = "https://github.com/keplerproject/lua-compat-5.3"
+
+PR = "r0"
+
+DEPENDS = "lua"
+
+SRC_URI = "https://github.com/keplerproject/lua-compat-5.3/archive/v${PV}.tar.gz \
+	file://lua-compat.pc \
+"
+
+SRC_URI[md5sum] = "46b7c1a6f20531be56445ebb8669a2b8"
+SRC_URI[sha256sum] = "6b360b8aa59bc5d68a96705349a0dd416f8ed704e931fa0ac7849298258f0f15"
+
+
+
+S = "${WORKDIR}/lua-compat-5.3-${PV}"
+SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
+luadir = "/lua/5.3"
+
+MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
+'LUA_LIBDIR=${D}${libdir}${luadir}' \
+'LUA_DIR=${D}${datadir}${luadir}' \
+'LUA_VERSION_NUM=503' \
+"
+
+
+do_compile () {
+}
+
+
+do_install () {
+#    oe_runmake ${MAKE_FLAGS} install
+#     install -d ${D}${libdir}/pkgconfig
+#    install -m 0644 ${WORKDIR}/lua-copas.pc ${D}${libdir}/pkgconfig/
+     cp -r ${S} ${WORKDIR}/
+}
+
+# FILES_${PN} = "${datadir}${luadir}/copas.lua 
+#	${datadir}${luadir}/copas 
+# "
+

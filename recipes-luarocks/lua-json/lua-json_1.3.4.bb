@@ -1,6 +1,6 @@
 DESCRIPTION = "customizable JSON decoder/encoder"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE;md5=bf7064a714513510018a46181cf261ae"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=ac0d9618a43915269abea2cb61c95cac"
 HOMEPAGE = "http://www.eharning.us/wiki/luajson/"
 
 PR = "r0"
@@ -10,8 +10,8 @@ SRC_URI = "https://github.com/harningt/luajson/archive/${PV}.tar.gz \
 	file://lua-json.pc \
 "
 
-SRC_URI[md5sum] = "e9f5454bef1e26c7cc0c3442c223cf9b"
-SRC_URI[sha256sum] = "6a986efa210a912a04c8e6cae8f3b5e72172c02f974152e14818af6598a5e2db"
+SRC_URI[md5sum] = "66ef8d00bcaeec91b25433a697090bc8"
+SRC_URI[sha256sum] = "aff67d64027f747b4611646fd0421802eda60397da9076e3f7fb17227e542e99"
 
 S = "${WORKDIR}/luajson-${PV}"
 luadir = "/lua/5.3"

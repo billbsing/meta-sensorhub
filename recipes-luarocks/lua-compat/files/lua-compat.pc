@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.3
+
+Name: lua-compat
+Description: Compatibility module providing Lua-5.3-style APIs for Lua 5.2 and 5.1
+Version: 0.6
+Requires: lua
+
+

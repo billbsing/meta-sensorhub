@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=8cea27c56ce851a51e816051857e2ca5"
 HOMEPAGE = "http://neopallium.github.com/lualogging/"
 
-PR = "1"
+PR = "2"
 
 DEPENDS = "lua lua-socket"
 
