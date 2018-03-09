@@ -83,8 +83,9 @@ RDEPENDS_${PN} = "lua-stdlib \
         lua-filesystem lua-lpeg lua-rings \
         lua-xavante lua-copas lua-cosmo lua-redis \
 	lua-luatz lua-md5 lua-telescope lua-openssl \
-	lua-azure-iot-hub lua-wsapi lua-lzmq zipctl-sigma \
+	lua-azure-iot-hub lua-wsapi lua-lzmq \
 "
+# zipctl-sigma 
 
 do_install () {
     oe_runmake \
