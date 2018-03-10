@@ -11,7 +11,7 @@ SRCREV = "${AUTOREV}"
 
 DEPENDS = "lua"
 
-SRC_URI = "git://github.com/lua-stdlib/normalize.git;branch=release-${PV};protocol=ssh \
+SRC_URI = "git://github.com/lua-stdlib/normalize.git;branch=release-v${PV};protocol=ssh \
 "
 
 # inherit autotools

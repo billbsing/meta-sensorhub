@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=ab6706baf6d39a6b0fa2613a3b0831e7"
 HOMEPAGE = "http://www.impa.br/~diego/software/luasocket"
 
-PR = ""
+PR = "1"
 SRCREV = "${AUTOREV}"
 
 DEPENDS = "lua"

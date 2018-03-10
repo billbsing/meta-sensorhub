@@ -13,7 +13,7 @@ PR = "r0"
 # INSTALL_VERSION="1.2.5-${PR}"
 INSTALL_VERSION="${PV}-${PR}"
 
-MAINTAINER="bill.barman@silverline.mobi"
+MAINTAINER="bill.barman@connectedlife.io"
 
 DEPENDS = "glib-2.0 lua \
 	lua-stdlib lua-posix \
@@ -21,7 +21,7 @@ DEPENDS = "glib-2.0 lua \
         lua-filesystem lua-lpeg lua-rings \
         lua-xavante lua-copas lua-coxpcall lua-cosmo lua-luatz lua-md5 \
 	lua-redis lua-telescope lua-openssl lua-azure-iot-hub lua-wsapi \
-	lua-lzmq \
+	lua-lzmq zipctl-sigma zipgateway\
 "
 # git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh 
 
@@ -84,15 +84,15 @@ RDEPENDS_${PN} = "lua-stdlib \
         lua-xavante lua-copas lua-cosmo lua-redis \
 	lua-luatz lua-md5 lua-telescope lua-openssl \
 	lua-azure-iot-hub lua-wsapi lua-lzmq \
+	zipctl-sigma zipgateway \
 "
-# zipctl-sigma 
 
 do_install () {
     oe_runmake \
         'INSTALL_TOP=${D}${prefix}' \
 	'INSTALL_MAN=${D}${mandir}/man1' \
   	'INSTALL_MACHINE=${MACHINE}'  \
-	'INSTALL_DISTRO=${DISTRO}' \
+	'INSTALL_DISTRO=ostro' \
         install
 
 
