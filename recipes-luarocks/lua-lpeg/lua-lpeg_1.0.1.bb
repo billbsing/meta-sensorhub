@@ -3,13 +3,13 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;beginline=1384;endline=1414;md5=edae3bad58030b744e197a59928f9bdc"
 HOMEPAGE = "http://www.keplerproject.org/md5/"
 
-PR = "r0"
+PR = "1"
 
 DEPENDS = "lua"
 
 SRC_URI = "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-${PV}.tar.gz;name=tarball \
 	http://www.inf.puc-rio.br/~roberto/lpeg/;name=license;downloadfilename=license_${PN}.html \
-	 file://makefile.patch \
+	file://makefile.patch  \
 	file://lua-lpeg.pc \
 "
 
@@ -29,11 +29,13 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
 'LUA_VERSION_NUM=503' \
 'LUA_INCLUDE=${SYSROOTS}${includedir}' \
-'COPT=-O2 -DLUA_C89_NUMBERS -DLUA_32BITS'  \
+'COPT=-DLUA_C89_NUMBERS -DLUA_32BITS' \
+'CFLAGS=$(COPT) -I$(LUA_LIBDIR) -fPIC' \
 "
-
 # 'COPT=-DLUA_32BITS' 
 # 'COPT=-O2 -DLUA_C89_NUMBERS' 
+# 'COPT=-DLUA_C89_NUMBERS -DLUA_32BITS'
+
 
 do_compile () {
     oe_runmake clean

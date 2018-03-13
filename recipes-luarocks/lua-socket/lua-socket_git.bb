@@ -11,7 +11,7 @@ DEPENDS = "lua"
 # SRC_URI = https://github.com/diegonehab/luasocket/archive/v${PV}-${PR}.tar.gz
 
 SRC_URI = "git://github.com/diegonehab/luasocket.git \
- 	file://makefile.patch \
+	file://makefile.patch \
 	file://lua-socket.pc \
 "
 
@@ -32,6 +32,7 @@ MAKE_FLAGS = "'prefix=${D}' \
 'LUAV=5.3' \
 'LUAINC_linux_base=${SYSROOTS}${includedir}' \
 'LUAINC_linux=${SYSROOTS}${includedir}' \
+'MYCFLAGS=-DLUA_C89_NUMBERS -DLUA_32BITS' \
 'GCC_linux=${CC}' \
 "
 

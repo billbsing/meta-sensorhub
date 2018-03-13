@@ -1,20 +1,23 @@
---- ./makefile.original	2018-03-07 09:29:54.263910827 +0800
-+++ ./makefile	2018-03-07 09:31:18.930690576 +0800
-@@ -1,7 +1,7 @@
+--- ./makefile.original	2018-03-13 11:36:40.858761786 +0800
++++ ./makefile	2018-03-13 11:37:16.678852398 +0800
+@@ -1,10 +1,10 @@
  LIBNAME = lpeg
 -LUADIR = ../lua/
-+LUADIR = ${LUA_DIR}
++LUADIR ?= $(LUA_LIB) 
  
 -COPT = -O2
 +COPT ?= -O2
  # COPT = -DLPEG_DEBUG -g
  
- CWARNS = -Wall -Wextra -pedantic \
-@@ -21,9 +21,8 @@
- 	-Wstrict-prototypes \
+-CWARNS = -Wall -Wextra -pedantic \
++CWARNS ?= -Wall -Wextra -pedantic \
+ 	-Waggregate-return \
+ 	-Wcast-align \
+ 	-Wcast-qual \
+@@ -22,8 +22,8 @@
  # -Wunreachable-code \
  
--
+ 
 -CFLAGS = $(CWARNS) $(COPT) -std=c99 -I$(LUADIR) -fPIC
 -CC = gcc
 +CFLAGS ?= $(CWARNS) $(COPT) -std=c99 -I$(LUADIR) -fPIC

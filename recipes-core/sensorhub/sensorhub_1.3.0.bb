@@ -25,7 +25,7 @@ DEPENDS = "glib-2.0 lua \
 "
 # git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh 
 
-SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;branch=lua53_migration;protocol=ssh;tag=v${PV} \
+SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;tag=v${PV} \
             file://sensorhub.pc \
 	    file://sensorhub-bluetooth-scanner.service \
 	    file://sensorhub-bluetooth.service \
@@ -74,6 +74,7 @@ EXTRA_OEMAKE = "'PREFIX=${D}${prefix}' \
 'SYSCONFDIR=${D}${sysconfdir}' \
 'DATA_DIR=${D}/var/lib/sensorhub' \
 'LIB_ZIP_PATH=${D}${libdir}' \
+'CFLAGS=-Wall -fPIC -DOS_LINUX -DLUA_C89_NUMBERS -DLUA_32BITS' \
 "
 
 
