@@ -21,19 +21,18 @@ DEPENDS = "glib-2.0 lua \
         lua-filesystem lua-lpeg lua-rings \
         lua-xavante lua-copas lua-coxpcall lua-cosmo lua-luatz lua-md5 \
 	lua-redis lua-telescope lua-openssl lua-azure-iot-hub lua-wsapi \
-	lua-lzmq zipctl-sigma zipgateway\
+	lua-lzmq \
+	zipctl-sigma zipgateway \
 "
 # git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh 
 
-SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;tag=v${PV} \
+SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;tag=v${PV};branch=SHDAP-removal \
             file://sensorhub.pc \
 	    file://sensorhub-bluetooth-scanner.service \
 	    file://sensorhub-bluetooth.service \
 	    file://sensorhub-data.service \
 	    file://sensorhub-network.service \
 	    file://sensorhub-watchdog.service \
-	    file://sensorhub-devices.service \
-	    file://shdapAPIServer.service \
 	    file://sensorhub-action.service \
 	    file://sensorhub-factory-reset.service \
 	    file://sensorhub-support.service \
@@ -70,10 +69,9 @@ EXTRA_OEMAKE = "'PREFIX=${D}${prefix}' \
 'CXX=${CXX}' \
 'INSTALL_DIR=${D}/opt/sensorhub' \
 'MACHINE=${MACHINE}' \
-'DISTOR=${DISTRO}' \
 'SYSCONFDIR=${D}${sysconfdir}' \
 'DATA_DIR=${D}/var/lib/sensorhub' \
-'LIB_ZIP_PATH=${D}${libdir}' \
+'LIB_ZIP_PATH=${STAGING_LIBDIR}${libdir}' \
 'CFLAGS=-Wall -fPIC -DOS_LINUX -DLUA_C89_NUMBERS -DLUA_32BITS' \
 "
 
@@ -93,7 +91,6 @@ do_install () {
         'INSTALL_TOP=${D}${prefix}' \
 	'INSTALL_MAN=${D}${mandir}/man1' \
   	'INSTALL_MACHINE=${MACHINE}'  \
-	'INSTALL_DISTRO=ostro' \
         install
 
 
@@ -111,24 +108,24 @@ do_install () {
     install -m 0644 ${WORKDIR}/sensorhub-data.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-network.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-watchdog.service ${D}${systemd_unitdir}/system/
-    install -m 0644 ${WORKDIR}/sensorhub-devices.service ${D}${systemd_unitdir}/system/
-    install -m 0644 ${WORKDIR}/shdapAPIServer.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-action.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-factory-reset.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-support.service ${D}${systemd_unitdir}/system/
 
     install -d ${D}${sysconfdir}
-    install -m 0644 ${S}/install/ostro/resetData/lighttpd.conf ${D}${sysconfdir}/
+    install -m 0644 ${S}/install/resetData/lighttpd.conf ${D}${sysconfdir}/
 
     install -d ${D}${sysconfdir}/cron.daily
-    install -m 0755 ${S}/install/ostro/resetData/cron.daily/autoupgrade ${D}${sysconfdir}/cron.daily/
+    install -m 0755 ${S}/install/resetData/cron.daily/autoupgrade ${D}${sysconfdir}/cron.daily/
 
     install -d ${D}${sysconfdir}/cron.weekly
-    install -m 0755 ${S}/install/ostro/resetData/cron.weekly/refreshTimezone ${D}${sysconfdir}/cron.weekly/
+    install -m 0755 ${S}/install/resetData/cron.weekly/refreshTimezone ${D}${sysconfdir}/cron.weekly/
 
     install -d ${D}${sysconfdir}/redis
-    install -m 0644 ${S}/install/ostro/resetData/redis/redis.conf ${D}${sysconfdir}/redis/
+    install -m 0644 ${S}/install/resetData/redis/redis.conf ${D}${sysconfdir}/redis/
 
+    install -d ${D}${sysconfdir}/zipgateway
+    install -m 0644 ${S}/install/resetData/zipgateway/* ${D}${sysconfdir}/zipgateway/
 }
 
 INSANE_SKIP_${PN} = "ldflags"
@@ -142,8 +139,6 @@ SYSTEMD_SERVICE_${PN} = "sensorhub-bluetooth.service  \
 	sensorhub-data.service  \
 	sensorhub-network.service  \
 	sensorhub-watchdog.service  \
-	sensorhub-devices.service  \
-	shdapAPIServer.service  \
 	sensorhub-action.service  \
 "
 
@@ -170,6 +165,7 @@ ${sysconfdir}/cron.daily/autoupgrade		\
 ${sysconfdir}/cron.weekly/refreshTimezone	\
 ${sysconfdir}/redis/redis.conf			\
 ${sysconfdir}/opkg/base-feeds.conf		\
+${sysconfdir}/zipgateway/*                      \
 "
 
 FILES_${PN}-dbg = "\

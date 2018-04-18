@@ -8,7 +8,8 @@ IMAGE_INSTALL +="opkg"
 IMAGE_INSTALL +="sensorhub"
 IMAGE_INSTALL +="haveged"
 IMAGE_INSTALL +="rsync"
-
+IMAGE_INSTALL += "zipctl-sigma"
+IMAGE_INSTALL += "zipgateway"
 
 
 SENSORHUB_ROOT_AUTHORIZED_KEYS ?= ""

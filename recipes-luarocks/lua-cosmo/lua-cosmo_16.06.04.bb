@@ -1,6 +1,6 @@
 DESCRIPTION = "Safe templates for Lua"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=72e037b382bf352dfbff16741bfe6631"
+LIC_FILES_CHKSUM = "file://${S}/doc/cosmo.md;beginline=439;md5=451281d9fca91244e983082ebbd6c808"
 HOMEPAGE = "http://cosmo.luaforge.net"
 
 PR = "r0"
@@ -8,7 +8,6 @@ PR = "r0"
 DEPENDS = "lua"
 
 SRC_URI = "https://github.com/mascarenhas/cosmo/archive/v${PV}.tar.gz;name=tarball \
-	http://cosmo.luaforge.net;name=license;downloadfilename=license.html;downloadfilename=license_${PN}.html \
 	file://lua-cosmo.pc \
 "
 
