@@ -1,0 +1,29 @@
+#!/bin/sh
+
+BINARY=/usr/bin/zipgateway
+CONFIG_FOLDER=/etc/zipgateway
+
+if [[ -f ${BINARY} ]]; then
+    echo "Starting ZIP Gateway"
+    iptables --policy INPUT ACCEPT
+    systemctl stop serial-getty@ttyS1.service
+    #To handle the case when eeprom.dat is not accessible on hard reboot
+    echo -n >> ${CONFIG_FOLDER}/eeprom.dat
+    if [ $? -eq 0 ];then
+	  ifconfig br-lan > /dev/null 2>&1 || {
+		brctl addbr br-lan
+	  }
+	  ifconfig br-lan up
+	  ifconfig br-lan 192.168.168.1
+  	  if [ ! -d /var/run/zipgateway ]; then
+	      mkdir /var/run/zipgateway
+	  fi
+	  /usr/sbin/udhcpd ${CONFIG_FOLDER}/udhcpd.conf
+	  ${BINARY} -c ${CONFIG_FOLDER}/zipgateway.cfg
+    else
+	  echo "Not able to open eeprom.dat file"
+    fi
+else
+    echo "Zipgateway is not present!"
+fi
+

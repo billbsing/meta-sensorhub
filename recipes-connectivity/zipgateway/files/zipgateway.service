@@ -1,0 +1,11 @@
+[Unit]
+Description=Zipgateway Service
+
+[Service]
+ExecStart=/bin/sh /usr/bin/zipgateway-start
+ExecStop=/bin/sh /usr/bin/zipgateway-stop
+Restart=always
+RestartSec=30
+
+[Install]
+WantedBy=multi-user.target

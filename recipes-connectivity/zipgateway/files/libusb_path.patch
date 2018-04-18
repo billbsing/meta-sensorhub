@@ -1,0 +1,12 @@
+diff -Naur zipgateway/usr/local/CMakeLists.txt zipgateway_mod/usr/local/CMakeLists.txt
+--- zipgateway/usr/local/CMakeLists.txt	2017-01-02 15:53:16.785973035 +0530
++++ zipgateway_mod/usr/local/CMakeLists.txt	2017-01-02 15:55:10.141979201 +0530
+@@ -42,7 +42,7 @@
+ #add_subdirectory( udprelay )
+ set(TS2_INCLUDE_DIRS "${LIBS2}/transport_service")
+ #add_subdirectory( ${TS2} transport_service ) 
+-
++set(LibUSB_LIBRARIES "${SYSROOT_PATH}/lib/libusb-1.0.so")
+ include(GetGitRevisionDescription)
+ 
+ git_describe(VERSION --tags)

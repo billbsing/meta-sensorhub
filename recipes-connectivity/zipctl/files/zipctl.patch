@@ -1,0 +1,288 @@
+diff -Naur zipctl-sigma/src/zwave/hcapi/demos/add_node/Makefile zipctl-sigma_mod/src/zwave/hcapi/demos/add_node/Makefile
+--- zipctl-sigma/src/zwave/hcapi/demos/add_node/Makefile	2015-09-04 13:58:39.000000000 +0530
++++ zipctl-sigma_mod/src/zwave/hcapi/demos/add_node/Makefile	2016-12-08 11:20:08.496281897 +0530
+@@ -2,8 +2,8 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
++#CC=gcc
++CFLAGS=-m32
+ LDFLAGS=
+ 
+ RM := rm -rf
+@@ -29,8 +29,8 @@
+ SRC_OBJS = add_node.o
+ 
+ LIB_FILES = \
+-../../src/libzip_ctl.a \
+-../../lib/libzip_api.a
++../../src/libzip_ctl.so \
++../../lib/libzip_api.so
+ 
+ LIB_PATH = -L"../../lib" -L"../../src"
+ 
+diff -Naur zipctl-sigma/src/zwave/hcapi/demos/basic/Makefile zipctl-sigma_mod/src/zwave/hcapi/demos/basic/Makefile
+--- zipctl-sigma/src/zwave/hcapi/demos/basic/Makefile	2015-09-04 13:58:39.000000000 +0530
++++ zipctl-sigma_mod/src/zwave/hcapi/demos/basic/Makefile	2016-12-08 11:20:29.048281529 +0530
+@@ -2,8 +2,8 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
++#CC=gcc
++CFLAGS=-m32
+ LDFLAGS=
+ 
+ RM := rm -rf
+@@ -29,8 +29,8 @@
+ SRC_OBJS = basic.o
+ 
+ LIB_FILES = \
+-../../src/libzip_ctl.a \
+-../../lib/libzip_api.a
++../../src/libzip_ctl.so \
++../../lib/libzip_api.so
+ 
+ LIB_PATH = -L"../../lib" -L"../../src"
+ 
+diff -Naur zipctl-sigma/src/zwave/hcapi/demos/bin_switch/Makefile zipctl-sigma_mod/src/zwave/hcapi/demos/bin_switch/Makefile
+--- zipctl-sigma/src/zwave/hcapi/demos/bin_switch/Makefile	2015-09-04 13:58:39.000000000 +0530
++++ zipctl-sigma_mod/src/zwave/hcapi/demos/bin_switch/Makefile	2016-12-08 11:20:52.224281113 +0530
+@@ -2,8 +2,8 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
++#CC=gcc
++CFLAGS=-m32
+ LDFLAGS=
+ 
+ RM := rm -rf
+@@ -29,8 +29,8 @@
+ SRC_OBJS = bin_switch.o
+ 
+ LIB_FILES = \
+-../../src/libzip_ctl.a \
+-../../lib/libzip_api.a
++../../src/libzip_ctl.so \
++../../lib/libzip_api.so
+ 
+ LIB_PATH = -L"../../lib" -L"../../src"
+ 
+diff -Naur zipctl-sigma/src/zwave/hcapi/demos/gw_discovery/Makefile zipctl-sigma_mod/src/zwave/hcapi/demos/gw_discovery/Makefile
+--- zipctl-sigma/src/zwave/hcapi/demos/gw_discovery/Makefile	2015-09-04 13:58:39.000000000 +0530
++++ zipctl-sigma_mod/src/zwave/hcapi/demos/gw_discovery/Makefile	2016-12-08 11:21:12.004280759 +0530
+@@ -2,8 +2,8 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
++#CC=gcc
++CFLAGS=-m32
+ LDFLAGS=
+ 
+ RM := rm -rf
+@@ -29,8 +29,8 @@
+ SRC_OBJS = gw_discovery.o
+ 
+ LIB_FILES = \
+-../../src/libzip_ctl.a \
+-../../lib/libzip_api.a
++../../src/libzip_ctl.so \
++../../lib/libzip_api.so
+ 
+ LIB_PATH = -L"../../lib" -L"../../src"
+ 
+diff -Naur zipctl-sigma/src/zwave/hcapi/demos/nw_reset/Makefile zipctl-sigma_mod/src/zwave/hcapi/demos/nw_reset/Makefile
+--- zipctl-sigma/src/zwave/hcapi/demos/nw_reset/Makefile	2015-09-04 13:58:39.000000000 +0530
++++ zipctl-sigma_mod/src/zwave/hcapi/demos/nw_reset/Makefile	2016-12-08 11:21:27.572280480 +0530
+@@ -2,8 +2,8 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
++#CC=gcc
++CFLAGS=-m32
+ LDFLAGS=
+ 
+ RM := rm -rf
+@@ -29,8 +29,8 @@
+ SRC_OBJS = nw_reset.o
+ 
+ LIB_FILES = \
+-../../src/libzip_ctl.a \
+-../../lib/libzip_api.a
++../../src/libzip_ctl.so \
++../../lib/libzip_api.so
+ 
+ LIB_PATH = -L"../../lib" -L"../../src"
+ 
+diff -Naur zipctl-sigma/src/zwave/hcapi/demos/rm_node/Makefile zipctl-sigma_mod/src/zwave/hcapi/demos/rm_node/Makefile
+--- zipctl-sigma/src/zwave/hcapi/demos/rm_node/Makefile	2015-09-04 13:58:39.000000000 +0530
++++ zipctl-sigma_mod/src/zwave/hcapi/demos/rm_node/Makefile	2016-12-08 11:21:47.976280115 +0530
+@@ -2,8 +2,8 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
++#CC=gcc
++CFLAGS=-m32
+ LDFLAGS=
+ 
+ RM := rm -rf
+@@ -29,8 +29,8 @@
+ SRC_OBJS = rm_node.o
+ 
+ LIB_FILES = \
+-../../src/libzip_ctl.a \
+-../../lib/libzip_api.a
++../../src/libzip_ctl.so \
++../../lib/libzip_api.so
+ 
+ LIB_PATH = -L"../../lib" -L"../../src"
+ 
+diff -Naur zipctl-sigma/src/zwave/hcapi/lib/Makefile zipctl-sigma_mod/src/zwave/hcapi/lib/Makefile
+--- zipctl-sigma/src/zwave/hcapi/lib/Makefile	2015-02-13 09:08:18.000000000 +0530
++++ zipctl-sigma_mod/src/zwave/hcapi/lib/Makefile	2016-12-08 11:18:17.336283887 +0530
+@@ -2,8 +2,8 @@
+ # Makefile to make zip api library
+ ################################################################################
+ 
+-CC=gcc
+-AR=ar
++#CC=gcc
++#AR=ar
+ CFLAGS=
+ 
+ 
+@@ -17,6 +17,7 @@
+ zip_transport.o \
+ zip_util.o
+ 
++LIB_FILES += ../../openssl/install/lib/libssl.a
+ 
+ ifneq (,$(findstring DTCP_PORTAL,$(CFLAGS)))
+ 	LIB_OBJS += zip_tls_server.o
+@@ -40,9 +41,9 @@
+ ../include/zwave/ZW_classcmd.h
+ 
+ ifneq (,$(findstring CONFIG_DEBUG,$(CFLAGS)))
+-	COMPILE_OPTION = -g -O0
++	COMPILE_OPTION = -g -O0 -fPIC
+ else
+-	COMPILE_OPTION = -O2
++	COMPILE_OPTION = -O2 -fPIC
+ endif
+ 
+ ifneq (,$(findstring DUSE_OPENSSL,$(CFLAGS)))
+@@ -56,12 +57,12 @@
+ COMPILE_OPTION += -DCERT_SERIAL_NUM -DSSL_TXRX_LOCK
+ else ifneq (,$(findstring DZIP_V2,$(CFLAGS)))
+ INCLUDE_PATH =  \
+--I../../cyassl-3.2.0/install/include/
++#-I../../cyassl-3.2.0/install/include/
+ endif
+ 
+ 
+ # All Target
+-all: libzip_api.a
++all: libzip_api.so
+ 
+ # Compile c source file
+ %.o: %.c $(LIB_HEADERS)
+@@ -71,9 +72,9 @@
+ 	@echo ' '
+ 
+ # Tool invocations
+-libzip_api.a: $(LIB_OBJS)
++libzip_api.so: $(LIB_OBJS) $(LIB_FILES)
+ 	@echo 'Building target: $@'
+-	$(AR) -r "libzip_api.a" $(LIB_OBJS)
++	$(CC) -shared -o "libzip_api.so" $(LIB_OBJS)  $(LIB_FILES) -lssl
+ 	@echo 'Finished building target: $@'
+ 	@echo ' '
+ 
+@@ -81,7 +82,7 @@
+ # Other Targets
+ clean:
+ 	-$(RM) *.o
+-	-$(RM) libzip_api.a
++	-$(RM) libzip_api.so
+ 	-@echo ' '
+ 
+ .PHONY: all clean
+diff -Naur zipctl-sigma/src/zwave/hcapi/src/Makefile zipctl-sigma_mod/src/zwave/hcapi/src/Makefile
+--- zipctl-sigma/src/zwave/hcapi/src/Makefile	2016-09-16 09:29:36.000000000 +0530
++++ zipctl-sigma_mod/src/zwave/hcapi/src/Makefile	2016-12-08 12:00:30.428238524 +0530
+@@ -2,8 +2,8 @@
+ # Makefile to make zipctl library
+ ################################################################################
+ 
+-CC=gcc
+-AR=ar
++#CC=gcc
++#AR=ar
+ CFLAGS=
+ 
+ RM := rm -rf
+@@ -41,9 +41,9 @@
+  ../include/zwave/ZW_transport_api.h ../include/zwave/ZW_classcmd.h
+ 
+ ifneq (,$(findstring CONFIG_DEBUG,$(CFLAGS)))
+-	COMPILE_OPTION = -g -O0
++	COMPILE_OPTION = -g -O0 -fPIC
+ else
+-	COMPILE_OPTION = -O2
++	COMPILE_OPTION = -O2 -fPIC
+ endif
+ 
+ INCLUDE_PATH =
+@@ -52,7 +52,7 @@
+ endif
+ 
+ # All Target
+-all: libzip_ctl.a
++all: libzip_ctl.so
+ 
+ # Compile c source file
+ %.o: %.c $(LIB_HEADERS)
+@@ -62,9 +62,9 @@
+ 	@echo ' '
+ 
+ # Tool invocations
+-libzip_ctl.a: $(LIB_OBJS)
++libzip_ctl.so: $(LIB_OBJS)
+ 	@echo 'Building target: $@'
+-	$(AR) -r "libzip_ctl.a" $(LIB_OBJS)
++	$(CC) -shared -o "libzip_ctl.so" $(LIB_OBJS)
+ 	@echo 'Finished building target: $@'
+ 	@echo ' '
+ 
+@@ -72,7 +72,7 @@
+ # Other Targets
+ clean:
+ 	-$(RM) *.o
+-	-$(RM) libzip_ctl.a
++	-$(RM) libzip_ctl.so
+ 	-@echo ' '
+ 
+ .PHONY: all clean
+diff -Naur zipctl-sigma/src/zwave/openssl-1.0.2g/config zipctl-sigma_mod/src/zwave/openssl-1.0.2g/config
+--- zipctl-sigma/src/zwave/openssl-1.0.2g/config	2016-03-01 19:05:53.000000000 +0530
++++ zipctl-sigma_mod/src/zwave/openssl-1.0.2g/config	2016-12-08 11:22:22.432279498 +0530
+@@ -48,7 +48,7 @@
+ 
+ # First get uname entries that we use below
+ 
+-[ "$MACHINE" ] || MACHINE=`(uname -m) 2>/dev/null` || MACHINE="unknown"
++#[ "$MACHINE" ] || MACHINE=`(uname -m) 2>/dev/null` || MACHINE="unknown"
+ [ "$RELEASE" ] || RELEASE=`(uname -r) 2>/dev/null` || RELEASE="unknown"
+ [ "$SYSTEM" ] || SYSTEM=`(uname -s) 2>/dev/null`  || SYSTEM="unknown"
+ [ "$BUILD" ] || VERSION=`(uname -v) 2>/dev/null` || VERSION="unknown"

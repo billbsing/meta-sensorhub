@@ -1,0 +1,23 @@
+diff -Naur zipgateway/usr/local/CMakeLists.txt zipgateway_mod/usr/local/CMakeLists.txt
+--- zipgateway/usr/local/CMakeLists.txt	2017-01-02 15:47:07.409952942 +0530
++++ zipgateway_mod/usr/local/CMakeLists.txt	2017-01-02 15:51:59.165968813 +0530
+@@ -39,7 +39,7 @@
+ set(TS2 "${LIBS2}/transport_service")
+ set(TS2_SRC ${TS2}/transport_service2.c ${TS2}/transport2_fsm.c)
+ add_subdirectory( ${LIBS2} libs2 )
+-add_subdirectory( udprelay )
++#add_subdirectory( udprelay )
+ set(TS2_INCLUDE_DIRS "${LIBS2}/transport_service")
+ #add_subdirectory( ${TS2} transport_service ) 
+ 
+@@ -227,8 +227,8 @@
+   GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+ install(FILES WRTpackage/files/ZIPR.key_1024.pem DESTINATION ${CMAKE_INSTALL_PREFIX}/etc PERMISSIONS  OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ
+   GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+-install(FILES ${CMAKE_BINARY_DIR}/udprelay/udprelay DESTINATION ${CMAKE_INSTALL_PREFIX}/sbin PERMISSIONS  OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ
+-  GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
++#install(FILES ${CMAKE_BINARY_DIR}/udprelay/udprelay DESTINATION ${CMAKE_INSTALL_PREFIX}/sbin PERMISSIONS  OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ
++ # GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+ 
+ 
+ install(FILES files/zipgateway.cfg DESTINATION ${CMAKE_INSTALL_PREFIX}/etc)

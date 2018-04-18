@@ -1,0 +1,13 @@
+#!/bin/sh
+killall ziggateway
+killall udhcpd
+ifconfig br-lan down
+brctl delbr br-lan
+systemctl start serial-getty@ttyS1.service
+ifconfig tap0 down
+if [ -d /var/run/zipgateway ]; then
+	rm -rf /var/run/zipgateway
+fi
+
+
+
