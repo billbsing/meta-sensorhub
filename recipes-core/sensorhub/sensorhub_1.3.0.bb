@@ -12,6 +12,7 @@ PR = "r0"
 
 # INSTALL_VERSION="1.2.5-${PR}"
 INSTALL_VERSION="${PV}-${PR}"
+GIT_BRANCH="development"
 
 MAINTAINER="bill.barman@connectedlife.io"
 
@@ -22,11 +23,11 @@ DEPENDS = "glib-2.0 lua \
         lua-xavante lua-copas lua-coxpcall lua-cosmo lua-luatz lua-md5 \
 	lua-redis lua-telescope lua-openssl lua-azure-iot-hub lua-wsapi \
 	lua-lzmq \
-	zipctl-sigma zipgateway \
+	zipctl zipgateway \
 "
 # git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh 
 
-SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;tag=v${PV};branch=SHDAP-removal \
+SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;tag=v${PV};branch=${GIT_BRANCH} \
             file://sensorhub.pc \
 	    file://sensorhub-bluetooth-scanner.service \
 	    file://sensorhub-bluetooth.service \
@@ -36,6 +37,7 @@ SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=
 	    file://sensorhub-action.service \
 	    file://sensorhub-factory-reset.service \
 	    file://sensorhub-support.service \
+	    file://sensorhub-zwave.service \
 "
 
 SRC_URI[md5sum] = "dc7f94ec6ff15c985d2d6ad0f1b35654"
@@ -71,8 +73,9 @@ EXTRA_OEMAKE = "'PREFIX=${D}${prefix}' \
 'MACHINE=${MACHINE}' \
 'SYSCONFDIR=${D}${sysconfdir}' \
 'DATA_DIR=${D}/var/lib/sensorhub' \
-'LIB_ZIP_PATH=${STAGING_LIBDIR}${libdir}' \
+'LIB_ZIP_PATH=${STAGING_LIBDIR}' \
 'CFLAGS=-Wall -fPIC -DOS_LINUX -DLUA_C89_NUMBERS -DLUA_32BITS' \
+'ZIP_INC=${STAGING_INCDIR}/zipctl' \
 "
 
 
@@ -83,7 +86,7 @@ RDEPENDS_${PN} = "lua-stdlib \
         lua-xavante lua-copas lua-cosmo lua-redis \
 	lua-luatz lua-md5 lua-telescope lua-openssl \
 	lua-azure-iot-hub lua-wsapi lua-lzmq \
-	zipctl-sigma zipgateway \
+	zipctl-staticdev zipgateway \
 "
 
 do_install () {
@@ -111,6 +114,7 @@ do_install () {
     install -m 0644 ${WORKDIR}/sensorhub-action.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-factory-reset.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-support.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-zwave.service ${D}${systemd_unitdir}/system/
 
     install -d ${D}${sysconfdir}
     install -m 0644 ${S}/install/resetData/lighttpd.conf ${D}${sysconfdir}/
@@ -128,9 +132,8 @@ do_install () {
     install -m 0644 ${S}/install/resetData/zipgateway/* ${D}${sysconfdir}/zipgateway/
 }
 
-INSANE_SKIP_${PN} = "ldflags"
-INSANE_SKIP_${PN}-dev = "ldflags"
-
+# INSANE_SKIP_${PN} = "ldflags"
+# INSANE_SKIP_${PN}-dev = "ldflags"
 inherit systemd
 
 SYSTEMD_PACKAGES = "${PN}"
@@ -140,6 +143,7 @@ SYSTEMD_SERVICE_${PN} = "sensorhub-bluetooth.service  \
 	sensorhub-network.service  \
 	sensorhub-watchdog.service  \
 	sensorhub-action.service  \
+	sensorhub-zwave.service  \
 "
 
 SYSTEMD_AUTO_ENABLE = "enable"
@@ -147,6 +151,7 @@ SYSTEMD_DEFAULT_TARGET="multi-user.target"
 
 
 FILES_${PN} = "${libdir}${luadir}/*.so  \
+${datadir}${luadir}/zwave/*  \
 /opt/sensorhub/devices/*  	\
 /opt/sensorhub/static/*	  	\
 /opt/sensorhub/tools/*    	\

@@ -1,5 +1,6 @@
 SUMMARY = "First boot script for Sensorhub"
-LICENSE = "WTFPL"
+LICENSE = "CLOSED"
+# LICENSE = "WTFPL"
 
 LIC_FILES_CHKSUM = "file://../COPYING.TXT;md5=086d912e268bb12027b04eac81622e3d"
 

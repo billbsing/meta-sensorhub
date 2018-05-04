@@ -1,0 +1,15 @@
+--- a/zipgateway/usr/local/pkgconfig.h	2018-04-28 10:25:26.142012274 +0800
++++ b/zipgateway/usr/local/pkgconfig.h	2018-04-28 10:25:50.189757845 +0800
+@@ -6,10 +6,10 @@
+ /* #undef NO_ZW_NVM */
+ 
+ /* directory for local state (default /var) */
+-#define  INSTALL_LOCALSTATEDIR "/usr/local/var"
++#define  INSTALL_LOCALSTATEDIR "/var"
+ 
+ /* directory for config files (default /etc) */
+-#define INSTALL_SYSCONFDIR "/usr/local/etc"
++#define INSTALL_SYSCONFDIR "/etc"
+ 
+ /* Define to the full name of this package. */
+ #define PACKAGE_NAME "zipgateway"

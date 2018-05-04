@@ -2,12 +2,12 @@ prefix=/usr
 
 Name: SensorHub 
 Description: ConectedLife Sensor Hub
-Version: 0.57
+Version: 1.3
 Requires: lua sqlite3 libopenzwave lighttpd redis lua-stdlib lua-posix \
         lua-json lua-etlua lua-socket lua-logging \
         lua-filesystem lua-lpeg lua-rings lua-wsapi \
         lua-xavante lua-copas lua-cosmo lua-luatz \
 	lua-md5 lua-redis lua-openssl lua-azure-iot-hub \
-	lua-lzmq
+	lua-lzmq zipctl zipgateway
 
 

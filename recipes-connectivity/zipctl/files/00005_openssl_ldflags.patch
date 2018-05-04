@@ -1,0 +1,11 @@
+--- a/zipctl/src/zwave/openssl/Makefile.shared	2018-05-03 13:03:50.077455375 +0800
++++ b/zipctl/src/zwave/openssl/Makefile.shared	2018-05-03 13:04:07.033179006 +0800
+@@ -11,7 +11,7 @@
+ # LDFLAGS contains flags to be used when temporary object files (when building
+ # shared libraries) are created, or when an application is linked.
+ # SHARED_LDFLAGS contains flags to be used when the shared library is created.
+-LDFLAGS=
++LDFLAGS ?=
+ SHARED_LDFLAGS=
+ 
+ NM=nm

@@ -1,0 +1,13 @@
+ABORT "BUSY"
+ABORT "NO CARRIER"
+ABORT "NO DIALTONE"
+ABORT "ERROR"
+ABORT "NO ANSWER"
+TIMEOUT 120
+"" AT
+OK \rATZ
+# Connection to the network
+OK \r@/etc/ppp/apn
+# Dial the number
+OK-AT-OK ATDT*99#
+CONNECT /d/c

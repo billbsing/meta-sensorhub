@@ -1,0 +1,13 @@
+diff --git a/zipctl/src/zwave/hcapi/build_openssl_lib.sh b/zipctl/src/zwave/hcapi/build_openssl_lib.sh
+index aad5ba2..089c252 100644
+--- a/zipctl/src/zwave/hcapi/build_openssl_lib.sh
++++ b/zipctl/src/zwave/hcapi/build_openssl_lib.sh
+@@ -31,6 +31,8 @@ function update_shared_lib_ver
+ 	
+ 	sed -i -e "s/SHLIB_VERSION_NUMBER=1.0.0/SHLIB_VERSION_NUMBER=${MAJOR}.${MINOR}/" Makefile #reflect major version in final shlib name (disambiguation)
+ 	sed -i -e "s/SHLIB_MINOR=0.0/SHLIB_MINOR=${MINOR}/" Makefile #reflect  minor version in final shlib name (disambiguation)
++	sed -i -e "s/SHLIB_EXT=/SHLIB_EXT=-zipctl/" Makefile #make library name for zipctl
++	sed -i -e "s/^SHARED_LDFLAGS=/SHARED_LDFLAGS=${LDFLAGS}/" Makefile
+ }
+ 
+ opt_shared="no-shared" #optional shared/no-shared argument, default value is no-shared

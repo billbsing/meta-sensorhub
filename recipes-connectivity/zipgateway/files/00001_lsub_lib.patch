@@ -1,0 +1,10 @@
+--- a/zipgateway/usr/local/CMakeLists.txt	2018-04-25 11:33:46.153147297 +0800
++++ b/zipgateway/usr/local/CMakeLists.txt	2018-04-25 11:35:17.544091896 +0800
+@@ -127,6 +127,7 @@
+ add_subdirectory( test )
+ set(TS2_INCLUDE_DIRS "${LIBS2}/transport_service")
+ #add_subdirectory( ${TS2} transport_service ) 
++set(LibUSB_LIBRARIES "${SYSROOT_PATH}/lib/libusb-1.0.so")
+ 
+ include(GetGitRevisionDescription)
+ 

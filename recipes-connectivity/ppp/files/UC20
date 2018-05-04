@@ -1,0 +1,6 @@
+#/etc/ppp/peers/wcdma
+# Usage:root>pppd call wcdma
+# The chat script (be sure to edit that file,too!)
+connect '/usr/sbin/chat -s -v -f /etc/ppp/peers/wcdma-chat-connect'
+# The close script(be sure to edit that file,too!)
+disconnect '/usr/sbin/chat -s -v -f /etc/ppp/peers/wcdma-chat-disconnect'

@@ -1,0 +1,119 @@
+diff --git a/zipctl/src/zwave/hcapi/demos/add_node/Makefile b/zipctl/src/zwave/hcapi/demos/add_node/Makefile
+index 9d72da9..bac51d1 100644
+--- a/zipctl/src/zwave/hcapi/demos/add_node/Makefile
++++ b/zipctl/src/zwave/hcapi/demos/add_node/Makefile
+@@ -2,9 +2,9 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
+-LDFLAGS=
++CC ?=gcc
++CFLAGS ?=
++LDFLAGS ?=
+ 
+ RM := rm -rf
+ 
+diff --git a/zipctl/src/zwave/hcapi/demos/basic/Makefile b/zipctl/src/zwave/hcapi/demos/basic/Makefile
+index 698b8a0..3509952 100644
+--- a/zipctl/src/zwave/hcapi/demos/basic/Makefile
++++ b/zipctl/src/zwave/hcapi/demos/basic/Makefile
+@@ -2,9 +2,9 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
+-LDFLAGS=
++CC ?=gcc
++CFLAGS ?=
++LDFLAGS ?=
+ 
+ RM := rm -rf
+ 
+diff --git a/zipctl/src/zwave/hcapi/demos/bin_sensor/Makefile b/zipctl/src/zwave/hcapi/demos/bin_sensor/Makefile
+index fe394e3..f36347d 100644
+--- a/zipctl/src/zwave/hcapi/demos/bin_sensor/Makefile
++++ b/zipctl/src/zwave/hcapi/demos/bin_sensor/Makefile
+@@ -2,9 +2,9 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
+-LDFLAGS=
++CC ?=gcc
++CFLAGS ?=
++LDFLAGS ?=
+ 
+ RM := rm -rf
+ 
+diff --git a/zipctl/src/zwave/hcapi/demos/bin_switch/Makefile b/zipctl/src/zwave/hcapi/demos/bin_switch/Makefile
+index ed3edf0..253aa42 100644
+--- a/zipctl/src/zwave/hcapi/demos/bin_switch/Makefile
++++ b/zipctl/src/zwave/hcapi/demos/bin_switch/Makefile
+@@ -2,9 +2,9 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
+-LDFLAGS=
++CC ?=gcc
++CFLAGS ?=
++LDFLAGS ?=
+ 
+ RM := rm -rf
+ 
+diff --git a/zipctl/src/zwave/hcapi/demos/gw_discovery/Makefile b/zipctl/src/zwave/hcapi/demos/gw_discovery/Makefile
+index 9ecc492..292f5af 100644
+--- a/zipctl/src/zwave/hcapi/demos/gw_discovery/Makefile
++++ b/zipctl/src/zwave/hcapi/demos/gw_discovery/Makefile
+@@ -2,9 +2,9 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
+-LDFLAGS=
++CC ?=gcc
++CFLAGS ?=
++LDFLAGS ?=
+ 
+ RM := rm -rf
+ 
+diff --git a/zipctl/src/zwave/hcapi/demos/nw_reset/Makefile b/zipctl/src/zwave/hcapi/demos/nw_reset/Makefile
+index 3ce2694..4adbe19 100644
+--- a/zipctl/src/zwave/hcapi/demos/nw_reset/Makefile
++++ b/zipctl/src/zwave/hcapi/demos/nw_reset/Makefile
+@@ -2,9 +2,9 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
+-LDFLAGS=
++CC ?=gcc
++CFLAGS ?=
++LDFLAGS ?=
+ 
+ RM := rm -rf
+ 
+diff --git a/zipctl/src/zwave/hcapi/demos/rm_node/Makefile b/zipctl/src/zwave/hcapi/demos/rm_node/Makefile
+index e1e779c..bc53733 100644
+--- a/zipctl/src/zwave/hcapi/demos/rm_node/Makefile
++++ b/zipctl/src/zwave/hcapi/demos/rm_node/Makefile
+@@ -2,9 +2,9 @@
+ # Makefile to make sample application
+ ################################################################################
+ 
+-CC=gcc
+-CFLAGS=
+-LDFLAGS=
++CC ?=gcc
++CFLAGS ?=
++LDFLAGS ?=
+ 
+ RM := rm -rf
+ 

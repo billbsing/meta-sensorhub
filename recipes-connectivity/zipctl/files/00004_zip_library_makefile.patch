@@ -1,0 +1,36 @@
+diff --git a/zipctl/src/zwave/hcapi/lib/Makefile b/zipctl/src/zwave/hcapi/lib/Makefile
+index 9e59ace..2003406 100644
+--- a/zipctl/src/zwave/hcapi/lib/Makefile
++++ b/zipctl/src/zwave/hcapi/lib/Makefile
+@@ -2,9 +2,10 @@
+ # Makefile to make zip api library
+ ################################################################################
+ 
+-CC=gcc
+-AR=ar
+-CFLAGS=
++CC ?=gcc
++AR ?=ar
++CFLAGS ?=
++LDFLAGS ?=
+ 
+ 
+ RM := rm -rf
+diff --git a/zipctl/src/zwave/hcapi/src/Makefile b/zipctl/src/zwave/hcapi/src/Makefile
+index 1fed70a..66efcfa 100644
+--- a/zipctl/src/zwave/hcapi/src/Makefile
++++ b/zipctl/src/zwave/hcapi/src/Makefile
+@@ -2,9 +2,10 @@
+ # Makefile to make zipctl library
+ ################################################################################
+ 
+-CC=gcc
+-AR=ar
+-CFLAGS=
++CC ?=gcc
++AR ?=ar
++CFLAGS ?=
++LDFLAGS ?=
+ 
+ RM := rm -rf
+ 

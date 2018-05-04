@@ -1,0 +1,12 @@
+diff -Naur zipctl/src/zwave/openssl/config zipctl/src/zwave/openssl/config
+--- zipctl/src/zwave/openssl/config	2016-03-01 19:05:53.000000000 +0530
++++ zipctl/src/zwave/openssl/config	2016-12-08 11:22:22.432279498 +0530
+@@ -48,7 +48,7 @@
+ 
+ # First get uname entries that we use below
+ 
+-[ "$MACHINE" ] || MACHINE=`(uname -m) 2>/dev/null` || MACHINE="unknown"
++#[ "$MACHINE" ] || MACHINE=`(uname -m) 2>/dev/null` || MACHINE="unknown"
+ [ "$RELEASE" ] || RELEASE=`(uname -r) 2>/dev/null` || RELEASE="unknown"
+ [ "$SYSTEM" ] || SYSTEM=`(uname -s) 2>/dev/null`  || SYSTEM="unknown"
+ [ "$BUILD" ] || VERSION=`(uname -v) 2>/dev/null` || VERSION="unknown"
