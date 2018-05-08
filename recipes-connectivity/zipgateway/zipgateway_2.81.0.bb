@@ -12,7 +12,7 @@ SRC_URI = "  \
 	file://zipgateway \
 	file://zipgateway.cfg \
 	file://zipgateway.service \
-	file://zipgateway.sh \
+	file://zipgateway.init \
 	file://zipgateway.tun \
 "
 
@@ -48,7 +48,7 @@ do_install() {
 	touch ${D}${sysconfdir}/zipgateway/eeprom.dat
 	chmod 755 ${D}${sysconfdir}/zipgateway/eeprom.dat
 	install -m 0755 ${S}/${PN}/usr/local/build/zipgateway ${D}${bindir}/zipgatewayd
-	install -m 0644 zipgateway.tun ${D}${sysconfdir}/zipgateway
+	install -m 0755 zipgateway.tun ${D}${sysconfdir}/zipgateway
 	install -m 0644 ${S}/${PN}/usr/local/WRTpackage/files/*.pem ${D}${sysconfdir}/zipgateway
 	install -m 0644 zipgateway.cfg ${D}${sysconfdir}/zipgateway
 #	install -m 0644 command_class.cfg ${D}${sysconfdir}/zipgateway
@@ -56,9 +56,9 @@ do_install() {
 	install -d ${D}/${systemd_unitdir}/system
 	install -m 0644 ${S}/zipgateway.service ${D}${systemd_unitdir}/system/
 
-	# install -d ${D}${sysconfdir}/init.d/
-	# install -m 0755 ${S}/zipgateway.sh ${D}${sysconfdir}/init.d/zipgateway
-	install -m 0755 ${S}/zipgateway.sh ${D}${bindir}/zipgateway
+	install -d ${D}${sysconfdir}/init.d/
+	install -m 0755 ${S}/zipgateway.init ${D}${sysconfdir}/init.d/zipgateway
+	# install -m 0755 ${S}/zipgateway.sh ${D}${bindir}/zipgateway
 }
 
 

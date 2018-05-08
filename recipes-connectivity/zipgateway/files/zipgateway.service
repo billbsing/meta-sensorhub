@@ -2,8 +2,8 @@
 Description=Zipgateway Service
 
 [Service]
-ExecStart=/bin/sh /usr/bin/zipgateway start
-ExecStop=/bin/sh /usr/bin/zipgateway stop
+ExecStart=/etc/init.d/zipgateway start
+ExecStop=/etc/init.d/zipgateway stop
 Restart=always
 RestartSec=30
 

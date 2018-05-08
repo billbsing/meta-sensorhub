@@ -86,7 +86,7 @@ RDEPENDS_${PN} = "lua-stdlib \
         lua-xavante lua-copas lua-cosmo lua-redis \
 	lua-luatz lua-md5 lua-telescope lua-openssl \
 	lua-azure-iot-hub lua-wsapi lua-lzmq \
-	zipctl-staticdev zipgateway \
+	zipctl zipgateway \
 "
 
 do_install () {
