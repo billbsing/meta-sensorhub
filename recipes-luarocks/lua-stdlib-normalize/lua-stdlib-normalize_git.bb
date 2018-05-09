@@ -11,16 +11,17 @@ SRCREV = "${AUTOREV}"
 
 DEPENDS = "lua"
 
-SRC_URI = "https://github.com/lua-stdlib/normalize/archive/v${PV}.tar.gz"
+SRC_URI = "https://github.com/lua-stdlib/normalize.git;branch=master"
 
 # inherit autotools
 
-SRC_URI[md5sum] = "f7dbd9f3ba95a4e8fd7821fb6c1a0c57"
-SRC_URI[sha256sum] = "4ab752a0eeb9e63dbdf54fdc63e33108daca4a728119fd0d68f639e3fe3e6561"
+SRC_URI[md5sum] = "0dce234d071aa1c5657e5c7e1c546978"
+SRC_URI[sha256sum] = "221d9098b4e599ab452bb0014f9edf466a46c3d813e87024767bcedc17b4c3e7"
 
 S = "${WORKDIR}/git"
 
 luadir = "/lua/5.3"
+LUA_VERSION="5.3"
 
 do_cleanall() {
 }
@@ -38,8 +39,7 @@ do_install () {
     echo 'return "Normalized Lua Functions / ${PV}"' > ${D}${datadir}${luadir}/std/normalize/version.lua
 }
 
-FILES_${PN} = "${datadir}${luadir}/std/normalize \
-"
+FILES_${PN} = "${datadir}${luadir}/std/normalize"
 
 
 RDEPEND="lua lua-stdlib"
