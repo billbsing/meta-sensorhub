@@ -1,6 +1,6 @@
 DESCRIPTION = "General Lua Libraries"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=00aa136d1f9efcc612951f8263e10f34"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=e25438b85d7bc8eb1d49da526a62bd41"
 HOMEPAGE = "https://github.com/lua-stdlib/normalize"
 
 PR = "r0"
@@ -11,7 +11,7 @@ SRCREV = "${AUTOREV}"
 
 DEPENDS = "lua"
 
-SRC_URI = "https://github.com/lua-stdlib/normalize.git;branch=master"
+SRC_URI = "git://github.com/lua-stdlib/normalize.git"
 
 # inherit autotools
 

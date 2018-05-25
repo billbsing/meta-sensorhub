@@ -11,6 +11,11 @@ IMAGE_INSTALL +="rsync"
 # IMAGE_INSTALL += "zipctl"
 IMAGE_INSTALL += "zipgateway"
 
+# for zwave investigations
+# IMAGE_INSTALL += "tshark"
+IMAGE_INSTALL += "tcpdump"
+
+
 
 SENSORHUB_ROOT_AUTHORIZED_KEYS ?= ""
 ROOTFS_POSTPROCESS_COMMAND += "sensorhub_root_authorized_keys; "

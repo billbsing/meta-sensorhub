@@ -1,31 +1,31 @@
 #!/bin/sh
+BRIDGE=br-lan
 
 case "$1" in
-  up)
-    ifconfig $TUNDEV | grep "\s*UP" > /dev/null || {
-      ifconfig $TUNDEV up
-    }
-    brctl addif br-lan $TUNDEV
-    sh -c "while true;
-              do
-                 pidof zipgateway || break;
-                 ip -6 route del $HANPREFIX via $LANIP > /dev/null 2>&1
-                 ip -6 route add $HANPREFIX via $LANIP > /dev/null 2>&1
-                 if [ \$? -eq 2 ]; then
-                      sleep 5;
-                      continue;
-                 else
-                      break;
-                 fi;
-               done;" &
-    exit 0
+    up)
+		ifconfig $TUNDEV | grep "\s*UP" > /dev/null || {
+			ifconfig $TUNDEV up
+		}
+        brctl addif $BRIDGE $TUNDEV
+        sh -c "while true;
+            do
+                echo \"trying to add route $HANPREFIX via $LANIP\";
+                pidof zipgatewayd || break;
+                ip -6 route del $HANPREFIX via $LANIP > /dev/null 2>&1
+                ip -6 route add $HANPREFIX via $LANIP > /dev/null 2>&1
+                if [ \$? -eq 2 ]; then
+                    sleep 5;
+                    continue;
+                else
+                    echo \"route sucessfully added\";
+                    break;
+                fi;
+            done;" &
+        exit 0
     ;;
-  down)
-    ip -6 route del $HANPREFIX via $LANIP
-    if [ -n "$WLAN" ]; then
-        killall -SIGKILL /usr/sbin/parprouted
-    else
-        brctl delif br-lan $TUNDEV
-    fi
+    down)
+        ip -6 route del $HANPREFIX via $LANIP
+        brctl delif $BRIDGE $TUNDEV
+    ;;
 esac
 

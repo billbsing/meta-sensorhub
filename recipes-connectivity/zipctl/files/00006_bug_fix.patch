@@ -1,0 +1,11 @@
+--- a/zipctl/src/zwave/hcapi/src/zip_api_network.c	2018-05-18 13:54:56.763163878 +0800
++++ b/zipctl/src/zwave/hcapi/src/zip_api_network.c	2018-05-18 13:55:22.046866728 +0800
+@@ -10734,7 +10734,7 @@
+                         {
+                             if (nw->add_sm_ctx.mode == SM_MODE_ADD)
+                             {
+-                                res = zw_add_node_to_network(&nw->appl_ctx, zwnet_node_add_sec2_cb, ADD_NODE_ANY_S2, TRANSMIT_OPTION_EXPLORE);
++                                res = zw_add_node_to_network(&nw->appl_ctx, zwnet_node_add_sec2_cb, ADD_NODE_ANY, TRANSMIT_OPTION_EXPLORE);
+                             }
+                             else
+                             {

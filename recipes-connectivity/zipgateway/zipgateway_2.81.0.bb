@@ -43,15 +43,19 @@ do_install() {
 	install -d ${D}${localstatedir}/lib/zipgateway
 	mkdir -p ${D}${sysconfdir}/connman
 	cp ${S}/main.conf ${D}/${sysconfdir}/connman/
+
 	install -d ${D}${sysconfdir}/zipgateway
 	install -m 0755 udhcpd.conf ${D}${sysconfdir}/zipgateway/udhcpd.conf
-	touch ${D}${sysconfdir}/zipgateway/eeprom.dat
-	chmod 755 ${D}${sysconfdir}/zipgateway/eeprom.dat
 	install -m 0755 ${S}/${PN}/usr/local/build/zipgateway ${D}${bindir}/zipgatewayd
 	install -m 0755 zipgateway.tun ${D}${sysconfdir}/zipgateway
+#	install -m 0755 ${S}/zipgateway/usr/local/files/zipgateway.tun ${D}${sysconfdir}/zipgateway
+#	sed -i "s/\/usr\/local//g" ${D}${sysconfdir}/zipgateway/zipgateway.tun
 	install -m 0644 ${S}/${PN}/usr/local/WRTpackage/files/*.pem ${D}${sysconfdir}/zipgateway
 	install -m 0644 zipgateway.cfg ${D}${sysconfdir}/zipgateway
 #	install -m 0644 command_class.cfg ${D}${sysconfdir}/zipgateway
+
+	install -d ${D}${localstatedir}/lib/zipgateway
+	touch ${D}${localstatedir}/lib/zipgateway/eeprom.dat
 
 	install -d ${D}/${systemd_unitdir}/system
 	install -m 0644 ${S}/zipgateway.service ${D}${systemd_unitdir}/system/
@@ -79,6 +83,10 @@ RDEPENDS_${PN} = "libusb1 libcrypto libssl openssl"
 #By default ${SHDAP_TARG_DIR} is packaged 
 #Package remaining dirs
 
-FILES_${PN} +="${base_libdir}/systemd/system"
-FILES_${PN} += "${sysconfdir}/zipgateway ${sysconfdir}/connman/ "
+FILES_${PN} += "					\
+	${base_libdir}/systemd/system	\
+	${sysconfdir}/zipgateway		\
+	${sysconfdir}/connman			\
+	${localstatedir}/lib/zipgateway \
+"
 

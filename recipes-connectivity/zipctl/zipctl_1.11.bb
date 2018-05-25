@@ -12,6 +12,8 @@ SRC_URI = "\
 	file://00003_demo_rename_ssl_lib.patch \
 	file://00004_zip_library_makefile.patch \
 "
+
+#	file://00006_bug_fix.patch 
 S = "${WORKDIR}"
 
 inherit gettext 
@@ -86,12 +88,12 @@ do_install() {
 	install -m 0644 ${S}/${PN}/src/zwave/hcapi/demos/add_node/cmd_class.cfg ${D}${ROOT_HOME}/demos
 	install -m 0644 ${S}/${PN}/src/zwave/hcapi/demos/add_node/zwave_device_rec.txt ${D}${ROOT_HOME}/demos
 	install -m 0750 ${S}/${PN}/src/zwave/hcapi/demos/add_node/add_node ${D}${ROOT_HOME}/demos
-	install -m 0644 ${S}/${PN}/src/zwave/hcapi/demos/basic/basic ${D}${ROOT_HOME}/demos
-	install -m 0644 ${S}/${PN}/src/zwave/hcapi/demos/bin_sensor/bin_sensor ${D}${ROOT_HOME}/demos
-	install -m 0644 ${S}/${PN}/src/zwave/hcapi/demos/bin_switch/bin_switch ${D}${ROOT_HOME}/demos
-	install -m 0644 ${S}/${PN}/src/zwave/hcapi/demos/gw_discovery/gw_discovery ${D}${ROOT_HOME}/demos
-	install -m 0644 ${S}/${PN}/src/zwave/hcapi/demos/nw_reset/nw_reset ${D}${ROOT_HOME}/demos
-	install -m 0644 ${S}/${PN}/src/zwave/hcapi/demos/rm_node/rm_node ${D}${ROOT_HOME}/demos
+	install -m 0750 ${S}/${PN}/src/zwave/hcapi/demos/basic/basic ${D}${ROOT_HOME}/demos
+	install -m 0750 ${S}/${PN}/src/zwave/hcapi/demos/bin_sensor/bin_sensor ${D}${ROOT_HOME}/demos
+	install -m 0750 ${S}/${PN}/src/zwave/hcapi/demos/bin_switch/bin_switch ${D}${ROOT_HOME}/demos
+	install -m 0750 ${S}/${PN}/src/zwave/hcapi/demos/gw_discovery/gw_discovery ${D}${ROOT_HOME}/demos
+	install -m 0750 ${S}/${PN}/src/zwave/hcapi/demos/nw_reset/nw_reset ${D}${ROOT_HOME}/demos
+	install -m 0750 ${S}/${PN}/src/zwave/hcapi/demos/rm_node/rm_node ${D}${ROOT_HOME}/demos
 }
 
 PACKAGES += "${PN}-demo"
