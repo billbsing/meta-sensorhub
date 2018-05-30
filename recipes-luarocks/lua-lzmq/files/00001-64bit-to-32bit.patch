@@ -1,0 +1,91 @@
+--- git/src/ztimer.c.orig	2018-05-28 13:09:48.186956378 +0800
++++ git/src/ztimer.c	2018-05-28 13:12:18.308466341 +0800
+@@ -29,6 +29,9 @@
+ 
+ #else
+ 
++#if defined(LUA_32BITS)
++#define USE_TICK_COUNT
++#endif
+ #include <sys/time.h>
+ #define USE_GETTIMEOFDAY
+ 
+@@ -155,13 +158,44 @@
+ 
+ #else // not __WINDOWS__
+ 
+-typedef uint64_t absolute_time_t;
+-typedef int64_t  absolute_diff_t;
++#ifdef USE_TICK_COUNT
++
++typedef DWORD monotonic_time_t;
++typedef DWORD monotonic_diff_t;
++
++static void InitMonotonicTimer(){}
++
++static monotonic_time_t GetMonotonicTime(){
++	  return GetTickCount();
++}
++
++static monotonic_diff_t GetMonotonicDelta(monotonic_time_t StartTime, monotonic_time_t EndTime){
++	  if(StartTime > EndTime)
++		      return (MAXDWORD - StartTime) + EndTime;
++	    return EndTime - StartTime;
++}
++
++static monotonic_time_t IncMonotonic(monotonic_time_t StartTime, monotonic_diff_t delta){
++	  return StartTime + delta;
++}
++#else
++
+ typedef uint64_t monotonic_time_t;
+ typedef int64_t  monotonic_diff_t;
+ 
+ static void InitMonotonicTimer(){}
+ 
++
++static monotonic_diff_t GetMonotonicDelta(monotonic_time_t StartTime, monotonic_time_t EndTime){
++  return U64Delta(StartTime, EndTime);
++}
++
++#endif
++
++typedef uint64_t absolute_time_t;
++typedef int64_t  absolute_diff_t;
++
++
+ static absolute_time_t GetUtcTime(){
+ #ifdef USE_GETTIMEOFDAY
+   struct timeval tv;
+@@ -198,9 +232,6 @@
+   return U64Delta(StartTime, EndTime);
+ }
+ 
+-static monotonic_diff_t GetMonotonicDelta(monotonic_time_t StartTime, monotonic_time_t EndTime){
+-  return U64Delta(StartTime, EndTime);
+-}
+ 
+ #endif // __WINDOWS__
+ 
+@@ -317,6 +348,9 @@
+   zmonotonic_timer *timer = luazmq_getmontimer(L);
+   timer->fire   = (monotonic_diff_t)luaL_checknumber(L, 2);
+   timer->flags |= LUAZMQ_FLAG_TIMER_SETTED;
++#ifdef USE_TICK_COUNT
++	print("set fire = %ld", timer->fire);
++#endif
+   lua_settop(L, 1);
+   return 1;
+ }
+@@ -327,6 +361,11 @@
+     lua_pushnumber(L, (lua_Number) timer->fire);
+   else 
+     lua_pushnil(L);
++
++#ifdef USE_TICK_COUNT
++      print("get fire = %ld", timer->fire);
++#endif
++
+   return 1;
+ }
+ 

@@ -1,0 +1,11 @@
+--- lua-5.3.4/src/luaconf.h.orig	2018-05-28 13:41:16.303435012 +0800
++++ lua-5.3.4/src/luaconf.h	2018-05-28 13:41:30.215279692 +0800
+@@ -33,7 +33,7 @@
+ ** ensure that all software connected to Lua will be compiled with the
+ ** same configuration.
+ */
+-/* #define LUA_32BITS */
++#define LUA_32BITS 
+ 
+ 
+ /*

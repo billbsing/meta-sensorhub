@@ -1,0 +1,22 @@
+--- git/src/ztimer.c	2018-05-28 11:11:22.204358404 +0800
++++ git/src/ztimer.c	2018-05-28 11:12:37.387224891 +0800
+@@ -315,14 +315,19 @@
+ 
+ static int luazmq_montimer_set(lua_State *L){
+   zmonotonic_timer *timer = luazmq_getmontimer(L);
++  printf("set lua %ld\n", luaL_checknumber(L, 2));
++
+   timer->fire   = (monotonic_diff_t)luaL_checknumber(L, 2);
++  printf("set fire = %ld\n", timer->fire);
+   timer->flags |= LUAZMQ_FLAG_TIMER_SETTED;
++  printf("set  fire = %ld\n", timer->fire);
+   lua_settop(L, 1);
+   return 1;
+ }
+ 
+ static int luazmq_montimer_get (lua_State *L){
+   zmonotonic_timer *timer = luazmq_getmontimer(L);
++  printf("get  fire = %ld\n", timer->fire);
+   if(timer->flags & LUAZMQ_FLAG_TIMER_SETTED) 
+     lua_pushnumber(L, (lua_Number) timer->fire);
+   else 

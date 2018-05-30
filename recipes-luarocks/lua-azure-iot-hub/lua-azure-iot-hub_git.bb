@@ -24,7 +24,7 @@ luadir = "/lua/5.3"
 # 'CFLAGS=${CFLAGS} -Wall -fPIC -std=gnu99 -I${SYSROOTS}${includedir}' 
 
 MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
-'CFLAGS=${CFLAGS} -I${SYSROOTS}${includedir} -DLUA_C89_NUMBERS -DLUA_32BITS' \
+'CFLAGS=${CFLAGS} -I${SYSROOTS}${includedir} -DLUA_32BITS' \
 'LIB_DIR=${D}${libdir}' \
 'INCLUDE_DIR=${D}${includedir}' \
 'LUA_LIB_DIR=${D}${libdir}${luadir}' \

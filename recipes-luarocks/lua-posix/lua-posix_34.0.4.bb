@@ -29,7 +29,7 @@ luadir = "/lua/5.3"
 
 MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'CC=${CC}' \
-'CFLAGS=-fPIC -I${SYSROOTS}${includedir}  -DLUA_C89_NUMBERS -DLUA_32BITS' \
+'CFLAGS=-fPIC -I${SYSROOTS}${includedir} -DLUA_32BITS' \
 'DRIVER_LIBS=-L${SYSROOTS}${libdir}' \
 'LUA_INCDIR=${SYSROOTS}${include}' \
 'INST_LIBDIR=${D}${libdir}${luadir}' \

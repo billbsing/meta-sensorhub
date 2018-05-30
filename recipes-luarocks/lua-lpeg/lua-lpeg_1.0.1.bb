@@ -29,12 +29,12 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}' \
 'LUA_DIR=${D}${datadir}${luadir}' \
 'LUA_VERSION_NUM=503' \
 'LUA_INCLUDE=${SYSROOTS}${includedir}' \
-'COPT=-DLUA_C89_NUMBERS -DLUA_32BITS' \
+'COPT=-DLUA_32BITS' \
 'CFLAGS=$(COPT) -I$(LUA_LIBDIR) -fPIC' \
 "
 # 'COPT=-DLUA_32BITS' 
-# 'COPT=-O2 -DLUA_C89_NUMBERS' 
-# 'COPT=-DLUA_C89_NUMBERS -DLUA_32BITS'
+# 'COPT=-O2' 
+# 'COPT=-DLUA_32BITS'
 
 
 do_compile () {

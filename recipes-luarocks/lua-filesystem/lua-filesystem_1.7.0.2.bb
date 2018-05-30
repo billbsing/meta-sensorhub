@@ -28,7 +28,7 @@ MAKE_FLAGS = "'PREFIX=${D}${prefix}'  \
 'LUA_LIBDIR=${D}${libdir}${luadir}' \
 'LUA_INC=${SYSROOTS}${includedir}' \
 'LUA_VERSION_NUM=503' \
-'CFLAGS=-fPIC -I${SYSROOTS}${includedir}  -DLUA_C89_NUMBERS -DLUA_32BITS' \
+'CFLAGS=-fPIC -I${SYSROOTS}${includedir} -DLUA_32BITS' \
 'CC=${CC}' \
 "
 

@@ -74,7 +74,7 @@ EXTRA_OEMAKE = "'PREFIX=${D}${prefix}' \
 'SYSCONFDIR=${D}${sysconfdir}' \
 'DATA_DIR=${D}/var/lib/sensorhub' \
 'LIB_ZIP_PATH=${STAGING_LIBDIR}' \
-'CFLAGS=-Wall -fPIC -DOS_LINUX -DLUA_C89_NUMBERS -DLUA_32BITS' \
+'CFLAGS=-Wall -fPIC -DOS_LINUX -DLUA_32BITS' \
 'ZIP_INC=${STAGING_INCDIR}/zipctl' \
 "
 
@@ -130,6 +130,7 @@ do_install () {
 
     install -d ${D}${sysconfdir}/zipgateway
     install -m 0644 ${S}/install/resetData/zipgateway/* ${D}${sysconfdir}/zipgateway/
+
 }
 
 # INSANE_SKIP_${PN} = "ldflags"

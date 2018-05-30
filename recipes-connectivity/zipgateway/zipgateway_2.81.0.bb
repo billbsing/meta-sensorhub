@@ -45,7 +45,7 @@ do_install() {
 	cp ${S}/main.conf ${D}/${sysconfdir}/connman/
 
 	install -d ${D}${sysconfdir}/zipgateway
-	install -m 0755 udhcpd.conf ${D}${sysconfdir}/zipgateway/udhcpd.conf
+#	install -m 0755 udhcpd.conf ${D}${sysconfdir}/zipgateway/udhcpd.conf
 	install -m 0755 ${S}/${PN}/usr/local/build/zipgateway ${D}${bindir}/zipgatewayd
 	install -m 0755 zipgateway.tun ${D}${sysconfdir}/zipgateway
 #	install -m 0755 ${S}/zipgateway/usr/local/files/zipgateway.tun ${D}${sysconfdir}/zipgateway

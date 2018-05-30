@@ -1,19 +1,19 @@
 DESCRIPTION = "Lua binding to ZeroMQ"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://README.md;md5=f8e09b9966d70fdedd2c53a4cfa7e085"
-HOMEPAGE = "https://github.com/zeromq/lzmq"
+LIC_FILES_CHKSUM = "file://COPYRIGHT;md5=f8e09b9966d70fdedd2c53a4cfa7e085"
+HOMEPAGE = "https://github.com/Neopallium/lua-zmq"
 
 PR = "1"
 
 DEPENDS = "lua zeromq"
-SRC_URI = "https://github.com/zeromq/lzmq/archive/v${PV}.tar.gz \
-	file://lua-lzmq.pc \
+SRC_URI = "https://github.com/Neopallium/lua-zmq/archive/v${PV}.tar.gz \
+	file://lua-zmq.pc \
 "
 
-SRC_URI[md5sum] = "dba93aab8c4ba38fc573e6421118f27d"
-SRC_URI[sha256sum] = "cf70200045b8bcb0e929c338ad421b6a291cf1038053532888dc201af3224d8b"
+SRC_URI[md5sum] = "cb4df81b4c884bf97bf6add88fcfa58d"
+SRC_URI[sha256sum] = "f2bdf3142b744971da4eb8bdb12020a34b62f8ba384be44d8448b4ef05ec3dcc"
 
-S = "${WORKDIR}/lzmq-${PV}"
+S = "${WORKDIR}/lua-zmq-${PV}"
 luadir = "/lua/5.3"
 lzmqdir = "${libdir}/lua/lzmq"
 

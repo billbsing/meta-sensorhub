@@ -1,0 +1,8 @@
+prefix=/usr
+libdir=${prefix}/lib/lua
+
+Name: lua-llthreads2
+Description: `llthreads` library rewritten without `LuaNativeObjects` code generator
+Version: 1.1
+Requires: lua-lzmq
+

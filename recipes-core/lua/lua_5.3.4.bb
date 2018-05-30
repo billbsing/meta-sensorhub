@@ -9,7 +9,8 @@ PR = "r0"
 DEPENDS = "readline"
 
 SRC_URI = " http://www.lua.org/ftp/lua-5.3.4.tar.gz \
-           file://lua.pc \
+	file://00001-setup.patch \
+	file://lua.pc \
 "
 
 SRC_URI[md5sum] = "53a9c68bcc0eda58bdc2095ad5cdfc63"                                                                                                                                      
@@ -23,7 +24,7 @@ UCLIBC_PATCHES += "file://uclibc-pthread.patch"
 SRC_URI_append_libc-uclibc = "${UCLIBC_PATCHES}"
 
 TARGET_CC_ARCH += " -fPIC ${LDFLAGS}"
-EXTRA_OEMAKE = "'CC=${CC} -fPIC' 'MYCFLAGS=${CFLAGS} -DLUA_USE_LINUX -DLUA_32BITS -DLUA_USE_C89 -DLUA_COMPAT_BITLIB -fPIC' MYLDFLAGS='${LDFLAGS}'"
+EXTRA_OEMAKE = "'CC=${CC} -fPIC' 'MYCFLAGS=${CFLAGS} -DLUA_USE_LINUX -DLUA_32BITS -DLUA_COMPAT_BITLIB -fPIC' MYLDFLAGS='${LDFLAGS}'"
 
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 luadir = "/lua/5.3"

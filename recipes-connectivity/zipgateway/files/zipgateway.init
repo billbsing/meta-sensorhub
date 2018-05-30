@@ -1,11 +1,11 @@
 #!/bin/sh
 
 DAEMON=/usr/bin/zipgatewayd
-PIDFILE=/var/run/ofonod.pid
 DESC="ZIP Gateway daemon"
 CONFIG_FOLDER=/etc/zipgateway
 DATA_FOLDER=/var/run/zipgateway
 BRIDGE=br-lan
+TTY_DEV=ttyS1
 
 if [ -f /etc/default/zipgateway ] ; then
         . /etc/default/zipgateway
@@ -17,8 +17,7 @@ do_start() {
     if [ ! -d ${DATA_FOLDER} ]; then
         mkdir ${DATA_FOLDER}
     fi
-    iptables --policy INPUT ACCEPT
-    systemctl stop serial-getty@ttyS1.service
+	systemctl stop serial-getty@${TTY_DEV}.service
     #To handle the case when eeprom.dat is not accessible on hard reboot
     echo -n >> ${DATA_FOLDER}/eeprom.dat
     if [ $? -eq 0 ];then
@@ -28,21 +27,18 @@ do_start() {
           ifconfig ${BRIDGE} up
           ifconfig ${BRIDGE} 192.168.168.1
 
-#          killall udhcpd > /dev/null 2>&1
-#          /usr/sbin/udhcpd ${CONFIG_FOLDER}/udhcpd.conf
           ${DAEMON} -c ${CONFIG_FOLDER}/zipgateway.cfg
     else
-          echo "Not able to open eeprom.dat file"
+          echo "cannot open eeprom.dat file"
     fi
 }
 
 do_stop() {
 	killall ${DAEMON}  > /dev/null 2>&1
-#	killall udhcpd > /dev/null 2>&1
 	ifconfig tap0 down  > /dev/null 2>&1
 	ifconfig ${BRIDGE} down
 	brctl delbr ${BRIDGE}
-	systemctl start serial-getty@ttyS1.service
+	systemctl start serial-getty@${TTY_DEV}.service
 }
 
 case "$1" in

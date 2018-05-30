@@ -1,0 +1,8 @@
+prefix=/usr
+libdir=${prefix}/lib/lua
+
+Name: lua-ipc
+Description: Portable inter-process communication for Lua
+Version: git
+Requires: lua
+

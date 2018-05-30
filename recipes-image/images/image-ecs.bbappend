@@ -14,6 +14,7 @@ IMAGE_INSTALL += "zipgateway"
 # for zwave investigations
 # IMAGE_INSTALL += "tshark"
 IMAGE_INSTALL += "tcpdump"
+IMAGE_INSTALL += "cmake"
 
 
 

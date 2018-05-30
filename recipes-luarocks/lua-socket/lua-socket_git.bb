@@ -32,7 +32,7 @@ MAKE_FLAGS = "'prefix=${D}' \
 'LUAV=5.3' \
 'LUAINC_linux_base=${SYSROOTS}${includedir}' \
 'LUAINC_linux=${SYSROOTS}${includedir}' \
-'MYCFLAGS=-DLUA_C89_NUMBERS -DLUA_32BITS' \
+'MYCFLAGS=-DLUA_32BITS' \
 'GCC_linux=${CC}' \
 "
 
