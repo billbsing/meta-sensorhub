@@ -15,6 +15,7 @@ IMAGE_INSTALL += "zipgateway"
 # IMAGE_INSTALL += "tshark"
 IMAGE_INSTALL += "tcpdump"
 IMAGE_INSTALL += "cmake"
+IMAGE_INSTALL += "python-pyserial"
 
 
 
