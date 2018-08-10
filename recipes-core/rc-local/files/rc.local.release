@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# Turn on Bluetooth
+echo 7 > /sys/class/gpio/export
+echo out > /sys/class/gpio/gpio7/direction
+echo 1 > /sys/class/gpio/gpio7/value
+
+# unblock wifi and bluetooth
+rfkill unblock wifi
+rfkill unblock bluetooth
+
+/usr/bin/first_boot.sh
+/usr/bin/setup_network.sh
+
