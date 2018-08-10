@@ -13,7 +13,7 @@ RDEPENDS_packagegroup-sensorhub = "\
     tzdata \
     sensorhub \ 
     cronie \
-    first-boot  \
+    rc-local  \
     avahi \
     python \
     python-redis \

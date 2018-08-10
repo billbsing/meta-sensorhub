@@ -12,7 +12,7 @@ case "$1" in
                 echo \"trying to add route $HANPREFIX via $LANIP\";
                 pidof zipgatewayd || break;
                 ip -6 route del $HANPREFIX via $LANIP > /dev/null 2>&1
-                ip -6 route add $HANPREFIX via $LANIP > /dev/null 2>&1
+                ip -6 route add $HANPREFIX via $LANIP 2>&1
                 if [ \$? -eq 2 ]; then
                     sleep 5;
                     continue;

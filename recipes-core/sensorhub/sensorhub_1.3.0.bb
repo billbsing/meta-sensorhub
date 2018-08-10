@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r6"
+PR = "r11"
 # SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
@@ -38,6 +38,7 @@ SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=
 	    file://sensorhub-factory-reset.service \
 	    file://sensorhub-support.service \
 	    file://sensorhub-zwave.service \
+		file://sensorhub_postinstall.sh \
 "
 
 SRC_URI[md5sum] = "dc7f94ec6ff15c985d2d6ad0f1b35654"
@@ -49,7 +50,7 @@ inherit useradd
 PACKAGES =+ "${PN}-test"
 
 USERADD_PACKAGES = "${PN}" 
-USERADD_PARAM_${PN} = "--home-dir /home/sensorhub --create-home --system --shell /bin/bash --user-group sensorhub" 
+USERADD_PARAM_${PN} = "--home-dir /home/sensorhub --create-home --system --shell /bin/sh --user-group sensorhub" 
 
 
 S = "${WORKDIR}/git"
@@ -86,7 +87,7 @@ RDEPENDS_${PN} = "lua-stdlib \
         lua-xavante lua-copas lua-cosmo lua-redis \
 	lua-luatz lua-md5 lua-telescope lua-openssl \
 	lua-azure-iot-hub lua-wsapi lua-lzmq \
-	zipctl zipgateway \
+	zipctl zipgateway rc-local dnsmasq connman \
 "
 
 do_install () {
@@ -131,6 +132,12 @@ do_install () {
     install -d ${D}${sysconfdir}/zipgateway
     install -m 0644 ${S}/install/resetData/zipgateway/* ${D}${sysconfdir}/zipgateway/
 
+	install -m 0644 ${S}/install/resetData/opkg/${SENSORHUB_PACKAGE_FEED_FILE} ${D}/var/lib/sensorhub/resetData/opkg/base-feeds.conf
+	rm ${D}/var/lib/sensorhub/resetData/opkg/base-feeds-*.conf
+
+	install -d ${D}${bindir}
+	install -m 0755 ${WORKDIR}/sensorhub_postinstall.sh ${D}${bindir}
+
 }
 
 # INSANE_SKIP_${PN} = "ldflags"
@@ -172,6 +179,7 @@ ${sysconfdir}/cron.weekly/refreshTimezone	\
 ${sysconfdir}/redis/redis.conf			\
 ${sysconfdir}/opkg/base-feeds.conf		\
 ${sysconfdir}/zipgateway/*                      \
+${bindir}/sensorhub_postinstall.sh			\
 "
 
 FILES_${PN}-dbg = "\
@@ -195,6 +203,9 @@ rm -f /opt/sensorhub/lib/version.info
 echo "${INSTALL_VERSION}" > /opt/sensorhub/lib/version.info
 rm -f /etc/sensorhub-version.info
 echo "${INSTALL_VERSION}" > /etc/sensorhub-version
+if [ -f /usr/bin/sensorhub_postinstall.sh ]; then
+	/usr/bin/sensorhub_postinstall.sh &
+fi
 echo "End postinst"
 
 }

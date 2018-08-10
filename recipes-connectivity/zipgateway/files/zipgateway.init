@@ -3,7 +3,7 @@
 DAEMON=/usr/bin/zipgatewayd
 DESC="ZIP Gateway daemon"
 CONFIG_FOLDER=/etc/zipgateway
-DATA_FOLDER=/var/run/zipgateway
+DATA_FOLDER=/var/lib/zipgateway
 BRIDGE=br-lan
 TTY_DEV=ttyS1
 
@@ -26,6 +26,7 @@ do_start() {
           }
           ifconfig ${BRIDGE} up
           ifconfig ${BRIDGE} 192.168.168.1
+		  ifconfig ${BRIDGE} inet6 add fd00:aaaa::1/64
 
           ${DAEMON} -c ${CONFIG_FOLDER}/zipgateway.cfg
     else
