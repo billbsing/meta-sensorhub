@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r11"
+PR = "r0"
 # SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
@@ -12,7 +12,7 @@ PR = "r11"
 
 # INSTALL_VERSION="1.2.5-${PR}"
 INSTALL_VERSION="${PV}-${PR}"
-GIT_BRANCH="development"
+GIT_BRANCH="master"
 
 MAINTAINER="bill.barman@connectedlife.io"
 
@@ -36,7 +36,7 @@ SRC_URI = "git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=
 	    file://sensorhub-watchdog.service \
 	    file://sensorhub-action.service \
 	    file://sensorhub-factory-reset.service \
-	    file://sensorhub-support.service \
+	    file://sensorhub-control.service \
 	    file://sensorhub-zwave.service \
 		file://sensorhub_postinstall.sh \
 "
@@ -99,7 +99,6 @@ do_install () {
 
 
     install -d ${D}/var/lib/sensorhub
-    rm -f ${D}/opt/sensorhub/tools/support.lua
 
     chmod +x ${D}/opt/sensorhub/cgi/runWebserver.lua
 
@@ -114,7 +113,7 @@ do_install () {
     install -m 0644 ${WORKDIR}/sensorhub-watchdog.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-action.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-factory-reset.service ${D}${systemd_unitdir}/system/
-    install -m 0644 ${WORKDIR}/sensorhub-support.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-control.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-zwave.service ${D}${systemd_unitdir}/system/
 
     install -d ${D}${sysconfdir}

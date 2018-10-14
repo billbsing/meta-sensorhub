@@ -1,9 +1,0 @@
-[Unit]
-Description=Sensor Hub Support Service
-
-[Service]
-ExecStart=/opt/sensorhub/bin/sensorHubSupport.lua 
-
-[Install]
-WantedBy=multi-user.target
-
