@@ -8,7 +8,7 @@ LICENSE = "CLOSED"
 # SRC_URI = "file://COPYING.TXT  
 
 
-PR = "r3"
+PR = "r4"
 
 RC_LOCAL_RELEASE ?= "1"
 
