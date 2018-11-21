@@ -6,7 +6,6 @@
 
 TOOLS_PATH=/opt/sensorhub/tools
 CHECK_FILES_BIN=${TOOLS_PATH}/checkSystemFiles.lua
-SET_WIFI_TETHER=${TOOLS_PATH}/setWifiTether.lua
 SYSTEMCTL_BIN=/bin/systemctl
 OPKG_BIN=/usr/bin/opkg
 REBOOT_BIN=/sbin/reboot
@@ -16,10 +15,6 @@ SLEEP_BIN=/bin/sleep
 
 if [[ -f ${CHECK_FILES_BIN} ]]; then
 	${CHECK_FILES_BIN} -w
-fi
-
-if [[ -f ${SET_WIFI_TETHER} ]]; then
-	${SET_WIFI_TETHER}
 fi
 
 PACKAGE_STATUS=`${OPKG_BIN} status ${PACKAGE_NAME}`

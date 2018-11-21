@@ -8,7 +8,9 @@ CHECK_FILES_BIN=${TOOLS_PATH}/checkSystemFiles.lua
 SYSTEMCTL_BIN=/bin/systemctl
 CONF_FILE=sensorhub.conf
 RESET_DATA_PATH=/var/lib/sensorhub/resetData
-SET_WIFI_TETHER=${TOOLS_PATH}/setWifiTether.lua
+AUTOUPGRADE_DAILY=/etc/cron.daily/autoupgrade
+AUTOUPGRADE_MONTHLY=/etc/cron.monthly/autoupgrade
+
 
 if [[ ! -f /etc/${CONF_FILE} ]]; then
 	echo "cannot find /etc/${CONF_FILE}"
@@ -19,14 +21,14 @@ if [[ ! -f /etc/${CONF_FILE} ]]; then
 ssid = ${SSID} 
 password = 001122334455
 " > /etc/${CONF_FILE}
-
 	fi
 	${SYSTEMCTL_BIN} restart lighttpd
 	${CHECK_FILES_BIN} -w
-	${SET_WIFI_TETHER} --force
+	cp /etc/cron.monthly/autoupgrade /etc/cron.daily	
 fi
 
-if [[ -f ${SET_WIFI_TETHER} ]]; then
-	${SET_WIFI_TETHER}
+if [ ! -f ${AUTOUPGRADE_DAILY} ]; then
+	echo "copying autoupgrade script to run daily"
+	cp ${AUTOUPGRADE_MONTHLY} ${AUTOUPGRADE_DAILY}
+	chmod +x ${AUTOUPGRADE_DAILY}
 fi
-

@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r0"
+PR = "r6"
 # SRCREV = "${AUTOREV}"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
@@ -120,7 +120,9 @@ do_install () {
     install -m 0644 ${S}/install/resetData/lighttpd.conf ${D}${sysconfdir}/
 
     install -d ${D}${sysconfdir}/cron.daily
-    install -m 0755 ${S}/install/resetData/cron.daily/autoupgrade ${D}${sysconfdir}/cron.daily/
+
+    install -d ${D}${sysconfdir}/cron.monthly
+    install -m 0755 ${S}/install/resetData/cron.monthly/autoupgrade ${D}${sysconfdir}/cron.monthly/
 
     install -d ${D}${sysconfdir}/cron.weekly
     install -m 0755 ${S}/install/resetData/cron.weekly/refreshTimezone ${D}${sysconfdir}/cron.weekly/
@@ -173,8 +175,9 @@ ${datadir}${luadir}/zwave/*  \
 /var/lib/sensorhub/*		\
 ${systemd_unitdir}/system/      \
 ${sysconfdir}/lighttpd.conf	\
-${sysconfdir}/cron.daily/autoupgrade		\
+${sysconfdir}/cron.daily	\
 ${sysconfdir}/cron.weekly/refreshTimezone	\
+${sysconfdir}/cron.monthly/autoupgrade		\
 ${sysconfdir}/redis/redis.conf			\
 ${sysconfdir}/opkg/base-feeds.conf		\
 ${sysconfdir}/zipgateway/*                      \
@@ -202,6 +205,7 @@ rm -f /opt/sensorhub/lib/version.info
 echo "${INSTALL_VERSION}" > /opt/sensorhub/lib/version.info
 rm -f /etc/sensorhub-version.info
 echo "${INSTALL_VERSION}" > /etc/sensorhub-version
+touch /tmp/needs-reboot
 if [ -f /usr/bin/sensorhub_postinstall.sh ]; then
 	/usr/bin/sensorhub_postinstall.sh &
 fi
