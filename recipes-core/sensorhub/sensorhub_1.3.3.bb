@@ -9,13 +9,13 @@ PR = "r5"
 # If the current build is 'git' then we need to write the real version number, else put in "${PV}-${PR}"
 # must be in the format nn.nn.nn or nn.nn.nn-rnn
 
-INSTALL_VERSION="${PV}-${PR}"
-RELEASE_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh"
+# INSTALL_VERSION="${PV}-${PR}"
+# RELEASE_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh"
 
 # Test builds
-# GIT_BRANCH="test/${PV}"
-# SRCREV = "${AUTOREV}"
-# TEST_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
+GIT_BRANCH="test/${PV}"
+SRCREV = "${AUTOREV}"
+TEST_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
 
 MAINTAINER="bill.barman@connectedlife.io"
 
