@@ -3,19 +3,19 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r5"
+PR = "r7"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
 # If the current build is 'git' then we need to write the real version number, else put in "${PV}-${PR}"
 # must be in the format nn.nn.nn or nn.nn.nn-rnn
+INSTALL_VERSION="${PV}-${PR}"
 
-# INSTALL_VERSION="${PV}-${PR}"
-# RELEASE_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh"
+# BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh"
 
 # Test builds
 GIT_BRANCH="test/${PV}"
 SRCREV = "${AUTOREV}"
-TEST_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
+BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
 
 MAINTAINER="bill.barman@connectedlife.io"
 
@@ -29,7 +29,7 @@ DEPENDS = "glib-2.0 lua \
 	zipctl zipgateway \
 "
 
-SRC_URI = "${RELEASE_BUILD} \
+SRC_URI = "${BUILD} \
             file://sensorhub.pc \
 	    file://sensorhub-bluetooth-scanner.service \
 	    file://sensorhub-bluetooth.service \
