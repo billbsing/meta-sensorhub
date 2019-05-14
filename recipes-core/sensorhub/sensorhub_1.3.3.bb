@@ -3,19 +3,27 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r7"
+PR = "r10"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
 # If the current build is 'git' then we need to write the real version number, else put in "${PV}-${PR}"
 # must be in the format nn.nn.nn or nn.nn.nn-rnn
-
 INSTALL_VERSION="${PV}-${PR}"
+
+# this recipe accepts two types of sources depending if SENSORHUB_BUILD_TEST is set...
+# RELEASE (default) - github - tag=v${PV}
+# TEST -    github - branch=test/${PV}
+
 RELEASE_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh"
 
+
 # Test builds
-# GIT_BRANCH="test/${PV}"
+GIT_BRANCH="test/${PV}"
 # SRCREV = "${AUTOREV}"
-# TEST_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
+TEST_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
+
+BUILD="${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${TEST_BUILD}', '${RELEASE_BUILD}', d)}"
+SRCREV="${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${AUTOREV}', '', d)}"
 
 MAINTAINER="bill.barman@connectedlife.io"
 
@@ -29,7 +37,7 @@ DEPENDS = "glib-2.0 lua \
 	zipctl zipgateway \
 "
 
-SRC_URI = "${RELEASE_BUILD} \
+SRC_URI = "${BUILD} \
             file://sensorhub.pc \
 	    file://sensorhub-bluetooth-scanner.service \
 	    file://sensorhub-bluetooth.service \
@@ -49,7 +57,9 @@ SRC_URI[sha256sum] = "13c2fb97961381f7d06d5b5cea55b743c163800896fd5c5e2356201d36
 
 inherit useradd
 
-PACKAGES =+ "${PN}-test"
+# PACKAGES =+ "${PN}-test"
+PACKAGES =+ "${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${PN}-test', '', d)}"
+
 
 USERADD_PACKAGES = "${PN}" 
 USERADD_PARAM_${PN} = "--home-dir /home/sensorhub --create-home --system --shell /bin/sh --user-group sensorhub" 
