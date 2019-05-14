@@ -151,6 +151,10 @@ do_install () {
 	install -d ${D}${bindir}
 	install -m 0755 ${WORKDIR}/sensorhub_postinstall.sh ${D}${bindir}
 
+	if [ ! "${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '1', '', d)}" ]; then
+		rm -rf ${D}/opt/sensorhub/tests
+	fi
+
 }
 
 # INSANE_SKIP_${PN} = "ldflags"
