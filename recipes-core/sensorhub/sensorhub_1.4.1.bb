@@ -48,6 +48,7 @@ SRC_URI = "${BUILD} \
 	    file://sensorhub-factory-reset.service \
 	    file://sensorhub-control.service \
 	    file://sensorhub-zwave.service \
+	    file://sensorhub-zigbee.service \
 		file://sensorhub_postinstall.sh \
 "
 
@@ -127,6 +128,7 @@ do_install () {
     install -m 0644 ${WORKDIR}/sensorhub-factory-reset.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-control.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-zwave.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-zigbee.service ${D}${systemd_unitdir}/system/
 
     install -d ${D}${sysconfdir}
     install -m 0644 ${S}/install/resetData/lighttpd.conf ${D}${sysconfdir}/
@@ -169,6 +171,7 @@ SYSTEMD_SERVICE_${PN} = "sensorhub-bluetooth.service  \
 	sensorhub-watchdog.service  \
 	sensorhub-action.service  \
 	sensorhub-zwave.service  \
+	sensorhub-zigbee.service  \
 "
 
 SYSTEMD_AUTO_ENABLE = "enable"
