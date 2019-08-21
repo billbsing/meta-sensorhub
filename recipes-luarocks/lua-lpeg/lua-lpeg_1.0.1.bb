@@ -1,6 +1,6 @@
 DESCRIPTION = "Pattern-matching library for Lua, based on Parsing Expression Grammars"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;beginline=1384;endline=1414;md5=edae3bad58030b744e197a59928f9bdc"
+LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;beginline=1384;endline=1414;md5=50e788032b4b3a0d06b838db07e8fdb0"
 HOMEPAGE = "http://www.keplerproject.org/md5/"
 
 PR = "1"
@@ -17,8 +17,9 @@ SRC_URI = "http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-${PV}.tar.gz;name=tarbal
 SRC_URI[tarball.md5sum] = "049e0cc18fd540ccddab701a1d771e46"
 SRC_URI[tarball.sha256sum] = "62d9f7a9ea3c1f215c77e0cadd8534c6ad9af0fb711c3f89188a8891c72f026b"
 
-SRC_URI[license.md5sum] = "3cb5e143d0adf6656c8edeb7342f6071"
-SRC_URI[license.sha256sum] = "de2b0ef5c730564d38434e10b0f0615d788af46b51887fc66dd9dbcf442d4329"
+SRC_URI[license.md5sum] = "1db2940ebc612e76c1b0fdcccee843a5"
+SRC_URI[license.sha256sum] = "2b80a8cce793e008ba433e5e0184f20aca4a67ec741439fafd86a874a6a91c49"
+
 
 S = "${WORKDIR}/lpeg-${PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
