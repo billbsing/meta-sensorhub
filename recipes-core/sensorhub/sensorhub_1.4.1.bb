@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r10"
+PR = "r13"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
 # If the current build is 'git' then we need to write the real version number, else put in "${PV}-${PR}"
