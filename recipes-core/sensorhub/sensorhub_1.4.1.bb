@@ -1,7 +1,7 @@
 DESCRIPTION = "ConnectedLife Sensor Hub."
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
-HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
+HOMEPAGE = "https://github.com/newtoncircus/connectedlife-sensor-hub"
 
 PR = "r14"
 
@@ -14,13 +14,13 @@ INSTALL_VERSION="${PV}-${PR}"
 # RELEASE (default) - github - tag=v${PV}
 # TEST -    github - branch=test/${PV}
 
-RELEASE_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh"
+RELEASE_BUILD="git://git@github.com:newtoncircus/connectedlife-sensor-hub.git;tag=v${PV};protocol=ssh"
 
 
 # Test builds
 GIT_BRANCH="test/${PV}"
 # SRCREV = "${AUTOREV}"
-TEST_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
+TEST_BUILD="git://git@github.com/newtoncircus/connectedlife-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
 
 BUILD="${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${TEST_BUILD}', '${RELEASE_BUILD}', d)}"
 SRCREV="${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${AUTOREV}', '', d)}"
