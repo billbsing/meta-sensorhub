@@ -3,19 +3,27 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/silverline-sensor-hub"
 
-PR = "r10"
+PR = "r14"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
 # If the current build is 'git' then we need to write the real version number, else put in "${PV}-${PR}"
 # must be in the format nn.nn.nn or nn.nn.nn-rnn
 INSTALL_VERSION="${PV}-${PR}"
 
-# BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh"
+# this recipe accepts two types of sources depending if SENSORHUB_BUILD_TEST is set...
+# RELEASE (default) - github - tag=v${PV}
+# TEST -    github - branch=test/${PV}
+
+RELEASE_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;tag=v${PV};protocol=ssh"
+
 
 # Test builds
 GIT_BRANCH="test/${PV}"
-SRCREV = "${AUTOREV}"
-BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
+# SRCREV = "${AUTOREV}"
+TEST_BUILD="git://git@github.com/newtoncircus/silverline-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
+
+BUILD="${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${TEST_BUILD}', '${RELEASE_BUILD}', d)}"
+SRCREV="${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${AUTOREV}', '', d)}"
 
 MAINTAINER="bill.barman@connectedlife.io"
 
@@ -40,6 +48,7 @@ SRC_URI = "${BUILD} \
 	    file://sensorhub-factory-reset.service \
 	    file://sensorhub-control.service \
 	    file://sensorhub-zwave.service \
+	    file://sensorhub-zigbee.service \
 		file://sensorhub_postinstall.sh \
 "
 
@@ -49,7 +58,9 @@ SRC_URI[sha256sum] = "13c2fb97961381f7d06d5b5cea55b743c163800896fd5c5e2356201d36
 
 inherit useradd
 
-PACKAGES =+ "${PN}-test"
+# PACKAGES =+ "${PN}-test"
+PACKAGES =+ "${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${PN}-test', '', d)}"
+
 
 USERADD_PACKAGES = "${PN}" 
 USERADD_PARAM_${PN} = "--home-dir /home/sensorhub --create-home --system --shell /bin/sh --user-group sensorhub" 
@@ -117,6 +128,7 @@ do_install () {
     install -m 0644 ${WORKDIR}/sensorhub-factory-reset.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-control.service ${D}${systemd_unitdir}/system/
     install -m 0644 ${WORKDIR}/sensorhub-zwave.service ${D}${systemd_unitdir}/system/
+    install -m 0644 ${WORKDIR}/sensorhub-zigbee.service ${D}${systemd_unitdir}/system/
 
     install -d ${D}${sysconfdir}
     install -m 0644 ${S}/install/resetData/lighttpd.conf ${D}${sysconfdir}/
@@ -141,6 +153,10 @@ do_install () {
 	install -d ${D}${bindir}
 	install -m 0755 ${WORKDIR}/sensorhub_postinstall.sh ${D}${bindir}
 
+	if [ ! "${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '1', '', d)}" ]; then
+		rm -rf ${D}/opt/sensorhub/tests
+	fi
+
 }
 
 # INSANE_SKIP_${PN} = "ldflags"
@@ -155,6 +171,7 @@ SYSTEMD_SERVICE_${PN} = "sensorhub-bluetooth.service  \
 	sensorhub-watchdog.service  \
 	sensorhub-action.service  \
 	sensorhub-zwave.service  \
+	sensorhub-zigbee.service  \
 "
 
 SYSTEMD_AUTO_ENABLE = "enable"
