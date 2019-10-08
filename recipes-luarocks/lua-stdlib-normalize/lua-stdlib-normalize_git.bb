@@ -1,6 +1,6 @@
 DESCRIPTION = "General Lua Libraries"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://LICENSE.md;md5=e25438b85d7bc8eb1d49da526a62bd41"
+LIC_FILES_CHKSUM = "file://LICENSE.md;md5=bbc0740b409d4a3570a06f2228971d0f"
 HOMEPAGE = "https://github.com/lua-stdlib/normalize"
 
 PR = "r0"
