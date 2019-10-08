@@ -14,8 +14,7 @@ INSTALL_VERSION="${PV}-${PR}"
 # RELEASE (default) - github - tag=v${PV}
 # TEST -    github - branch=test/${PV}
 
-RELEASE_BUILD="git://git@github.com:newtoncircus/connectedlife-sensor-hub.git;tag=v${PV};protocol=ssh"
-
+RELEASE_BUILD="git://git@github.com/newtoncircus/connectedlife-sensor-hub.git;protocol=ssh;tag=v${PV}"
 
 # Test builds
 GIT_BRANCH="test/${PV}"
