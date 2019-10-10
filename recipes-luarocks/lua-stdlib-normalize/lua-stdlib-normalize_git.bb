@@ -15,7 +15,7 @@ SRC_URI = "git://github.com/lua-stdlib/normalize.git"
 
 # inherit autotools
 
-SRC_URI[md5sum] = "0dce234d071aa1c5657e5c7e1c546978"
+SRC_URI[md5sum] = "e25438b85d7bc8eb1d49da526a62bd41"
 SRC_URI[sha256sum] = "221d9098b4e599ab452bb0014f9edf466a46c3d813e87024767bcedc17b4c3e7"
 
 S = "${WORKDIR}/git"
