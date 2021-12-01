@@ -32,7 +32,7 @@ DEPENDS = "glib-2.0 lua \
     lua-filesystem lua-lpeg lua-rings \
     lua-xavante lua-copas lua-coxpcall lua-cosmo lua-luatz lua-md5 \
 	lua-redis lua-telescope lua-openssl lua-azure-iot-hub lua-wsapi \
-	lua-lzmq \
+	lua-lzmq lua-mqtt lua-sec \
 	zipctl zipgateway \
 "
 
