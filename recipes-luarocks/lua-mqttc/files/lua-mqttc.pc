@@ -1,0 +1,8 @@
+prefix=/usr
+libdir=${prefix}/lib/lua
+
+Name: lua-mqtt
+Description: MQTT Client library for the Lua language
+Version: 1.1.4
+Requires: lua lua-socket
+

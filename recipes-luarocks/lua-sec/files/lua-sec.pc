@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.3
+
+Name: lua-sec
+Description: LuaSec is a binding for OpenSSL library to provide TLS/SSL communication
+Version: 1.0.2
+Requires: lua
+
+
