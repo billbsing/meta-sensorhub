@@ -9,6 +9,7 @@ DEPENDS = "lua lua-socket"
 
 SRC_URI = "https://github.com/Yongke/luamqttc/archive/v${PV}.tar.gz \
 	file://lua-mqttc.pc \
+	file://CMakeLists.patch \
 "
 
 SRC_URI[md5sum] = "e014ae76a1a794e4b5e952737d19ba03"
@@ -18,13 +19,27 @@ S = "${WORKDIR}/luamqttc-${PV}"
 luadir = "/lua/5.3"
 
 
-EXTRA_OEBUILD = "LUA_VERSION_STRING=5.3  \
-INC_DIR=${D}${libdir}${luadir} \
+EXTRA_OEBUILD = "LUA_VERSION=5.3  \
+INCLUDE_DIR=${D}${libdir}${luadir} \
 LUA_LIBDIR=${D}${libdir}${luadir}"
 
 inherit pkgconfig cmake
 
-# FILES_${PN} = "${datadir}${luadir}/mqtt_library.lua \
-#	${datadir}${luadir}/utility.lua \
-# "
+do_install () {
+    install -d ${D}${libdir}/pkgconfig
+    install -m 0644 ${WORKDIR}/lua-mqttc.pc ${D}${libdir}/pkgconfig/
+    install -d ${D}${libdir}${luadir}
+    install -m 0644 ${WORKDIR}/build/libluamqttpacket.so ${D}${libdir}${luadir}/
+    install -d ${D}${datadir}${luadir}/mqttc
+    install -m 0644 ${S}/src/client.lua ${D}${datadir}${luadir}/mqttc/
+    install -m 0644 ${S}/src/timer.lua ${D}${datadir}${luadir}/mqttc/
+}
+
+
+
+FILES_${PN} = "${libdir}/pkgconfig/lua-mqttc.pc \
+${libdir}${luadir}/libluamqttpacket.so \
+${datadir}${luadir}/mqttc/client.lua \
+${datadir}${luadir}/mqttc/timer.lua \
+"
 

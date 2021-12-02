@@ -1,0 +1,18 @@
+--- ./CMakeLists.txt	2018-02-08 10:02:17.000000000 +0800
++++ ./CMakeLists.txt	2021-12-02 10:38:39.224190751 +0800
+@@ -28,11 +28,11 @@
+ INCLUDE_DIRECTORIES(deps/lua-compat-5.2)
+ ADD_LIBRARY(luamqttpacket SHARED ${SOURCES_luamqttpacket} ${SOURCES_lua-compat-5.2})
+ 
+-INCLUDE_DIRECTORIES(/Users/yongke/.luaver/lua/5.1.5/include/)
+-TARGET_LINK_LIBRARIES(luamqttpacket lua.5.1)
++#INCLUDE_DIRECTORIES(/Users/yongke/.luaver/lua/5.1.5/include/)
++#TARGET_LINK_LIBRARIES(luamqttpacket lua.5.1)
+ 
+ #INCLUDE_DIRECTORIES(/usr/local/include/lua5.2/)
+ #TARGET_LINK_LIBRARIES(luamqttpacket lua.5.2)
+ 
+-#INCLUDE_DIRECTORIES(/usr/local/include/lua5.3/)
+-#TARGET_LINK_LIBRARIES(luamqttpacket lua.5.3)
++INCLUDE_DIRECTORIES(${INCLUDE_DIR})
++TARGET_LINK_LIBRARIES(luamqttpacket ${LUA_VERSION})
