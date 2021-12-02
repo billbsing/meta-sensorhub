@@ -11,6 +11,7 @@ IMAGE_INSTALL +="rsync"
 IMAGE_INSTALL +="dnsmasq"
 # IMAGE_INSTALL += "zipctl"
 IMAGE_INSTALL += "zipgateway"
+IMAGE_INSTALL += "vim"
 
 # for zwave investigations
 # IMAGE_INSTALL += "tcpdump"

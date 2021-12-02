@@ -1,3 +1,6 @@
+## package not used since the client may also need other libraries
+
+
 DESCRIPTION = "A lua mqttc client which support MQTT version 3.1.1"
 LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://notice.html;md5=a00d6f9ab542be7babc2d8b80d5d2a4c"
@@ -29,17 +32,17 @@ do_install () {
     install -d ${D}${libdir}/pkgconfig
     install -m 0644 ${WORKDIR}/lua-mqttc.pc ${D}${libdir}/pkgconfig/
     install -d ${D}${libdir}${luadir}
-    install -m 0644 ${WORKDIR}/build/libluamqttpacket.so ${D}${libdir}${luadir}/
-    install -d ${D}${datadir}${luadir}/mqttc
-    install -m 0644 ${S}/src/client.lua ${D}${datadir}${luadir}/mqttc/
-    install -m 0644 ${S}/src/timer.lua ${D}${datadir}${luadir}/mqttc/
+    install -m 0644 ${WORKDIR}/build/libluamqttpacket.so ${D}${libdir}${luadir}/mqttpacket.so
+    install -d ${D}${datadir}${luadir}/luamqttc
+    install -m 0644 ${S}/src/client.lua ${D}${datadir}${luadir}/luamqttc/
+    install -m 0644 ${S}/src/timer.lua ${D}${datadir}${luadir}/luamqttc/
 }
 
 
 
 FILES_${PN} = "${libdir}/pkgconfig/lua-mqttc.pc \
-${libdir}${luadir}/libluamqttpacket.so \
-${datadir}${luadir}/mqttc/client.lua \
-${datadir}${luadir}/mqttc/timer.lua \
+${libdir}${luadir}/mqttpacket.so \
+${datadir}${luadir}/luamqttc/client.lua \
+${datadir}${luadir}/luamqttc/timer.lua \
 "
 
