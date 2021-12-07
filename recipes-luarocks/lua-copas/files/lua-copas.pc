@@ -4,6 +4,6 @@ libdir=${prefix}/lib/lua/5.3
 Name: lua-copas
 Description: Coroutine Oriented Portable Asynchronous Services
 Version: 1.2.1
-Requires: lua
+Requires: lua lua-socket lua-coxpcall
 
 

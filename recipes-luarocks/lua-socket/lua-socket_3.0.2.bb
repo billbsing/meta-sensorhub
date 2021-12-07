@@ -6,9 +6,13 @@ HOMEPAGE = "http://www.impa.br/~diego/software/luasocket"
 PR = "1"
 SRCREV = "${AUTOREV}"
 
-DEPENDS = "lua"
+# MAJOR_VERSION="${@bb.data.getVar('PV', d, 1).split('.')[0]}"
+# MINOR_VERSION="${@bb.data.getVar('PV', d, 1).split('.')[1]}"
+# REVISION_VERSION="${@bb.data.getVar('PV', d, 1).split('.')[2]}"
 
-# SRC_URI = https://github.com/diegonehab/luasocket/archive/v${PV}-${PR}.tar.gz
+# PV_SOURCE="${MAJOR_VERSION}.${MINOR_VERSION}-rc${REVISION_VERSION}"
+
+DEPENDS = "lua"
 
 SRC_URI = "git://github.com/diegonehab/luasocket.git \
 	file://makefile.patch \
@@ -16,10 +20,11 @@ SRC_URI = "git://github.com/diegonehab/luasocket.git \
 "
 
 
-SRC_URI[md5sum] = "c487ad5e9f0da6d103f63dcfe2728f38"
-SRC_URI[sha256sum] = "502d96f3e1b1fd55ecf1ace37e76aca23d2b38d9cf638ae12cf3114a55580479"
+SRC_URI[md5sum] = "08bd2f265b244eb4bf5c2c36bf89b759"
+SRC_URI[sha256sum] = "8b67d9b5b545e1b694753dab7bd6cdbc24c290f2b21ba1e14c77b32817ea1249"
 
 
+# S = "${WORKDIR}/luasocket-${PV_SOURCE}"
 S = "${WORKDIR}/git"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
 luadir = "/lua/5.3"

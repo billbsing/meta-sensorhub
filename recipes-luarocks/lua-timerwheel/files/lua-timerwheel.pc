@@ -1,0 +1,8 @@
+prefix=/usr
+libdir=${prefix}/lib/lua
+
+Name: lua-timerwheel
+Description: Efficient timer for timeout related timers: fast insertion, deletion, and execution (all as O(1) implemented), but with lesser precision.
+Version: 0.2.0
+Requires: lua 
+

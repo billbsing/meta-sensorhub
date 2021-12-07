@@ -1,23 +1,19 @@
 DESCRIPTION = "Coroutine Oriented Portable Asynchronous Services"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/license_${PN}.html;md5=7744f07e5acfc3472595fa95c9bb83f3"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=8929ff1dba945c44eaa1b55d66c7792c"
 HOMEPAGE = "http://www.keplerproject.org/copas"
 
 PR = "r0"
 USE_PV = "${@'${PV}'.replace('.', '_')}"
 
-DEPENDS = "lua"
+DEPENDS = "lua lua-socket lua-coxpcall lua-binaryheap lua-timerwheel"
 
-SRC_URI = "https://github.com/keplerproject/copas/archive/v${USE_PV}.tar.gz;name=tarball \
-	http://keplerproject.github.io/copas/license.html;name=license;downloadfilename=license_${PN}.html \
+SRC_URI = "https://github.com/keplerproject/copas/archive/v${USE_PV}.tar.gz \
 	file://lua-copas.pc \
 "
 
-SRC_URI[tarball.md5sum] = "c07a2111ae620e87ace2d63b227b8dcc"
-SRC_URI[tarball.sha256sum] = "45c7b723bc46596f153c710db43a318276aaa62bd3d2ff704d483f0fc2573c19"
-
-SRC_URI[license.md5sum] = "7744f07e5acfc3472595fa95c9bb83f3"
-SRC_URI[license.sha256sum] = "7efff457d0bd4bac36c1ae5be5ebea9192d76cc699cf0d60aa25268b08f1cfd4"
+SRC_URI[md5sum] = "4ed29c1d1dcc949c1ecdc926815c5c1c"
+SRC_URI[sha256sum] = "10f094fdc79332d9bbcc6861d41688331a357d28e42ad43e07abea1c873f4da3"
 
 S = "${WORKDIR}/copas-${USE_PV}"
 SYSROOTS = "${TMPDIR}/sysroots/${MACHINE}"
