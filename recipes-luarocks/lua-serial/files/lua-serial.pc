@@ -1,0 +1,9 @@
+prefix=/usr
+libdir=${prefix}/lib/lua/5.3
+
+Name: lua-serial
+Description: The Lua serial module provides functions to deal with serial port settings such as bit rates (speed) data bits, parity.
+Version: 0.0.1
+Requires: lua
+
+
