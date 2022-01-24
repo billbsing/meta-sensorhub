@@ -3,12 +3,15 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/connectedlife-sensor-hub"
 
-PR = "r2"
+PR = "r1"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
 # If the current build is 'git' then we need to write the real version number, else put in "${PV}-${PR}"
 # must be in the format nn.nn.nn or nn.nn.nn-rnn
 INSTALL_VERSION="${PV}-${PR}"
+
+MAJOR_VERSION="${@bb.data.getVar('PV', d, 1).split('.')[0]}"
+MINOR_VERSION="${@bb.data.getVar('PV', d, 1).split('.')[1]}"
 
 # this recipe accepts two types of sources depending if SENSORHUB_BUILD_TEST is set...
 # RELEASE (default) - github - tag=v${PV}
@@ -17,7 +20,8 @@ INSTALL_VERSION="${PV}-${PR}"
 RELEASE_BUILD="git://git@github.com/newtoncircus/connectedlife-sensor-hub.git;protocol=ssh;tag=v${PV}"
 
 # Test builds
-GIT_BRANCH="test/${PV}"
+PV_BRANCH = "${MAJOR_VERSION}.${MINOR_VERSION}"
+GIT_BRANCH="test/${PV_BRANCH}"
 # SRCREV = "${AUTOREV}"
 TEST_BUILD="git://git@github.com/newtoncircus/connectedlife-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
 
@@ -201,7 +205,6 @@ ${sysconfdir}/cron.daily	\
 ${sysconfdir}/cron.weekly/refreshTimezone	\
 ${sysconfdir}/cron.monthly/autoupgrade		\
 ${sysconfdir}/redis/redis.conf			\
-${sysconfdir}/opkg/base-feeds.conf		\
 ${sysconfdir}/zipgateway/*                      \
 ${bindir}/sensorhub_postinstall.sh			\
 "
