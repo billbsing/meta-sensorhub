@@ -77,8 +77,9 @@ SYSTEMD_DEFAULT_TARGET="multi-user.target"
 
 
 
-DEPENDS_${PN} = "libusb1 libcrypto libssl openssl"
-RDEPENDS_${PN} = "libusb1 libcrypto libssl openssl"
+# DEPENDS_${PN} = "libusb1 libcrypto libssl openssl"
+DEPENDS += "libusb1 openssl"
+# RDEPENDS_${PN} = "libusb libcrypto libssl openssl"
 
 #By default ${SHDAP_TARG_DIR} is packaged 
 #Package remaining dirs

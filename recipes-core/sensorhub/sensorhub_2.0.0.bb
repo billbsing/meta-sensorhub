@@ -3,7 +3,7 @@ LICENSE = "MIT"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=d049ae05b3c6406b06bd5d2a8eb2562c"
 HOMEPAGE = "https://github.com/newtoncircus/connectedlife-sensor-hub"
 
-PR = "r1"
+PR = "r4"
 
 # This variable is used belowe as the upgrade process to create a 'version.info' file with the current version build using yocto
 # If the current build is 'git' then we need to write the real version number, else put in "${PV}-${PR}"
@@ -16,17 +16,28 @@ MINOR_VERSION="${@bb.data.getVar('PV', d, 1).split('.')[1]}"
 # this recipe accepts two types of sources depending if SENSORHUB_BUILD_TEST is set...
 # RELEASE (default) - github - tag=v${PV}
 # TEST -    github - branch=test/${PV}
+ 
+# setup build paths
 
-RELEASE_BUILD="git://git@github.com/newtoncircus/connectedlife-sensor-hub.git;protocol=ssh;tag=v${PV}"
+BUILD="git://git@github.com/newtoncircus/connectedlife-sensor-hub.git;protocol=ssh;branch=${SENSORHUB_BUILD_NAME}"
+SRCREV="${AUTOREV}"
 
 # Test builds
 PV_BRANCH = "${MAJOR_VERSION}.${MINOR_VERSION}"
-GIT_BRANCH="test/${PV_BRANCH}"
-# SRCREV = "${AUTOREV}"
-TEST_BUILD="git://git@github.com/newtoncircus/connectedlife-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
+# GIT_BRANCH="test/${PV_BRANCH}"
+# TEST_SRCREV = "${AUTOREV}"
+# TEST_BUILD_URL="git://git@github.com/newtoncircus/connectedlife-sensor-hub.git;protocol=ssh;branch=${GIT_BRANCH}"
 
-BUILD="${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${TEST_BUILD}', '${RELEASE_BUILD}', d)}"
-SRCREV="${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${AUTOREV}', '', d)}"
+# PRE_RELEASE_SRCREV = "${AUTOREV}"
+# PRE_RELEASE_BUILD_URL="git://git@github.com/newtoncircus/connectedlife-sensor-hub.git;protocol=ssh;branch=pre-release"
+
+
+# RELEASE_BUILD="${@bb.utils.contains('SENSORHUB_BUILD_PRE_RELEASE', '1', '${PRE_RELEASE_BUILD_URL}', '${RELEASE_BUILD_URL}', d)}"
+# RELEASE_SRCREV="${@bb.utils.contains('SENSORHUB_BUILD_PRE_RELEASE', '1', '${PRE_RELEASE_SRCREV}', '', d)}"
+
+# BUILD="${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${TEST_BUILD_URL}', '${RELEASE_BUILD}', d)}"
+# SRCREV="${@bb.utils.contains('SENSORHUB_BUILD_TEST', '1', '${TEST_SRCREV}', '${RELEASE_SRCREV}', d)}"
+
 
 MAINTAINER="bill.barman@connectedlife.io"
 
